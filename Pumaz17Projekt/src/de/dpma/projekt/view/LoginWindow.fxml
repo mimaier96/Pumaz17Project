@@ -13,21 +13,22 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="550.0" maxWidth="900.0" minHeight="550.0" minWidth="900.0" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" layoutX="321.0" layoutY="207.0" text="Benutzername">
+      <Label alignment="CENTER" layoutX="321.0" layoutY="207.0" text="Benutzername" AnchorPane.bottomAnchor="317.4" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="477.4" AnchorPane.topAnchor="207.00000000000003">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <TextField layoutX="430.0" layoutY="207.0" promptText="Benutzername" />
-      <PasswordField layoutX="430.0" layoutY="251.0" promptText="Passwort" />
-      <Label alignment="CENTER" layoutX="321.0" layoutY="251.0" text="Passwort">
+      <TextField layoutX="430.0" layoutY="207.0" promptText="Benutzername" AnchorPane.bottomAnchor="317.4" AnchorPane.leftAnchor="430.0" AnchorPane.rightAnchor="321.2" AnchorPane.topAnchor="207.0" />
+      <PasswordField layoutX="430.0" layoutY="251.0" promptText="Passwort" AnchorPane.bottomAnchor="273.4" AnchorPane.leftAnchor="430.0" AnchorPane.rightAnchor="321.2" AnchorPane.topAnchor="251.00000000000003" />
+      <Label alignment="CENTER" layoutX="321.0" layoutY="251.0" text="Passwort" AnchorPane.bottomAnchor="273.4" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="515.8" AnchorPane.topAnchor="251.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <ButtonBar layoutX="301.0" layoutY="299.0" prefHeight="40.0" prefWidth="278.0">
+      <ButtonBar layoutX="301.0" layoutY="299.0" prefHeight="40.0" prefWidth="278.0" AnchorPane.bottomAnchor="211.0" AnchorPane.leftAnchor="301.0" AnchorPane.rightAnchor="320.6" AnchorPane.topAnchor="299.0">
         <buttons>
           <Button alignment="CENTER" defaultButton="true" minWidth="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="423.0" text="Login">
                <cursor>
@@ -54,5 +55,10 @@
           </Menu>
         </menus>
       </MenuBar>
+      <Text fontSmoothingType="LCD" layoutX="324.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digitales Berichtsheft" AnchorPane.leftAnchor="324.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
