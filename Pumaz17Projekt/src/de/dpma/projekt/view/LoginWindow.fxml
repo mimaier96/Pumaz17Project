@@ -16,8 +16,8 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <TextField layoutX="430.0" layoutY="207.0" />
-      <PasswordField layoutX="430.0" layoutY="251.0" />
+      <TextField layoutX="430.0" layoutY="207.0" promptText="Benutzername" />
+      <PasswordField layoutX="430.0" layoutY="251.0" promptText="Passwort" />
       <Label layoutX="321.0" layoutY="251.0" text="Passwort">
          <font>
             <Font size="16.0" />
