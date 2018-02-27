@@ -8,6 +8,8 @@ public class Apprentice extends User {
 	private int user_id;
 	private User instructor;
 	
+	boolean irgendwas;
+	
 	public Apprentice(int user_id, User instructor) {
 		this.user_id = user_id;
 		this.instructor = instructor;
