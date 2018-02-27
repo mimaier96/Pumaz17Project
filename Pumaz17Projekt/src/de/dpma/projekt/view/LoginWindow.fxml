@@ -44,7 +44,7 @@
             <Image url="@../../../../../resource/logo_dpma.png" />
          </image>
       </ImageView>
-      <MenuBar layoutY="4.0" prefHeight="26.0" prefWidth="900.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar layoutY="4.0" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="Help">
             <items>
