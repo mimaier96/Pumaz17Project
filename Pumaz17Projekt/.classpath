@@ -35,5 +35,7 @@
 	<classpathentry kind="lib" path="lib/iText/itext7-sign-7.0.2-javadoc.jar"/>
 	<classpathentry kind="lib" path="lib/iText/itext7-sign-7.0.2-sources.jar"/>
 	<classpathentry kind="lib" path="lib/iText/itext7-sign-7.0.2.jar"/>
+	<classpathentry kind="lib" path="lib/calendarFX/calendarfx-recurrence-8.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/calendarFX/calendarfx-view-8.4.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
