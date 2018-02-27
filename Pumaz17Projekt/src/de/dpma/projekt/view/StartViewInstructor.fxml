@@ -31,7 +31,7 @@
             <TableColumn prefWidth="181.86663818359375" text="Woche vom bis" />
         </columns>
       </TableView>
-      <ButtonBar layoutX="839.0" layoutY="657.0" prefHeight="62.0" prefWidth="238.0">
+      <ButtonBar layoutX="791.0" layoutY="657.0" prefHeight="62.0" prefWidth="238.0" AnchorPane.bottomAnchor="45.6" AnchorPane.rightAnchor="170.6">
         <buttons>
           <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="170.0" text="Genehmigen">
                <font>
@@ -69,5 +69,6 @@
         </menus>
       </MenuBar>
       <ScrollBar layoutX="1016.0" layoutY="179.0" orientation="VERTICAL" prefHeight="437.0" prefWidth="14.0" />
+      <Button layoutX="879.0" layoutY="100.0" mnemonicParsing="false" text="Administrator Funktionen" />
    </children>
 </AnchorPane>
