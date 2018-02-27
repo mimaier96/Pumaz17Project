@@ -2,34 +2,36 @@ package de.dpma.projekt;
 
 import java.io.IOException;
 
+import de.dpma.projekt.view.LoginWindowController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
 	private Stage primaryStage;
+	private Scene scene;
+	private String title;
 
 	@Override
 	public void start(Stage primaryStage) {
 
 		this.primaryStage = primaryStage;
-		loadScene("view/LoginWindow.fxml","Anchor");
+		loadScene("view/LoginWindow.fxml", "Anchor", "S");
+		LoginWindowController.setMainApp(this);
 	}
 
 	public static void main(String[] args) {
 		launch(args);
 	}
 
-	public void loadScene(String path, String paneType) {
+	public void loadScene(String path, String paneType, String title) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource(path));
-			Scene scene;
 
 			switch (paneType) {
 			case "Anchor":
@@ -41,13 +43,18 @@ public class MainApp extends Application {
 			default:
 				scene = new Scene(new AnchorPane((AnchorPane) loader.load()));
 			}
-
+//
+//			LoginWindowController controller = loader.getController();
+//			controller.setMainApp(this);
+			this.primaryStage.setTitle(title);
 			this.primaryStage.setScene(scene);
 			this.primaryStage.show();
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
+
 }
