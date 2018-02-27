@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane layoutX="157.0" layoutY="177.0" prefHeight="588.0" prefWidth="862.0" />
+      <ImageView fitHeight="102.0" fitWidth="213.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="35.0">
+         <image>
+            <Image url="@../../../../../resource/logo_dpma.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="157.0" layoutY="152.0" prefHeight="465.0" prefWidth="875.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Status" />
+          <TableColumn prefWidth="252.2667236328125" text="Auszubildener" />
+            <TableColumn prefWidth="264.5332946777344" text="Ausbildungsberuf" />
+            <TableColumn minWidth="0.0" prefWidth="102.933349609375" text="Ausbildungsjahr" />
+            <TableColumn prefWidth="181.86663818359375" text="Woche vom bis" />
+        </columns>
+      </TableView>
+      <ButtonBar layoutX="839.0" layoutY="657.0" prefHeight="62.0" prefWidth="238.0">
+        <buttons>
+          <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="170.0" text="Genehmigen">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="18.0" prefWidth="219.0" text="Zurückgeben">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+        </buttons>
+      </ButtonBar>
+      <MenuBar layoutX="42.0" layoutY="16.0" prefHeight="26.0" prefWidth="1199.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Filtern">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Verwaltungsfachangelstellte/r" />
+                  <MenuItem mnemonicParsing="false" text="Fachinformatiker/in Anwendungsentwicklung" />
+                  <MenuItem mnemonicParsing="false" text="Fachinformatiker/in Systemintegration" />
+                  <MenuItem mnemonicParsing="false" text="Tischler/in" />
+                  <MenuItem mnemonicParsing="false" text="Elektroniker/in" />
+                  <MenuItem mnemonicParsing="false" text="Kaufmann/-frau für Büromanagement" />
+                  <MenuItem mnemonicParsing="false" text="Fachangestellte/r für Medien- &amp; Informationsdienste" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ScrollBar layoutX="1016.0" layoutY="179.0" orientation="VERTICAL" prefHeight="437.0" prefWidth="14.0" />
+   </children>
+</AnchorPane>
