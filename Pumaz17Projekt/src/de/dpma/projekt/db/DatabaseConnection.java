@@ -21,7 +21,7 @@ public class DatabaseConnection {
 			if (DatabaseConnection.instance == null) {
 				try {
 					instance = DriverManager
-							.getConnection("jdbc:mysql://192.168.137.79:3306/berichtsheft?" + "user=mysql&password=mysql");
+							.getConnection("jdbc:mysql://192.168.137.79:3306/berichtsheft?veryServerCertificate=false&useSSL=false&" + "user=mysql&password=mysql");
 					log.info("Datenbankverbindung gestartet !");
 				} catch (SQLException e) {
 					e.printStackTrace();
