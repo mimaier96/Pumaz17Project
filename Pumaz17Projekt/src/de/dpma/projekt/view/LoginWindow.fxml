@@ -63,8 +63,8 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField promptText="Benutzername" GridPane.columnIndex="1" />
-            <PasswordField promptText="Passwort" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="username" promptText="Benutzername" GridPane.columnIndex="1" />
+            <PasswordField fx:id="password" promptText="Passwort" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button alignment="CENTER" minWidth="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="180.0" text="Passwort vergessen" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <cursor>
                   <Cursor fx:constant="HAND" />
