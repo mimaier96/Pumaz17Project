@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="750.0" maxWidth="1200.0" minHeight="750.0" minWidth="1200.0" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="102.0" fitWidth="213.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="35.0">
+      <ImageView fitHeight="102.0" fitWidth="213.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
          <image>
             <Image url="@../../../../../resource/logo_dpma.png" />
          </image>
@@ -74,10 +74,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="1158.0" layoutY="53.0" text="Label" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Label>
+      <Label layoutX="1158.0" layoutY="53.0" text="Label" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
    </children>
 </AnchorPane>

@@ -1,8 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+
+<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+   <children>
+      <MenuBar layoutY="1.0" prefHeight="25.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="102.0" fitWidth="213.0" layoutX="14.0" layoutY="25.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
+         <image>
+            <Image url="@../../../../../resource/logo_dpma.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="24.0" layoutY="119.0" mnemonicParsing="false" text="Benutzer anlegen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="125.0" />
+      <ScrollPane layoutX="141.0" layoutY="125.0" prefHeight="615.0" prefWidth="1015.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0">
+         <content>
+            <TableView prefHeight="615.0" prefWidth="1015.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="ID" />
+                <TableColumn prefWidth="93.0" text="Name" />
+                  <TableColumn prefWidth="103.0" text="Vorname" />
+                  <TableColumn prefWidth="149.0" text="Benutzername" />
+                  <TableColumn minWidth="0.0" prefWidth="189.0" text="Rolle" />
+                  <TableColumn minWidth="0.0" prefWidth="405.0" text="E-Mail" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Button layoutX="15.0" layoutY="166.0" mnemonicParsing="false" text="Benutzer bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="160.0" />
+      <Button layoutX="22.0" layoutY="219.0" mnemonicParsing="false" text="Benutzer löschen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="195.0" />
+      <Label layoutX="1066.0" layoutY="52.0" text="Willkommen" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="25.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="1108.0" layoutY="66.0" text="Label" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+   </children>
 </AnchorPane>
-
