@@ -33,7 +33,7 @@ public class ApprenticeDaoImplementation implements ApprenticeDao {
 		preparedApprenticeInsert.setString(1, apprentice.getFirstname());
 		preparedApprenticeInsert.setString(2, apprentice.getLastname());
 		preparedApprenticeInsert.setString(3, apprentice.getUsername());
-		preparedApprenticeInsert.setString(4, apprentice.getPassword());
+//		preparedApprenticeInsert.setString(4, apprentice.getPassword());
 		preparedApprenticeInsert.setString(5, apprentice.getRole());
 		preparedApprenticeInsert.setString(6, apprentice.getEmail());
 
@@ -44,7 +44,6 @@ public class ApprenticeDaoImplementation implements ApprenticeDao {
 		if (resSet.next()) {
 			int id = (int) resSet.getLong(1);
 			apprentice.setId(id);
-			//kunde = getKunde(kunde);
 		}
 
 		return apprentice;
