@@ -1,14 +1,26 @@
 package de.dpma.projekt.models;
 
 public class User {
-	
+
 	private String firstname, lastname, username, password, role, email;
 	private int id;
+
 	
-	public User() {
-		
+
+	public User(int id, String firstname, String lastname, String username, String password, String role,
+			String email) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		this.email = email;
+		this.id = id;
 	}
 
+	
+	
 	public String getFirstname() {
 		return firstname;
 	}
@@ -64,7 +76,5 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
 
 }

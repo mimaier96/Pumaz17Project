@@ -16,9 +16,9 @@ public class DatabaseConnection {
 				try {
 					instance = DriverManager
 							.getConnection("jdbc:mysql://192.168.137.79:3306/berichtsheft?verifyServerCertificate=false&useSSL=false&" + "user=mysql&password=mysql");
-					System.out.println("Klappt");
+//					System.out.println("Klappt");
 				} catch (SQLException e) {
-					System.out.println("Klappt nicht");
+//					System.out.println("Klappt nicht");
 					e.printStackTrace();
 				}
 			}
