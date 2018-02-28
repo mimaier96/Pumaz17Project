@@ -29,8 +29,8 @@ public class MainApp extends Application {
 	}
 
 	public static void main(String[] args) {
-		Connection con= DatabaseConnection.getInstance();
-		
+		Connection con = DatabaseConnection.getInstance();
+
 		launch(args);
 	}
 
@@ -49,9 +49,9 @@ public class MainApp extends Application {
 			default:
 				scene = new Scene(new AnchorPane((AnchorPane) loader.load()));
 			}
-//
-//			LoginWindowController controller = loader.getController();
-//			controller.setMainApp(this);
+			//
+			// LoginWindowController controller = loader.getController();
+			// controller.setMainApp(this);
 			this.primaryStage.setTitle(title);
 			this.primaryStage.setScene(scene);
 			this.primaryStage.show();
@@ -62,10 +62,17 @@ public class MainApp extends Application {
 		}
 
 	}
+
 	public void controllerUpdate() {
 		LoginWindowController.setMainApp(this);
 		StartViewInstructorController.setMainApp(this);
 		AdminViewAddUserController.setMainApp(this);
 		AdminViewAddAzubiController.setMainApp(this);
+	}
+
+	public Stage getPrimaryStage() {
+
+		return primaryStage;
+
 	}
 }
