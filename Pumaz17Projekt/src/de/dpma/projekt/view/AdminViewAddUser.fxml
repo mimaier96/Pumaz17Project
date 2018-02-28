@@ -31,9 +31,9 @@
 				<Label text="Nachname" GridPane.rowIndex="1" />
 				<Label text="Rolle" GridPane.rowIndex="2" />
 				<Label text="E-Mail" GridPane.rowIndex="3" />
-				<Button mnemonicParsing="false" text="Datei wählen" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+				<Button mnemonicParsing="false" onAction="#dateiWaehlenButton" text="Datei wählen" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 				<Label layoutX="10.0" layoutY="138.0" text="Unterschrift*" GridPane.rowIndex="4" />
-				<ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+				<ChoiceBox fx:id="chooseRole" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 			</children>
 		</GridPane>
 		<Label layoutX="25.0" layoutY="195.0" text="*.png (300 x 200 Pixel)" />

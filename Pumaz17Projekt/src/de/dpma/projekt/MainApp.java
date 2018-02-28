@@ -65,8 +65,4 @@ public class MainApp extends Application {
 		StartViewInstructorController.setMainApp(this);
 		AdminViewInstructorController.setMainApp(this);
 	}
-	
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
 }
