@@ -14,8 +14,9 @@ public class ApprenticeDaoImplementation implements ApprenticeDao {
 
 	private Connection con = DatabaseConnection.getInstance();
 
-	private final static String PREPARED_INSERT = "INSERT INTO user (firstname, lastname, username, password, role, email) VALUES (?,?,?,Anfang12,?,?)";
-	private final static String PREPARED_SELECT_APPRENTICE = "SELECT id, firstname, lastname, username, password, role, email FROM user WHERE id = ?";
+	private final static String PREPARED_INSERT_USER = "INSERT INTO user (firstname, lastname, username, password, role, email) VALUES (?,?,?,Anfang12,?,?)";
+	private final static String PREPARED_SELECT_USER = "SELECT id, firstname, lastname, username, password, role, email FROM user WHERE id = ?";
+	private final static String PREPARED_INSERT_APPRENTICE = "";
 
 	@Override
 	public Apprentice insertApprentice(Apprentice apprentice) throws SQLException {
@@ -28,12 +29,12 @@ public class ApprenticeDaoImplementation implements ApprenticeDao {
 		 */
 		
 		String generatedColumns[] = { "ID" };
-		PreparedStatement preparedApprenticeInsert = con.prepareStatement(PREPARED_INSERT, generatedColumns);
+		PreparedStatement preparedApprenticeInsert = con.prepareStatement(PREPARED_INSERT_USER, generatedColumns);
 		
 		preparedApprenticeInsert.setString(1, apprentice.getFirstname());
 		preparedApprenticeInsert.setString(2, apprentice.getLastname());
 		preparedApprenticeInsert.setString(3, apprentice.getUsername());
-		preparedApprenticeInsert.setString(4, apprentice.getPassword());
+//		preparedApprenticeInsert.setString(4, apprentice.getPassword());
 		preparedApprenticeInsert.setString(5, apprentice.getRole());
 		preparedApprenticeInsert.setString(6, apprentice.getEmail());
 
@@ -44,7 +45,6 @@ public class ApprenticeDaoImplementation implements ApprenticeDao {
 		if (resSet.next()) {
 			int id = (int) resSet.getLong(1);
 			apprentice.setId(id);
-			//kunde = getKunde(kunde);
 		}
 
 		return apprentice;

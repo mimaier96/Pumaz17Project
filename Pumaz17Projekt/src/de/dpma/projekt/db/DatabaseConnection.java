@@ -25,10 +25,11 @@ public class DatabaseConnection {
 					log.info("Datenbankverbindung gestartet !");
 				} catch (SQLException e) {
 					e.printStackTrace();
-					log.info("-->Beende: getInstance");
+					log.info("Datenbankverbindung fehgeschlagen!");
 				}
 			}
 			
+			log.info("-->Beende: getInstance");
 			return DatabaseConnection.instance;
 		}
 	}
