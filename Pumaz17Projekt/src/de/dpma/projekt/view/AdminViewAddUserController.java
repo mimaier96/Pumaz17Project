@@ -1,5 +1,6 @@
 package de.dpma.projekt.view;
 
+import de.dpma.projekt.MainApp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -7,6 +8,8 @@ import javafx.scene.control.ChoiceBox;
 
 public class AdminViewAddUserController {
 
+	public static MainApp mainApp;
+	
 	ObservableList<String> chooseRoleList = FXCollections.observableArrayList("Auszubildender", "Ausbilder",
 			"Ausbildungsleiter", "Administrator");
 
@@ -19,7 +22,11 @@ public class AdminViewAddUserController {
 	}
 
 	@FXML
-	private void dateiWaehlenButton() {
+	private void handleChooseDocumentButton() {
+
+	}
+	public static void setMainApp(MainApp mainApp) {
+		LoginWindowController.mainApp = mainApp;
 
 	}
 

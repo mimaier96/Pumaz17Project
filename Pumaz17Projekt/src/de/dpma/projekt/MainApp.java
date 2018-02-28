@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 
 import de.dpma.projekt.db.DatabaseConnection;
+import de.dpma.projekt.view.AdminViewAddAzubiController;
+import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewInstructorController;
 import de.dpma.projekt.view.LoginWindowController;
 import de.dpma.projekt.view.StartViewInstructorController;
@@ -63,6 +65,7 @@ public class MainApp extends Application {
 	public void controllerUpdate() {
 		LoginWindowController.setMainApp(this);
 		StartViewInstructorController.setMainApp(this);
-		AdminViewInstructorController.setMainApp(this);
+		AdminViewAddUserController.setMainApp(this);
+		AdminViewAddAzubiController.setMainApp(this);
 	}
 }
