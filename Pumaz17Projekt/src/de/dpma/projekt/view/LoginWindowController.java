@@ -19,7 +19,7 @@ public class LoginWindowController {
 	@FXML
 	private void handleLoginButton() {
 
-		mainApp.loadScene("view/AdminViewAddUser.fxml", "Anchor", "Benutzer hinzufügen");
+		mainApp.loadScene("view/StartViewInstructor.fxml", "Anchor", "Übersicht");
 	}
 
 	@FXML
