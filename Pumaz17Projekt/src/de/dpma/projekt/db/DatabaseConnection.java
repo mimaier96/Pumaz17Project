@@ -15,11 +15,12 @@ public class DatabaseConnection {
 			if (DatabaseConnection.instance == null) {
 				try {
 					instance = DriverManager
-							.getConnection("jdbc:mysql://localhost/bankingapp?" + "user=root&password=1234");
+							.getConnection("jdbc:mysql://192.168.137.79:3306/berichtsheft?" + "user=mysql&password=mysql");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
+			
 			return DatabaseConnection.instance;
 		}
 	}
