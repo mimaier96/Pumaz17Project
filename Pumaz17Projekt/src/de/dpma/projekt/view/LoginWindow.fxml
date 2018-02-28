@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
@@ -26,7 +27,7 @@
             <Image url="@../../../../../resource/logo_dpma.png" />
          </image>
       </ImageView>
-      <MenuBar layoutY="4.0" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="1042.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <MenuBar layoutY="4.0" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="900.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="Help">
             <items>
@@ -52,7 +53,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefWidth="133.0" text="Benutzername">
+            <Label alignment="CENTER" text="Benutzername">
                <font>
                   <Font size="16.0" />
                </font>
@@ -64,14 +65,21 @@
             </Label>
             <TextField promptText="Benutzername" GridPane.columnIndex="1" />
             <PasswordField promptText="Passwort" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button alignment="CENTER" minWidth="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="423.0" text="Passwort vergessen" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button alignment="CENTER" minWidth="0.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="180.0" text="Passwort vergessen" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-          <Button alignment="CENTER" defaultButton="true" minWidth="0.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="26.0" prefWidth="423.0" text="Login" GridPane.rowIndex="2">
+               </cursor>
+               <GridPane.margin>
+                  <Insets left="15.0" />
+               </GridPane.margin>
+            </Button>
+          <Button alignment="CENTER" defaultButton="true" minWidth="0.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="26.0" prefWidth="180.0" text="Login" GridPane.rowIndex="2">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+               <GridPane.margin>
+                  <Insets right="15.0" />
+               </GridPane.margin></Button>
          </children>
       </GridPane>
    </children>
