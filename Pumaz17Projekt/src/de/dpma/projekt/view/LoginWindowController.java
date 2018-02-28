@@ -9,7 +9,7 @@ public class LoginWindowController {
 
 	@FXML
 	private void initialize() {
-		
+
 	}
 
 	public LoginWindowController() {
@@ -19,14 +19,11 @@ public class LoginWindowController {
 	@FXML
 	private void handleLoginButton() {
 
-		mainApp.loadScene("view/StartViewInstructor.fxml", "Anchor", "Login");
-
+		mainApp.loadScene("view/AdminViewAddUser.fxml", "Anchor", "Benutzer hinzufügen");
 	}
-	
+
 	@FXML
 	private void handlePasswordLostButton() {
-
-		
 
 	}
 
