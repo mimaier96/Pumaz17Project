@@ -52,7 +52,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button cancelButton="true" layoutX="14.0" layoutY="206.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="zurückweisen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="200.0" />
+      <Button cancelButton="true" layoutX="14.0" layoutY="206.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="zurückweisen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="210.0" />
       <ScrollPane layoutX="175.0" layoutY="125.0" prefHeight="617.0" prefWidth="1016.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0">
          <content>
             <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="615.0" prefWidth="1015.0">
@@ -67,8 +67,8 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button layoutX="14.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Notiz bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="235.0" />
-      <Button layoutX="14.0" layoutY="290.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="generiere PDF" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0" />
+      <Button layoutX="14.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Notiz bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="245.0" />
+      <Button layoutX="15.0" layoutY="270.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="generiere PDF" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="280.0" />
       <Label layoutX="1081.0" layoutY="26.0" text="Willkommen" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="25.0">
          <font>
             <Font name="System Bold" size="18.0" />
