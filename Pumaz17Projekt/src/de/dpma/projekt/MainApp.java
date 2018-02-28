@@ -1,8 +1,12 @@
 package de.dpma.projekt;
 
 import java.io.IOException;
+import java.sql.Connection;
 
+import de.dpma.projekt.db.DatabaseConnection;
+import de.dpma.projekt.view.AdminViewInstructorController;
 import de.dpma.projekt.view.LoginWindowController;
+import de.dpma.projekt.view.StartViewInstructorController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,17 +18,18 @@ public class MainApp extends Application {
 
 	private Stage primaryStage;
 	private Scene scene;
-	private String title;
 
 	@Override
 	public void start(Stage primaryStage) {
 
 		this.primaryStage = primaryStage;
 		loadScene("view/LoginWindow.fxml", "Anchor", "S");
-		LoginWindowController.setMainApp(this);
+		controllerUpdate();
 	}
 
 	public static void main(String[] args) {
+		Connection con= DatabaseConnection.getInstance();
+		
 		launch(args);
 	}
 
@@ -56,5 +61,9 @@ public class MainApp extends Application {
 		}
 
 	}
-
+	public void controllerUpdate() {
+		LoginWindowController.setMainApp(this);
+		StartViewInstructorController.setMainApp(this);
+		AdminViewInstructorController.setMainApp(this);
+	}
 }

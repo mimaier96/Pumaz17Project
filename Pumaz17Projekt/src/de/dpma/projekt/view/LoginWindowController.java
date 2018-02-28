@@ -22,6 +22,13 @@ public class LoginWindowController {
 		mainApp.loadScene("view/StartViewInstructor.fxml", "Anchor", "Login");
 
 	}
+	
+	@FXML
+	private void handlePasswordLostButton() {
+
+		
+
+	}
 
 	public static void setMainApp(MainApp mainApp) {
 		LoginWindowController.mainApp = mainApp;
