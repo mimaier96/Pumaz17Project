@@ -18,7 +18,7 @@ public class LoginWindowController {
 
 	@FXML
 	private void initialize() {
-		
+
 	}
 
 	public LoginWindowController() {
@@ -26,7 +26,6 @@ public class LoginWindowController {
 
 	@FXML
 	private void handleLoginButton() {
-		
 			if(!username.getText().equals("Admin")) {
 				Alert alert = new Alert(AlertType.WARNING);
 	            alert.initOwner(mainApp.getPrimaryStage());
@@ -39,11 +38,9 @@ public class LoginWindowController {
 				//mainApp.loadScene("view/StartViewInstructor.fxml", "Anchor", "Login");
 			}
 	}
-	
+
 	@FXML
 	private void handlePasswordLostButton() {
-
-		
 
 	}
 
