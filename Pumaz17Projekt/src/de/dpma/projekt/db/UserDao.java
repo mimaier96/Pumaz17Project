@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import de.dpma.projekt.models.user.Apprentice;
 
-public interface ApprenticeDao {
+public interface UserDao {
 	
 public Apprentice insertApprentice(Apprentice apprentice) throws SQLException;
 	

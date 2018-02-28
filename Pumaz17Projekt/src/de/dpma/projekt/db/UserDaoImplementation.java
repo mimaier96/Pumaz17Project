@@ -1,11 +1,12 @@
 package de.dpma.projekt.db;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import java.sql.Date;
 
 import de.dpma.projekt.models.user.Apprentice;;
 
@@ -13,8 +14,10 @@ public class UserDaoImplementation implements UserDao {
 
 	private Connection con = DatabaseConnection.getInstance();
 
-	/* Dieser Boolean wird dazu benutzt, ob zusätzliche Felder für den Azubi
-	 angezeigt werden und somit ausgefüllt werden müssen, oder nicht */
+	/*
+	 * Dieser Boolean wird dazu benutzt, ob zusätzliche Felder für den Azubi
+	 * angezeigt werden und somit ausgefüllt werden müssen, oder nicht
+	 */
 	boolean userIsApprentice = false;
 
 	/**
@@ -49,9 +52,23 @@ public class UserDaoImplementation implements UserDao {
 		
 		//	NUR bei Azubi
 		
+		/**
+		 * Reihenfolge: job, instructor, YearOfEmployment, birthday, street, house number, 
+		 * postal code, city, location of deployment, Begin of apprenticeship, End of apprenticeship
+		 * 
+		 * @author MaSpecter
+		 */
+		
 		preparedApprenticeInsert.setString(7, apprentice.getJob());
 		preparedApprenticeInsert.setString(8, (apprentice.getInstructor().getFirstname()+" "+apprentice.getInstructor().getLastname()));
-		preparedApprenticeInsert.setString(9, x);
+		preparedApprenticeInsert.setInt(9, apprentice.getYearOfEmployment());
+		preparedApprenticeInsert.setDate(10, apprentice.getApprenticeBirthday());
+		preparedApprenticeInsert.setString(11, apprentice.getAdressStreetApprentice());
+		preparedApprenticeInsert.setInt(12, apprentice.getAdressHouseNumberApprentice());
+		preparedApprenticeInsert.setInt(13, apprentice.getAdressPostalCode());
+		preparedApprenticeInsert.setString(14, apprentice.getAdressCity());
+		preparedApprenticeInsert.setDate(15, apprentice.getBeginOfApprenticeship());
+		preparedApprenticeInsert.setDate(15, apprentice.getEndOfApprenticeship());
 		
 
 		preparedApprenticeInsert.execute();

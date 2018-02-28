@@ -1,8 +1,8 @@
 package de.dpma.projekt.models.user;
 
 
-import java.time.Year;
-import java.util.Date;
+//import java.util.Date;
+import java.sql.Date;
 
 import de.dpma.projekt.models.User;
 
@@ -12,7 +12,7 @@ public class Apprentice extends User {
 	private int user_id;
 	private User instructor; //Ausbildungsleiter/in
 	
-	private Year yearOfEmployment; //Ausbildungsjahr, in dem sich der Azubi befindet
+	private int yearOfEmployment; //Ausbildungsjahr, in dem sich der Azubi befindet
 	private Date apprenticeBirthday; //Geburtstag
 	private String adressStreetApprentice; //Adresse: Straﬂe
 	private int adressHouseNumberApprentice; //Adresse: Hausnummer
@@ -50,12 +50,12 @@ public class Apprentice extends User {
 	}
 
 
-	public Year getYearOfEmployment() {
+	public int getYearOfEmployment() {
 		return yearOfEmployment;
 	}
 
 
-	public void setYearOfEmployment(Year yearOfEmployment) {
+	public void setYearOfEmployment(int yearOfEmployment) {
 		this.yearOfEmployment = yearOfEmployment;
 	}
 
