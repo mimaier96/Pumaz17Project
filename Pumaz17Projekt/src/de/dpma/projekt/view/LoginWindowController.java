@@ -32,8 +32,13 @@ public class LoginWindowController {
 		if(username.getText().equals("Admin")) {
 			mainApp.loadScene("view/StartViewInstructor.fxml", "Anchor", "Übersicht");
 		} else {
-			mainApp.loadScene("view/StartViewInstructor.fxml", "Anchor", "Übersicht");
-			System.out.println("Falsch");
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("Falsche Eingabe!");
+            alert.setHeaderText("Benutzername oder Passwort inkorrekt!");
+            alert.setContentText("Bitte versuchen Sie es erneut.");
+
+            alert.showAndWait();
 		}
 	}
 
