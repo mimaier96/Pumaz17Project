@@ -68,7 +68,7 @@
          </content>
       </ScrollPane>
       <Button layoutX="14.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Notiz bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="235.0" />
-      <Button layoutX="15.0" layoutY="270.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="generiere PDF" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0" />
+      <Button layoutX="15.0" layoutY="270.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="erstelle PDF" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0" />
       <Label layoutX="1081.0" layoutY="26.0" text="Willkommen" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="25.0">
          <font>
             <Font name="System Bold" size="18.0" />
