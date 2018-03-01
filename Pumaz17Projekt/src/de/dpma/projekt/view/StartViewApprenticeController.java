@@ -1,5 +1,6 @@
 package de.dpma.projekt.view;
 
+import de.dpma.projekt.MainApp;
 import de.dpma.projekt.models.ReportBook;
 import de.dpma.projekt.models.User;
 //import de.dpma.projekt.models.user.Apprentice;
@@ -9,6 +10,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 
 public class StartViewApprenticeController {
+
+	public static MainApp mainApp;
+
+	@FXML
+	private void menuItemLogout() {
+		mainApp.loadScene("view/LoginWindow.fxml", "Anchor", "Anmledung");
+	}
 
 	@FXML
 	private Label nameLabel;
@@ -72,6 +80,11 @@ public class StartViewApprenticeController {
             alert.showAndWait();
         }
 		
+	}
+
+	public static void setMainApp(MainApp mainApp) {
+		StartViewApprenticeController.mainApp = mainApp;
+
 	}
 
 }

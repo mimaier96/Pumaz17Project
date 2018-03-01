@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.StartViewApprenticeController">
 	<children>
 		<ImageView fitHeight="96.0" fitWidth="200.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
 			<image>
@@ -104,7 +104,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Menü">
             <items>
-              <MenuItem mnemonicParsing="false" text="Abmelden" />
+              <MenuItem fx:id="mainApp" mnemonicParsing="false" onAction="#menuItemLogout" text="Abmelden" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Einstellungen">

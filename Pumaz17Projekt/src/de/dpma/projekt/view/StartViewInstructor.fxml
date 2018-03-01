@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="750.0" maxWidth="1200.0" minHeight="750.0" minWidth="1200.0" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="750.0" maxWidth="1200.0" minHeight="750.0" minWidth="1200.0" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.StartViewInstructorController">
    <children>
       <ImageView fitHeight="102.0" fitWidth="213.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
          <image>
@@ -24,9 +24,9 @@
       <MenuBar layoutX="42.0" layoutY="16.0" prefHeight="26.0" prefWidth="1199.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="Menü">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Abmelden" />
-            </items>
+               <items>
+                  <MenuItem fx:id="mainApp" mnemonicParsing="false" onAction="#menuItemLogout" text="Abmelden" />
+               </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Einstellungen">
                <items>
@@ -60,7 +60,7 @@
       <Button cancelButton="true" layoutX="14.0" layoutY="206.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="zurückweisen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="200.0" />
       <ScrollPane layoutX="175.0" layoutY="125.0" prefHeight="617.0" prefWidth="1016.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0">
          <content>
-            <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="615.0" prefWidth="1015.0">
+            <TableView maxHeight="615.0" maxWidth="1015.0" minHeight="418.0" minWidth="818.0" prefHeight="615.0" prefWidth="1012.0">
                <columns>
                   <TableColumn maxWidth="1.7976931348623157E308" prefWidth="75.0" text="Status" />
                   <TableColumn maxWidth="1.7976931348623157E308" prefWidth="75.0" text="Nr." />
