@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="750.0" prefWidth="1200.0"
+	xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<ImageView fitHeight="96.0" fitWidth="200.0"
+			AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="35.0">
+			<image>
+				<Image url="@../../../../../resource/logo_dpma.png" />
+			</image>
+		</ImageView>
+		<GridPane layoutX="396.0" layoutY="80.0" prefHeight="102.0"
+			prefWidth="574.0" AnchorPane.bottomAnchor="567.6"
+			AnchorPane.leftAnchor="396.0" AnchorPane.rightAnchor="229.60000000000002"
+			AnchorPane.topAnchor="80.0">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="127.59994506835938"
+					minWidth="10.0" prefWidth="96.80000610351563" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="187.73336181640627"
+					minWidth="10.0" prefWidth="174.13336181640625" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="178.93337402343752"
+					minWidth="10.0" prefWidth="131.2" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="148.00000000000006"
+					minWidth="10.0" prefWidth="148.00000000000006" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="27.999998474121092"
+					minHeight="10.0" prefHeight="23.733335876464842" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="45.06666412353515"
+					minHeight="10.0" prefHeight="45.06666412353515" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label text="Name">
+					<font>
+						<Font name="System Bold" size="13.0" />
+					</font>
+				</Label>
+				<Label text="Geburtsdatum" GridPane.rowIndex="1">
+					<font>
+						<Font name="System Bold" size="13.0" />
+					</font>
+				</Label>
+				<Label text="Anschrift" GridPane.rowIndex="2">
+					<font>
+						<Font name="System Bold" size="13.0" />
+					</font>
+				</Label>
+				<Label text="Label" GridPane.columnIndex="1">
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="Label" GridPane.columnIndex="1"
+					GridPane.rowIndex="1">
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="Label" GridPane.columnIndex="1"
+					GridPane.rowIndex="2">
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="Ausbildungsbeginn" GridPane.columnIndex="2">
+					<font>
+						<Font name="System Bold" size="13.0" />
+					</font>
+				</Label>
+				<Label text="Ausbildungsende" GridPane.columnIndex="2"
+					GridPane.rowIndex="1">
+					<font>
+						<Font name="System Bold" size="13.0" />
+					</font>
+				</Label>
+				<Label text="Ausbildungsbehörde" GridPane.columnIndex="2"
+					GridPane.rowIndex="2">
+					<font>
+						<Font name="System Bold" size="13.0" />
+					</font>
+				</Label>
+				<Label text="Label" GridPane.columnIndex="3">
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="Label" GridPane.columnIndex="3"
+					GridPane.rowIndex="1">
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="Label" GridPane.columnIndex="3"
+					GridPane.rowIndex="2">
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+			</children>
+		</GridPane>
+		<TableView layoutX="254.0" layoutY="258.0" prefHeight="471.0"
+			prefWidth="862.0" AnchorPane.bottomAnchor="52.0"
+			AnchorPane.leftAnchor="254.0000000000001" AnchorPane.rightAnchor="83.60000000000002"
+			AnchorPane.topAnchor="226.8">
+			<columns>
+				<TableColumn prefWidth="75.0" text="Status" />
+				<TableColumn prefWidth="75.0" text="Nummer" />
+				<TableColumn prefWidth="249.06668090820312" text="Woche vom bis" />
+				<TableColumn prefWidth="461.33331298828125" text="Anmerkungen" />
+			</columns>
+		</TableView>
+		<Button layoutX="843.0" layoutY="710.0" mnemonicParsing="false"
+			text="Neues Berichtsheft" AnchorPane.bottomAnchor="14.399999999999977"
+			AnchorPane.rightAnchor="241.0" />
+		<Button layoutX="976.0" layoutY="710.0" mnemonicParsing="false"
+			text="Berichtsheft bearbeiten" AnchorPane.bottomAnchor="14.399999999999977"
+			AnchorPane.rightAnchor="84.79999999999995" />
+		<Label layoutX="26.0" layoutY="145.0" text="Digitales Berichtsheft"
+			AnchorPane.bottomAnchor="569.0" AnchorPane.leftAnchor="26.0"
+			AnchorPane.rightAnchor="921.2" AnchorPane.topAnchor="145.0">
+			<font>
+				<Font name="System Bold" size="25.0" />
+			</font>
+		</Label>
+	</children>
+</AnchorPane>
