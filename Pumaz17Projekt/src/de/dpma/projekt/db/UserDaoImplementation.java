@@ -6,9 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import java.sql.Date;
+import de.dpma.projekt.models.User;
 
-import de.dpma.projekt.models.user.Apprentice;;
+//import java.sql.Date;
+
+import de.dpma.projekt.models.user.Apprentice;
+import de.dpma.projekt.models.user.Instructor;;
 
 public class UserDaoImplementation implements UserDao {
 
@@ -20,6 +23,13 @@ public class UserDaoImplementation implements UserDao {
 	 */
 	boolean userIsApprentice = false;
 
+	User user = new User();
+
+	if(User user.getRole().equals("Auszubildende/r"))
+	{
+		userIsApprentice = true;
+	}
+
 	/**
 	 * SQL Statement Strings
 	 * 
@@ -28,7 +38,7 @@ public class UserDaoImplementation implements UserDao {
 
 	private final static String PREPARED_INSERT_USER = "INSERT INTO user (firstname, lastname, username, password, role, email) VALUES (?,?,?,Anfang12,?,?)";
 	private final static String PREPARED_SELECT_USER = "SELECT id, firstname, lastname, username, password, role, email FROM user WHERE id = ?";
-	private final static String PREPARED_INSERT_APPRENTICEDATA = "INSERT INTO apprentice (job, instructor, YearOfEmployment, birthday, street, house number, postal code, city, location of deployment, Begin of apprenticeship, End of apprenticeship) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+	private final static String PREPARED_INSERT_APPRENTICE = "INSERT INTO user (firstname, lastname, username, password, role, email) VALUES (?,?,?,Anfang12,?,?); INSERT INTO apprentice (job, instructor, YearOfEmployment, birthday, street, house number, postal code, city, location of deployment, Begin of apprenticeship, End of apprenticeship) VALUES(?,?,?,?,?,?,?,?,?,?,?);";
 
 	@Override
 	public Apprentice insertApprentice(Apprentice apprentice) throws SQLException {
@@ -43,33 +53,47 @@ public class UserDaoImplementation implements UserDao {
 		String generatedColumns[] = { "ID" };
 		PreparedStatement preparedApprenticeInsert = con.prepareStatement(PREPARED_INSERT_USER, generatedColumns);
 
-		preparedApprenticeInsert.setString(1, apprentice.getFirstname());
-		preparedApprenticeInsert.setString(2, apprentice.getLastname());
-		preparedApprenticeInsert.setString(3, apprentice.getUsername());
-		// preparedApprenticeInsert.setString(4, apprentice.getPassword());
-		preparedApprenticeInsert.setString(5, apprentice.getRole());
-		preparedApprenticeInsert.setString(6, apprentice.getEmail());
-		
-		//	NUR bei Azubi
-		
+		try {
+
+			preparedApprenticeInsert.setString(1, apprentice.getFirstname());
+			preparedApprenticeInsert.setString(2, apprentice.getLastname());
+			preparedApprenticeInsert.setString(3, apprentice.getUsername());
+			// preparedApprenticeInsert.setString(4, apprentice.getPassword());
+			preparedApprenticeInsert.setString(5, apprentice.getRole());
+			preparedApprenticeInsert.setString(6, apprentice.getEmail());
+		} catch (Exception e) {
+			//TODO Add catch case
+		}
+
+		// NUR bei Azubi
+
 		/**
-		 * Reihenfolge: job, instructor, YearOfEmployment, birthday, street, house number, 
-		 * postal code, city, location of deployment, Begin of apprenticeship, End of apprenticeship
+		 * Reihenfolge: job, instructor, YearOfEmployment, birthday, street, house
+		 * number, postal code, city, location of deployment, Begin of apprenticeship,
+		 * End of apprenticeship
 		 * 
 		 * @author MaSpecter
 		 */
-		
-		preparedApprenticeInsert.setString(7, apprentice.getJob());
-		preparedApprenticeInsert.setString(8, (apprentice.getInstructor().getFirstname()+" "+apprentice.getInstructor().getLastname()));
-		preparedApprenticeInsert.setInt(9, apprentice.getYearOfEmployment());
-		preparedApprenticeInsert.setDate(10, apprentice.getApprenticeBirthday());
-		preparedApprenticeInsert.setString(11, apprentice.getAdressStreetApprentice());
-		preparedApprenticeInsert.setInt(12, apprentice.getAdressHouseNumberApprentice());
-		preparedApprenticeInsert.setInt(13, apprentice.getAdressPostalCode());
-		preparedApprenticeInsert.setString(14, apprentice.getAdressCity());
-		preparedApprenticeInsert.setDate(15, apprentice.getBeginOfApprenticeship());
-		preparedApprenticeInsert.setDate(15, apprentice.getEndOfApprenticeship());
-		
+
+		if (userIsApprentice = true) {
+
+			try {
+
+				preparedApprenticeInsert.setString(7, apprentice.getJob());
+				preparedApprenticeInsert.setString(8,
+						(apprentice.getInstructor().getFirstname() + " " + apprentice.getInstructor().getLastname()));
+				preparedApprenticeInsert.setInt(9, apprentice.getYearOfEmployment());
+				preparedApprenticeInsert.setDate(10, apprentice.getApprenticeBirthday());
+				preparedApprenticeInsert.setString(11, apprentice.getAdressStreetApprentice());
+				preparedApprenticeInsert.setInt(12, apprentice.getAdressHouseNumberApprentice());
+				preparedApprenticeInsert.setInt(13, apprentice.getAdressPostalCode());
+				preparedApprenticeInsert.setString(14, apprentice.getAdressCity());
+				preparedApprenticeInsert.setDate(15, apprentice.getBeginOfApprenticeship());
+				preparedApprenticeInsert.setDate(15, apprentice.getEndOfApprenticeship());
+			} catch (Exception e) {
+				//TODO Add catch case
+			}
+		}
 
 		preparedApprenticeInsert.execute();
 
@@ -81,6 +105,10 @@ public class UserDaoImplementation implements UserDao {
 		}
 
 		return apprentice;
+	}
+	
+	public Instructor getInstructor(int id) {
+		
 	}
 
 	@Override
