@@ -24,7 +24,7 @@ public class Apprentice extends User {
 
 
 	public Apprentice( String firstname, String lastname, String username, String password, String role,
-			String email, String job, int user_id, User instructor, int yearOfEmployment, Date apprenticeBirthday,
+			String email, String job, User instructor, int yearOfEmployment, Date apprenticeBirthday,
 			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
 			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
 		super( firstname, lastname, username, password, role, email);
@@ -43,7 +43,7 @@ public class Apprentice extends User {
 
 
 	public Apprentice(int id, String firstname, String lastname, String username, String password, String role,
-			String email, String job, int user_id, User instructor, int yearOfEmployment, Date apprenticeBirthday,
+			String email, String job, User instructor, int yearOfEmployment, Date apprenticeBirthday,
 			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
 			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
 		super(id, firstname, lastname, username, password, role, email);

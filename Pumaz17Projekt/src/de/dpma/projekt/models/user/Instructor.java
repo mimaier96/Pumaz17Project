@@ -1,5 +1,7 @@
 package de.dpma.projekt.models.user;
 
+import java.sql.Date;
+
 import de.dpma.projekt.models.User;
 import de.dpma.projekt.models.util.UserList;
 
@@ -14,8 +16,14 @@ public class Instructor extends User{
 	}
 
 	
-	public User createApprentice(int id, String firstname, String lastname, String username, String password, String role, String email) {
-		Apprentice a = new Apprentice(firstname, lastname, username, password, role, email, this);
+	public User createApprentice(String firstname, String lastname, String username, String password, String role,
+	String email, String job,  User instructor, int yearOfEmployment, Date apprenticeBirthday,
+	String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
+	String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
+		Apprentice a = new Apprentice( firstname,  lastname,  username,  password,  role,
+				 email,  job,  this,  yearOfEmployment,  apprenticeBirthday,
+				 adressStreetApprentice,  adressHouseNumberApprentice,  adressPostalCode,  adressCity,
+				 locationOfDeployment,  beginOfApprenticeship,  endOfApprenticeship);
 		UserList.addUser(a);
 		return a;
 		
