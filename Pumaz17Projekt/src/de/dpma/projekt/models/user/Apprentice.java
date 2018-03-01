@@ -164,7 +164,7 @@ public class Apprentice extends User {
 
 
 	public void setBeginOfApprenticeship(Date beginOfApprenticeship) {
-		beginOfApprenticeship = beginOfApprenticeship;
+		this.beginOfApprenticeship = beginOfApprenticeship;
 	}
 
 
@@ -174,6 +174,6 @@ public class Apprentice extends User {
 
 
 	public void setEndOfApprenticeship(Date endOfApprenticeship) {
-		endOfApprenticeship = endOfApprenticeship;
+		this.endOfApprenticeship = endOfApprenticeship;
 	}
 }
