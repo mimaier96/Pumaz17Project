@@ -19,14 +19,48 @@ public class Apprentice extends User {
 	private int adressPostalCode; //Adresse: Postleitzahl
 	private String adressCity; //Adresse: Stadt zur Postleitzahl
 	private String locationOfDeployment; //ausbildende Behörde (München/Jena)
-	private Date BeginOfApprenticeship; //Ausbildungsbeginn
-	private Date EndOfApprenticeship; //Ausbildungsende
+	private Date beginOfApprenticeship; //Ausbildungsbeginn
+	private Date endOfApprenticeship; //Ausbildungsende
 
 
-	public Apprentice(String firstname, String lastname, String username, String password, String email, String role, Instructor/*User*/ instructor) {
-		super(firstname, lastname, username, password, role, email);
+	public Apprentice( String firstname, String lastname, String username, String password, String role,
+			String email, String job, int user_id, User instructor, int yearOfEmployment, Date apprenticeBirthday,
+			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
+			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
+		super( firstname, lastname, username, password, role, email);
+		this.job = job;
 		this.instructor = instructor;
+		this.yearOfEmployment = yearOfEmployment;
+		this.apprenticeBirthday = apprenticeBirthday;
+		this.adressStreetApprentice = adressStreetApprentice;
+		this.adressHouseNumberApprentice = adressHouseNumberApprentice;
+		this.adressPostalCode = adressPostalCode;
+		this.adressCity = adressCity;
+		this.locationOfDeployment = locationOfDeployment;
+		this.beginOfApprenticeship = beginOfApprenticeship;
+		this.endOfApprenticeship = endOfApprenticeship;
 	}
+
+
+	public Apprentice(int id, String firstname, String lastname, String username, String password, String role,
+			String email, String job, int user_id, User instructor, int yearOfEmployment, Date apprenticeBirthday,
+			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
+			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
+		super(id, firstname, lastname, username, password, role, email);
+		this.job = job;
+		this.user_id = id;
+		this.instructor = instructor;
+		this.yearOfEmployment = yearOfEmployment;
+		this.apprenticeBirthday = apprenticeBirthday;
+		this.adressStreetApprentice = adressStreetApprentice;
+		this.adressHouseNumberApprentice = adressHouseNumberApprentice;
+		this.adressPostalCode = adressPostalCode;
+		this.adressCity = adressCity;
+		this.locationOfDeployment = locationOfDeployment;
+		this.beginOfApprenticeship = beginOfApprenticeship;
+		this.endOfApprenticeship = endOfApprenticeship;
+	}
+	
 
 
 	public String getJob() {
@@ -120,21 +154,21 @@ public class Apprentice extends User {
 
 
 	public Date getBeginOfApprenticeship() {
-		return BeginOfApprenticeship;
+		return beginOfApprenticeship;
 	}
 
 
 	public void setBeginOfApprenticeship(Date beginOfApprenticeship) {
-		BeginOfApprenticeship = beginOfApprenticeship;
+		beginOfApprenticeship = beginOfApprenticeship;
 	}
 
 
 	public Date getEndOfApprenticeship() {
-		return EndOfApprenticeship;
+		return endOfApprenticeship;
 	}
 
 
 	public void setEndOfApprenticeship(Date endOfApprenticeship) {
-		EndOfApprenticeship = endOfApprenticeship;
+		endOfApprenticeship = endOfApprenticeship;
 	}
 }

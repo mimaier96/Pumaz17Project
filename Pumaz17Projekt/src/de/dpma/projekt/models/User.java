@@ -6,18 +6,17 @@ public class User {
 	private int id;
 
 	
-
-//	public User(int id, String firstname, String lastname, String username, String password, String role,
-//			String email) {
-//		super();
-//		this.firstname = firstname;
-//		this.lastname = lastname;
-//		this.username = username;
-//		this.password = password;
-//		this.role = role;
-//		this.email = email;
-//		this.id = id;
-//	}
+	public User(int id, String firstname, String lastname, String username, String password, String role,
+			String email) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		this.email = email;
+		this.id = id;
+	}
 	
 	public User(String firstname, String lastname, String username, String password, String role,
 			String email) {
