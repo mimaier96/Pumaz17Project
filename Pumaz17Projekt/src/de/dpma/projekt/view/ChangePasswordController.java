@@ -13,8 +13,8 @@ public class ChangePasswordController {
 	private String newPasRe;
 
 	@FXML
-	private void saveButton() {
-
+	private void handleSaveButton() {
 	}
 
+	
 }
