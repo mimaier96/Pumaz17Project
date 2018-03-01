@@ -23,9 +23,8 @@ public class Apprentice extends User {
 	private Date EndOfApprenticeship; //Ausbildungsende
 
 
-	public Apprentice(int id, String firstname, String lastname, String username, String password, String role, String email, User instructor) {
-		super(id, firstname, lastname, username, password, role, email);
-		this.user_id = id;
+	public Apprentice(String firstname, String lastname, String username, String password, String email, String role, Instructor/*User*/ instructor) {
+		super(firstname, lastname, username, password, role, email);
 		this.instructor = instructor;
 	}
 

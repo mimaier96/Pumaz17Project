@@ -7,15 +7,15 @@ public class Instructor extends User{
 
 	
 	
-	public Instructor(int id, String firstname, String lastname, String username, String password, String role, String email) {
+	public Instructor(String firstname, String lastname, String username, String password, String role, String email) {
 		
-		super(id, firstname, lastname, username, password, role, email);
+		super(firstname, lastname, username, password, role, email);
 		
 	}
 
 	
 	public User createApprentice(int id, String firstname, String lastname, String username, String password, String role, String email) {
-		Apprentice a = new Apprentice( id,  firstname, lastname, username, password, role, email, this);
+		Apprentice a = new Apprentice(firstname, lastname, username, password, role, email, this);
 		UserList.addUser(a);
 		return a;
 		
