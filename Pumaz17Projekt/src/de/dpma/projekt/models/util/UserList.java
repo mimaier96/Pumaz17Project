@@ -3,10 +3,11 @@ package de.dpma.projekt.models.util;
 import java.util.ArrayList;
 
 import de.dpma.projekt.models.User;
+import de.dpma.projekt.models.user.Instructor;
 
 public class UserList {
 
-	private static ArrayList<User> userList;
+	public static ArrayList<User> userList=new ArrayList<User>();
 
 	public static void deleteUser(User user) {
 
@@ -35,8 +36,27 @@ public class UserList {
 	}
 
 	public static void addUser(User user) {
-
+		System.out.println("USER ERSTELLT");
 		userList.add(user);
 
+	}
+
+	public static ArrayList<String> getInstructors() {
+		System.out.println("Instructor");
+		ArrayList<String> instructors = new ArrayList<String>();
+		
+		System.out.println(userList.get(1).getFirstname());
+		
+		for (User user : UserList.userList) {
+
+			if (user.getRole().equals("Ausbildungsleiter/in")) {
+
+				System.out.println(user.getFirstname());
+				instructors.add(user.getFirstname() + " " + user.getLastname());
+
+			}
+
+		}
+		return instructors;
 	}
 }
