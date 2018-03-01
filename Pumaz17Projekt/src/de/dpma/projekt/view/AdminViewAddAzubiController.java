@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import de.dpma.projekt.MainApp;
 import de.dpma.projekt.models.User;
 import de.dpma.projekt.models.user.Instructor;
+import de.dpma.projekt.models.util.JobList;
+import de.dpma.projekt.models.util.RoleList;
 import de.dpma.projekt.models.util.UserList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,12 +31,12 @@ public class AdminViewAddAzubiController {
     /*Wird nicht benötigt, da Passwort standardmäßig
      * in der Datenbank auf 'Anfang12' gesetzt wird*/
     
-//    @FXML
-//    private TextField passwordField;
+    @FXML
+    private TextField passwordField;
     
     //Dropdown Role
-//    @FXML
-//    private ComboBox<Role> roleComboBox;
+    @FXML
+    private ComboBox<String> roleComboBox;
     @FXML
     private TextField emailField;
     
@@ -42,8 +44,8 @@ public class AdminViewAddAzubiController {
     //Nur bei Azubi
     
     //Ausbildungsberuf Dropdown
-//    @FXML
-//    private ComboBox<Job> jobComboBox;
+    @FXML
+    private ComboBox<String> jobComboBox;
     //Ausbildungsleiter Dropdown
     @FXML
     private ComboBox<String> instructorComboBox;
@@ -66,23 +68,6 @@ public class AdminViewAddAzubiController {
     @FXML
     private TextField endOfApprenticeshipField;
     
-//    private final static String PREPARED_SELECT_INSTRUCTORS = "SELECT id, firstname, lastname FROM user WHERE role IS 'Ausbildungsleiter/in';";
-//    private ArrayList instructorComboBox() {
-    	//TODO aus user table Statement: SELECT id, firstname, lastname FROM user WHERE role IS 'Ausbildungsleiter/in';
-    	//für jeden instructor, der gefunden wird ein eigenes Objekt erstellen, dieses ArrayList hinzufügen
-    	//mit for schleife abfrageergebnisse durchiterieren und in arraylist speichern
-    
-    		
-//    	}
-    	
-
-//		if (resSet.next()) {
-//			int id = (int) resSet.getLong(1);
-//			apprentice.setId(id);
-//		}
-    	
-//    	return null;
-//    }
     
     private ArrayList roleComboBox() {
     	return null;
@@ -99,25 +84,18 @@ public class AdminViewAddAzubiController {
      */
     @FXML
 	private void initialize() {
-    	/**@param Nimmt FX instructorComboBox und verknüpft es mit der ArrayList instructorComboBox
-    	 * @author MaSpecter
-    	 */
-    	System.out.println("1");
-//    	instructorComboBox.getItems().addAll(instructorComboBox());
     	
-    	ObservableList<String> i=FXCollections.observableArrayList(UserList.getInstructors());
+    	ObservableList<String> instructors=FXCollections.observableArrayList(UserList.getInstructors());
+    	instructorComboBox.setItems(instructors);
     	
-    	instructorComboBox.setItems(i);
-    	System.out.println(i);
+    	ObservableList<String> jobs=FXCollections.observableArrayList(JobList.getJobs());
+    	jobComboBox.setItems(jobs);
     	
+    	ObservableList<String> roles=FXCollections.observableArrayList(RoleList.getRoles());
+    	roleComboBox.setItems(roles);
 	}
 
-//	public static MainApp mainApp;
-//	
-//	public static void setMainApp(MainApp mainApp) {
-//		LoginWindowController.mainApp = mainApp;
-//
-//	}
+    
     public static void setMainApp(MainApp mainApp) {
 		LoginWindowController.mainApp = mainApp;
 

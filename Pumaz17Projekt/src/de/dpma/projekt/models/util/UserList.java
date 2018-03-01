@@ -42,16 +42,12 @@ public class UserList {
 	}
 
 	public static ArrayList<String> getInstructors() {
-		System.out.println("Instructor");
 		ArrayList<String> instructors = new ArrayList<String>();
-		
-		System.out.println(userList.get(1).getFirstname());
 		
 		for (User user : UserList.userList) {
 
 			if (user.getRole().equals("Ausbildungsleiter/in")) {
 
-				System.out.println(user.getFirstname());
 				instructors.add(user.getFirstname() + " " + user.getLastname());
 
 			}

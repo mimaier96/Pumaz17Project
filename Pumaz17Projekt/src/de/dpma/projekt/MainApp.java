@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.sql.Connection;
 
 import de.dpma.projekt.db.DatabaseConnection;
+import de.dpma.projekt.models.User;
+import de.dpma.projekt.models.user.Instructor;
+import de.dpma.projekt.models.util.JobList;
+import de.dpma.projekt.models.util.RoleList;
+import de.dpma.projekt.models.util.UserList;
 import de.dpma.projekt.view.AdminViewAddAzubiController;
 import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewInstructorController;
@@ -24,14 +29,16 @@ public class MainApp extends Application {
 	public void start(Stage primaryStage) {
 
 		this.primaryStage = primaryStage;
-		loadScene("view/LoginWindow.fxml", "Anchor", "S");
+		loadScene("view/AdminViewAddAzubi.fxml", "Anchor", "S");
 		controllerUpdate();
 	}
 
 	public static void main(String[] args) {
+		setTemporaryDataBase();
 		Connection con = DatabaseConnection.getInstance();
 
 		launch(args);
+		
 	}
 
 	public void loadScene(String path, String paneType, String title) {
@@ -75,4 +82,27 @@ public class MainApp extends Application {
 		return primaryStage;
 
 	}
+	
+	
+	
+	
+	
+	
+	public static void setTemporaryDataBase() {
+		
+		//Da der Müll mit der DB grade net geht, brauchen wir ein paar Standard Daten zum Testen:D
+		RoleList.addRole("Instructor");
+		RoleList.addRole("Azubi");
+		RoleList.addRole("Trainer");
+		
+		JobList.addJob("FA");
+		JobList.addJob("Versager");
+		Instructor u =new Instructor("Karl","Lars","LAL","LOOL","Ausbildungsleiter/in","LAL");
+		UserList.addUser(u);
+		Instructor k =new Instructor("Hanna","Sepp","LAL","LOOL","Ausbildungsleiter/in","LAL");
+		UserList.addUser(k);
+		
+		
+	}
+	
 }

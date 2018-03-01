@@ -41,8 +41,8 @@
             <Label layoutX="10.0" layoutY="248.0" text="Ausbildungsende" GridPane.rowIndex="6" />
             <Label layoutX="10.0" layoutY="292.0" text="Ausbildungsbehörde" GridPane.rowIndex="7" />
             <ComboBox fx:id="instructorComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ComboBox fx:id="jobComboBox" prefWidth="150.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="roleComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
       <Button layoutX="234.0" layoutY="361.0" mnemonicParsing="false" text="speichern" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
