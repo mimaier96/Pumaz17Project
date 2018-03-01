@@ -27,7 +27,6 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField layoutX="160.0" layoutY="110.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <TextField layoutX="10.0" layoutY="20.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
@@ -43,6 +42,7 @@
             <Label layoutX="10.0" layoutY="292.0" text="Ausbildungsbehörde" GridPane.rowIndex="7" />
             <ChoiceBox prefHeight="25.0" prefWidth="279.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <ChoiceBox prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="1" />
+            <ChoiceBox layoutX="140.0" layoutY="20.0" prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Button layoutX="234.0" layoutY="361.0" mnemonicParsing="false" text="speichern" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
