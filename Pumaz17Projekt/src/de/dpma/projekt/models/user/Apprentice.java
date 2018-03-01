@@ -4,6 +4,7 @@ package de.dpma.projekt.models.user;
 //import java.util.Date;
 import java.sql.Date;
 
+import de.dpma.projekt.models.ReportBook;
 import de.dpma.projekt.models.User;
 
 public class Apprentice extends User {
@@ -61,7 +62,11 @@ public class Apprentice extends User {
 		this.endOfApprenticeship = endOfApprenticeship;
 	}
 	
-
+	public ReportBook createReportBook(  String job, Date dateA, Date dateE) {
+		//Differenzierung zwischen Daily und Weekly
+		ReportBook rb = new ReportBook(this.user_id,job, dateA, dateE);
+		return rb;
+	}
 
 	public String getJob() {
 		return job;
