@@ -47,17 +47,18 @@
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Hilfe" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <Button layoutX="14.0" layoutY="125.0" mnemonicParsing="false" text="Administrator Funktionen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="125.0" />
-      <Button defaultButton="true" layoutX="14.0" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="genehmigen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="165.0">
+      <Button layoutX="14.0" layoutY="125.0" mnemonicParsing="false" styleClass="baustein_weight" text="Administrator Funktionen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="125.0" />
+      <Button defaultButton="true" layoutX="14.0" layoutY="166.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" styleClass="baustein_farbe" text="genehmigen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="165.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button cancelButton="true" layoutX="14.0" layoutY="206.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="zurückweisen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="200.0" />
+      <Button cancelButton="true" layoutX="14.0" layoutY="206.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" styleClass="baustein_weight" text="zurückweisen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="200.0" />
       <ScrollPane layoutX="175.0" layoutY="125.0" prefHeight="617.0" prefWidth="1016.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0">
          <content>
             <TableView maxHeight="615.0" maxWidth="1015.0" minHeight="418.0" minWidth="818.0" prefHeight="615.0" prefWidth="1012.0">
@@ -72,8 +73,8 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button layoutX="14.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="Notiz bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="235.0" />
-      <Button layoutX="15.0" layoutY="270.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" text="erstelle PDF" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0" />
+      <Button layoutX="14.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" styleClass="baustein_weight" text="Notiz bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="235.0" />
+      <Button layoutX="15.0" layoutY="270.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" styleClass="baustein_weight" text="erstelle PDF" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0" />
       <Label layoutX="1081.0" layoutY="26.0" text="Willkommen" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="25.0">
          <font>
             <Font name="System Bold" size="18.0" />
