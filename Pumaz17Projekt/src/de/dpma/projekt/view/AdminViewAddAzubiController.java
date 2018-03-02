@@ -225,11 +225,16 @@ public class AdminViewAddAzubiController {
 	private void handleSaveAddApprentice() {
 		if (inputIsValid()) {
 			
-			UserDaoImplementation.insertApprentice(new Apprentice(null, null, null, null, null, null, null, null, 0, null, null, 0, 0, null, null, null, null));
+			
 			
 			saveClicked = true;
 			dialogStage.close();
 		}
+	}
+	
+	@FXML
+	private void handleCancel() {
+		dialogStage.close();
 	}
 
 	/**
