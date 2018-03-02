@@ -101,7 +101,7 @@ public class AdminViewAddAzubiController {
 			errorMessage += "Kein gültiges Passwort!\n";
 		}
 
-		// Variablen zur Überprüfung, ob Email '@ und .' enthält.
+		// Variablen zur Überprüfung, ob Email '@ und .' enthält
 		String eMCs = "@.";
 		CharSequence emailMustChars = eMCs;
 
