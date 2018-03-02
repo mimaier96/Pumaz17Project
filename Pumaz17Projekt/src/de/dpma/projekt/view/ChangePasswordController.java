@@ -1,9 +1,11 @@
 package de.dpma.projekt.view;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,28 +29,47 @@ public class ChangePasswordController {
 	@FXML
 	private PasswordField newPasswordCheck;
 	@FXML
-	private Label checkfail;
+	public static MainApp mainApp;
 
 	
 	@FXML
 	private void handleSaveButton() throws SQLException {
-		log.info("-->Starte: handleLogin");
-		PreparedStatement prepStatement = null; 
+		log.info("-->Starte: handleSaveButton");
+		PreparedStatement prepStatUp = null; 
+		PreparedStatement prepStatGet = null;
 		ResultSet result = null;
-		final String UPDATE_PASSWORD = "UPDATE user SET password = '" + newPassword.getText() + "' WHERE username = '" + username.getText() + "'" ;
-
-		if(newPassword.getText().equals(newPassword.getText())) {
-			
-		prepStatement = con.prepareStatement(UPDATE_PASSWORD);
-		result = prepStatement.executeQuery();
+		String passwordDataBase = null;
+		final String GET_USERNAME_PASSWORD = "SELECT Username, Password FROM berichtsheft.user WHERE username = ?";
+		final String UPDATE_PASSWORD = "UPDATE berichtsheft.user SET Password = ? WHERE Username = ?";
+		
+		prepStatGet = con.prepareStatement(GET_USERNAME_PASSWORD);
+		prepStatGet.setString(1, username.getText());
+		result = prepStatGet.executeQuery();
 		
 		while(result.next()) {
-		log.info("-->" + result.getString("password") );	
+			passwordDataBase = result.getString("Password");
 		}
+		
+		if(newPassword.getText().equals(newPasswordCheck.getText()) && passwordDataBase.equals(oldPassword.getText())) {
+		prepStatUp = con.prepareStatement(UPDATE_PASSWORD);
+		prepStatUp.setString(1, newPassword.getText());
+		prepStatUp.setString(2, username.getText());
+		prepStatUp.executeUpdate();
 		} else {
+			Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("Falsche Eingabe!");
+            alert.setHeaderText("Benutzername, Altes Passwort oder Neues Passwort inkorrekt!");
+            alert.setContentText("Bitte versuchen Sie es erneut.");
+
+            alert.showAndWait();
+			log.info("--> Eingabefehler!");	
 		}
-		log.info("-->Beende: handleLogin");	
+		log.info("-->Beende: handleSaveButton");	
 	}
 
-	
+	public static void setMainApp(MainApp mainApp) {
+		LoginWindowController.mainApp = mainApp;
+
+	}
 }

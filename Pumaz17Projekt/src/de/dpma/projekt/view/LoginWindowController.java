@@ -60,18 +60,16 @@ public class LoginWindowController {
 		if(username.getText().equals(usernameDataBase) && password.getText().equals(passwordDataBase)
 		   || username.getText().equals("Admin") && password.getText().equals("Anfang12")) {
 			if(username.getText().equals("Admin")) {
-				roleDataBase = "ausbilder";
+				roleDataBase = "instructor";
 			}
 			log.info("-->Login erfolgreich!");
 			switch (roleDataBase) {
-			case "auszubildener":
-				mainApp.loadScene("view/StartViewApprentice.fxml", "Anchor", "Übersicht");
+			case "apprentice":
+				mainApp.loadScene("view/StartViewApprentice.fxml", "Übersicht");
 			break;
-			case "ausbilder":
-				mainApp.loadScene("view/StartViewInstructor.fxml", "Anchor", "Übersicht");
-			break;
-			case "ausbildungsleiter":
-				mainApp.loadScene("view/StartViewTrainer.fxml", "Anchor", "Übersicht");
+			case "trainer":
+			case "instructor":
+				mainApp.loadScene("view/StartViewInstructor.fxml", "Übersicht");
 			break;
 			}	
 		} else {
@@ -90,7 +88,7 @@ public class LoginWindowController {
 
 	@FXML
 	private void handlePasswordLostButton() {
-		mainApp.loadScene("view/ChangePassword.fxml", "Anchor", "Übersicht");
+		mainApp.loadScene("view/ChangePassword.fxml", "Übersicht");
 	}
 
 	public static void setMainApp(MainApp mainApp) {
