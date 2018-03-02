@@ -24,12 +24,14 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 	private Stage primaryStage;
 	private Scene scene;
+	private BorderPane borderLayout;
 
 	@Override
 	public void start(Stage primaryStage) {
 
 		this.primaryStage = primaryStage;
-		loadScene("view/LoginWindow.fxml", "Anchor", "S");
+		initBorderLayout();
+		loadScene("view/LoginWindow.fxml", "Login");
 		controllerUpdate();
 	}
 
@@ -38,30 +40,37 @@ public class MainApp extends Application {
 		Connection con = DatabaseConnection.getInstance();
 
 		launch(args);
-		
+
 	}
 
-	public void loadScene(String path, String paneType, String title) {
+	public void initBorderLayout() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("view/BorderLayout.fxml"));
+			borderLayout = (BorderPane) loader.load();
+			scene = new Scene(borderLayout);
+			this.primaryStage.setTitle("Start");
+			this.primaryStage.setScene(scene);
+			this.primaryStage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public void loadScene(String path, String title) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource(path));
 
-			switch (paneType) {
-			case "Anchor":
-				scene = new Scene(new AnchorPane((AnchorPane) loader.load()));
-				break;
-			case "Border":
-				scene = new Scene(new BorderPane((BorderPane) loader.load()));
-				break;
-			default:
-				scene = new Scene(new AnchorPane((AnchorPane) loader.load()));
-			}
-			//
-			// LoginWindowController controller = loader.getController();
-			// controller.setMainApp(this);
-			this.primaryStage.setTitle(title);
-			this.primaryStage.setScene(scene);
-			this.primaryStage.show();
+				AnchorPane anchor = (AnchorPane) loader.load();
+				
+			
+//			this.primaryStage.setTitle(title);
+			this.borderLayout.setCenter(anchor);
+//			this.primaryStage.show();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -82,24 +91,22 @@ public class MainApp extends Application {
 		return primaryStage;
 
 	}
-	
-	
-	
+
 	public static void setTemporaryDataBase() {
-		
-		//Da der Müll mit der DB grade net geht, brauchen wir ein paar Standard Daten zum Testen:D
-//		RoleList.addRole("Instructor");
-//		RoleList.addRole("Azubi");
-//		RoleList.addRole("Trainer");
-//		
-//		JobList.addJob("FA");
-//		JobList.addJob("Versager");
-//		Instructor u =new Instructor("Karl","Lars","LAL","LOOL","Instructor","LAL");
-//		UserList.addUser(u);
-//		Instructor k =new Instructor("Hanna","Sepp","LAL","LOOL","Instructor","LAL");
-//		UserList.addUser(k);
-		
-		
+
+		// Da der Müll mit der DB grade net geht, brauchen wir ein paar Standard Daten
+		// zum Testen:D
+		// RoleList.addRole("Instructor");
+		// RoleList.addRole("Azubi");
+		// RoleList.addRole("Trainer");
+		//
+		// JobList.addJob("FA");
+		// JobList.addJob("Versager");
+		// Instructor u =new Instructor("Karl","Lars","LAL","LOOL","Instructor","LAL");
+		// UserList.addUser(u);
+		// Instructor k =new Instructor("Hanna","Sepp","LAL","LOOL","Instructor","LAL");
+		// UserList.addUser(k);
+
 	}
-	
+
 }
