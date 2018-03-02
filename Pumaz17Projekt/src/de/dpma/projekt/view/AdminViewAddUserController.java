@@ -71,7 +71,7 @@ public class AdminViewAddUserController {
 	private TextField beginOfApprenticeshipField;
 	@FXML
 	private TextField endOfApprenticeshipField;
-	// Ausbildungsbehörde Dropdown
+	// Ausbildungsbehörde Dropdown 
 	@FXML
 	private ComboBox<String> locationOfDeploymentComboBox;
 
