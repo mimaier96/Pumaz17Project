@@ -90,7 +90,7 @@ public class LoginWindowController {
 
 	@FXML
 	private void handlePasswordLostButton() {
-
+		mainApp.loadScene("view/ChangePassword.fxml", "Anchor", "Übersicht");
 	}
 
 	public static void setMainApp(MainApp mainApp) {
