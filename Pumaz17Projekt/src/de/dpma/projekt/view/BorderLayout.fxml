@@ -11,7 +11,7 @@
         <menus>
           <Menu fx:id="menu" mnemonicParsing="false" text="Menü">
             <items>
-              <MenuItem mnemonicParsing="false" text="Logaut" />
+              <MenuItem mnemonicParsing="false" text="Abmelden" />
             </items>
           </Menu>
           <Menu fx:id="view" mnemonicParsing="false" text="Ansicht">
