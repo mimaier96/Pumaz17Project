@@ -6,29 +6,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import de.dpma.projekt.models.User;
-
 //import java.sql.Date;
 
 import de.dpma.projekt.models.user.Apprentice;
-import de.dpma.projekt.models.user.Instructor;;
+import de.dpma.projekt.models.user.Instructor;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;;
 
 public class UserDaoImplementation implements UserDao {
 
 	private Connection con = DatabaseConnection.getInstance();
 
-	/*
-	 * Dieser Boolean wird dazu benutzt, ob zusätzliche Felder für den Azubi
-	 * angezeigt werden und somit ausgefüllt werden müssen, oder nicht
-	 */
-	boolean userIsApprentice = false;
 
-	User user = new User();
-
-	if(User user.getRole().equals("Auszubildende/r"))
-	{
-		userIsApprentice = true;
-	}
 
 	/**
 	 * SQL Statement Strings
@@ -62,7 +52,12 @@ public class UserDaoImplementation implements UserDao {
 			preparedApprenticeInsert.setString(5, apprentice.getRole());
 			preparedApprenticeInsert.setString(6, apprentice.getEmail());
 		} catch (Exception e) {
-			//TODO Add catch case
+			preparedApprenticeInsert.setString(1, null);
+			preparedApprenticeInsert.setString(2, null);
+			preparedApprenticeInsert.setString(3, null);
+			// preparedApprenticeInsert.setString(4, null);
+			preparedApprenticeInsert.setString(5, null);
+			preparedApprenticeInsert.setString(6, null);
 		}
 
 		// NUR bei Azubi
@@ -75,7 +70,7 @@ public class UserDaoImplementation implements UserDao {
 		 * @author MaSpecter
 		 */
 
-		if (userIsApprentice = true) {
+	
 
 			try {
 
@@ -91,9 +86,18 @@ public class UserDaoImplementation implements UserDao {
 				preparedApprenticeInsert.setDate(15, apprentice.getBeginOfApprenticeship());
 				preparedApprenticeInsert.setDate(15, apprentice.getEndOfApprenticeship());
 			} catch (Exception e) {
-				//TODO Add catch case
+				preparedApprenticeInsert.setString(7, null);
+				preparedApprenticeInsert.setString(8, null);
+				preparedApprenticeInsert.setInt(9, (Integer) null);
+				preparedApprenticeInsert.setDate(10, null);
+				preparedApprenticeInsert.setString(11, null);
+				preparedApprenticeInsert.setInt(12, (Integer) null);
+				preparedApprenticeInsert.setInt(13, (Integer) null);
+				preparedApprenticeInsert.setString(14, null);
+				preparedApprenticeInsert.setDate(15, null);
+				preparedApprenticeInsert.setDate(15, null);
 			}
-		}
+		
 
 		preparedApprenticeInsert.execute();
 
@@ -106,9 +110,16 @@ public class UserDaoImplementation implements UserDao {
 
 		return apprentice;
 	}
+
 	
+
+	
+
+	
+
 	public Instructor getInstructor(int id) {
-		
+		// TODO ausbessern
+		return null;
 	}
 
 	@Override

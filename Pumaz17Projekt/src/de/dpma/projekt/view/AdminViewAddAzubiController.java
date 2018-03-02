@@ -3,6 +3,8 @@ package de.dpma.projekt.view;
 import java.util.ArrayList;
 
 import de.dpma.projekt.MainApp;
+import de.dpma.projekt.db.UserDaoImplementation;
+import de.dpma.projekt.models.user.Apprentice;
 import de.dpma.projekt.models.util.JobList;
 import de.dpma.projekt.models.util.RoleList;
 import de.dpma.projekt.models.util.UserList;
@@ -19,6 +21,7 @@ import javafx.stage.Stage;
 public class AdminViewAddAzubiController {
 	public static MainApp mainApp;
 
+	private boolean saveClicked = false;
 	private Stage dialogStage;
 
 	@FXML
@@ -205,6 +208,27 @@ public class AdminViewAddAzubiController {
 			alert.showAndWait();
 
 			return false;
+		}
+	}
+	
+	public boolean isSaveClicked() {
+        return saveClicked;
+    }
+	
+	/**
+	 * Wird aufgerufen, wenn der user auf speichern klickt
+	 * 
+	 * @author MaSpecter
+	 */
+	
+	@FXML
+	private void handleSaveAddApprentice() {
+		if (inputIsValid()) {
+			
+			UserDaoImplementation.insertApprentice(new Apprentice(null, null, null, null, null, null, null, null, 0, null, null, 0, 0, null, null, null, null));
+			
+			saveClicked = true;
+			dialogStage.close();
 		}
 	}
 
