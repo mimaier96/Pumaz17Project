@@ -46,7 +46,7 @@ public class UserList {
 		
 		for (User user : UserList.userList) {
 
-			if (user.getRole().equals("Ausbildungsleiter/in")) {
+			if (user.getRole().equals("Instructor")) {
 
 				instructors.add(user.getFirstname() + " " + user.getLastname());
 

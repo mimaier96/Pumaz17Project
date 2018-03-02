@@ -85,9 +85,6 @@ public class MainApp extends Application {
 	
 	
 	
-	
-	
-	
 	public static void setTemporaryDataBase() {
 		
 		//Da der Müll mit der DB grade net geht, brauchen wir ein paar Standard Daten zum Testen:D
@@ -97,9 +94,9 @@ public class MainApp extends Application {
 		
 		JobList.addJob("FA");
 		JobList.addJob("Versager");
-		Instructor u =new Instructor("Karl","Lars","LAL","LOOL","Ausbildungsleiter/in","LAL");
+		Instructor u =new Instructor("Karl","Lars","LAL","LOOL","Instructor","LAL");
 		UserList.addUser(u);
-		Instructor k =new Instructor("Hanna","Sepp","LAL","LOOL","Ausbildungsleiter/in","LAL");
+		Instructor k =new Instructor("Hanna","Sepp","LAL","LOOL","Instructor","LAL");
 		UserList.addUser(k);
 		
 		

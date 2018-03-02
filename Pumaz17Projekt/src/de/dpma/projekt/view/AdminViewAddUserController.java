@@ -11,7 +11,7 @@ public class AdminViewAddUserController {
 	public static MainApp mainApp;
 	
 	ObservableList<String> chooseRoleList = FXCollections.observableArrayList("Auszubildender", "Ausbilder",
-			"Ausbildungsleiter", "Administrator");
+			"Ausbildungsleiter");
 
 	@FXML
 	private ChoiceBox<String> chooseRole;
