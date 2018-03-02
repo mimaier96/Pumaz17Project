@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 public class DatabaseConnection {
 	
 	static final Logger log = LogManager.getLogger(DatabaseConnection.class.getName());
-
+  
 		private static Connection instance;
 
 		public static Connection getInstance() {

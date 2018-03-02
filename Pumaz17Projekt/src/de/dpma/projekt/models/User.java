@@ -5,7 +5,7 @@ public class User {
 	private String firstname, lastname, username, password, role, email;
 	private int id;
 
-	
+	//Dieser Konstruktor wird aus der Datenbank ausgeführt
 	public User(int id, String firstname, String lastname, String username, String password, String role,
 			String email) {
 		super();
@@ -17,7 +17,7 @@ public class User {
 		this.email = email;
 		this.id = id;
 	}
-	
+	//Dieser Konstruktor wird aus der Datenbank ausgeführt - keine ID wird erzeugt, da diese in der DB automatisch hinzugefügt wird
 	public User(String firstname, String lastname, String username, String password, String role,
 			String email) {
 		super();

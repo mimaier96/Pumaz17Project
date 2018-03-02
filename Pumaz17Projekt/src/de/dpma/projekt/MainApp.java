@@ -29,7 +29,7 @@ public class MainApp extends Application {
 	public void start(Stage primaryStage) {
 
 		this.primaryStage = primaryStage;
-		loadScene("view/AdminViewAddAzubi.fxml", "Anchor", "S");
+		loadScene("view/LoginWindow.fxml", "Anchor", "S");
 		controllerUpdate();
 	}
 

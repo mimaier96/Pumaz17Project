@@ -87,6 +87,8 @@ public class AdminViewAddAzubiController {
     	
     	ObservableList<String> instructors=FXCollections.observableArrayList(UserList.getInstructors());
     	instructorComboBox.setItems(instructors);
+    	instructorComboBox.setValue(instructors.get(0));
+    	
     	
     	ObservableList<String> jobs=FXCollections.observableArrayList(JobList.getJobs());
     	jobComboBox.setItems(jobs);

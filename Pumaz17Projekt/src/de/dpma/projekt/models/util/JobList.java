@@ -15,8 +15,6 @@ public class JobList {
 
 	}
 
-	
-
 	public static void addJob(String job) {
 
 		jobList.add(job);
