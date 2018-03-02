@@ -32,22 +32,23 @@ public class ChangePasswordController {
 	
 	@FXML
 	private void handleSaveButton() throws SQLException {
-		log.info("-->Starte: handleLogin");
-		PreparedStatement prepStatement = null; 
+		log.info("-->Starte: handleSaveButton");
+		PreparedStatement prepStat = null; 
 		ResultSet result = null;
-		final String UPDATE_PASSWORD = "UPDATE user SET password = '" + newPassword.getText() + "' WHERE username = '" + username.getText() + "'" ;
+		final String UPDATE_PASSWORD = "UPDATE berichtsheft.user SET Password = '"+ newPassword.getText() +"' WHERE Username = '"+ username.getText() +"';";
 
-		if(newPassword.getText().equals(newPassword.getText())) {
+		if(newPassword.getText().equals(newPasswordCheck.getText())) {
 			
-		prepStatement = con.prepareStatement(UPDATE_PASSWORD);
-		result = prepStatement.executeQuery();
+		prepStat = con.prepareStatement(UPDATE_PASSWORD);
+		result = prepStat.executeQuery();
 		
 		while(result.next()) {
-		log.info("-->" + result.getString("password") );	
+		log.info("-->" + result.getString("password") );
+		
 		}
 		} else {
 		}
-		log.info("-->Beende: handleLogin");	
+		log.info("-->Beende: handleSaveButton");	
 	}
 
 	
