@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.AdminViewInstructorController">
    <children>
       <ImageView fitHeight="102.0" fitWidth="213.0" layoutX="14.0" layoutY="25.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
          <image>
             <Image url="@../../../../../resource/logo_dpma.png" />
          </image>
       </ImageView>
-      <Button layoutX="24.0" layoutY="119.0" mnemonicParsing="false" text="Benutzer anlegen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="125.0" />
+      <Button layoutX="22.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="26.0" prefWidth="123.0" text="Benutzer anlegen" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="165.0" />
       <ScrollPane layoutX="141.0" layoutY="125.0" prefHeight="615.0" prefWidth="1015.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0">
          <content>
             <TableView prefHeight="615.0" prefWidth="1015.0">
@@ -32,8 +32,8 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button layoutX="15.0" layoutY="166.0" mnemonicParsing="false" text="Benutzer bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="160.0" />
-      <Button layoutX="22.0" layoutY="219.0" mnemonicParsing="false" text="Benutzer löschen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="195.0" />
+      <Button layoutX="22.0" layoutY="207.0" mnemonicParsing="false" text="Benutzer bearbeiten" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="207.0" />
+      <Button layoutX="22.0" layoutY="248.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="123.0" text="Benutzer löschen" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="248.0" />
       <Label layoutX="1066.0" layoutY="52.0" text="Willkommen" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="25.0">
          <font>
             <Font name="System Bold" size="18.0" />

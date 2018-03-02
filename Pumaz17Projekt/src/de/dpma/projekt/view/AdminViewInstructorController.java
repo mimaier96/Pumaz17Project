@@ -21,6 +21,11 @@ public class AdminViewInstructorController {
 
 
 	}
+	
+	@FXML
+	private void handleAddUser() {
+		mainApp.loadScene("view/AdminViewAddUser.fxml", "Benutzer hinzufügen");
+	}
 
 	public static void setMainApp(MainApp mainApp) {
 		AdminViewInstructorController.mainApp = mainApp;

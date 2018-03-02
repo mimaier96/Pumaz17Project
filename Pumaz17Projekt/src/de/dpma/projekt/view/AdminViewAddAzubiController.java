@@ -225,7 +225,7 @@ public class AdminViewAddAzubiController {
 	private void handleSaveAddApprentice() {
 		if (inputIsValid()) {
 			
-			
+			//TODO im Code Methode aufrufen, die Insert in DB macht
 			
 			saveClicked = true;
 			dialogStage.close();

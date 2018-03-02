@@ -65,11 +65,11 @@ public class LoginWindowController {
 			log.info("-->Login erfolgreich!");
 			switch (roleDataBase) {
 			case "apprentice":
-				mainApp.loadScene("view/StartViewApprentice.fxml", "Übersicht");
+				mainApp.loadScene("view/StartViewApprentice.fxml", "Digitales Berichtsheft");
 			break;
 			case "trainer":
 			case "instructor":
-				mainApp.loadScene("view/StartViewInstructor.fxml", "Übersicht");
+				mainApp.loadScene("view/StartViewInstructor.fxml", "Ausbildungsleiter/in");
 			break;
 			}	
 		} else {
@@ -79,6 +79,10 @@ public class LoginWindowController {
             alert.setTitle("Falsche Eingabe!");
             alert.setHeaderText("Benutzername oder Passwort inkorrekt!");
             alert.setContentText("Bitte versuchen Sie es erneut.");
+            
+            //Bei falscher Eingabe werden die beiden Eingabefelder gecleared
+            username.clear();
+            password.clear();
 
             alert.showAndWait();
 			log.info("-->Login fehlgeschlagen!");
@@ -88,7 +92,7 @@ public class LoginWindowController {
 
 	@FXML
 	private void handlePasswordLostButton() {
-		mainApp.loadScene("view/ChangePassword.fxml", "Übersicht");
+		mainApp.loadScene("view/ChangePassword.fxml", "Passwort vergessen");
 	}
 
 	public static void setMainApp(MainApp mainApp) {

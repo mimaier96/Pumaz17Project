@@ -33,7 +33,7 @@ public class MainApp extends Application {
 
 		this.primaryStage = primaryStage;
 		initBorderLayout();
-		loadScene("view/AdminViewAddUser.fxml", "Login");
+		loadScene("view/LoginWindow.fxml", "Login");
 		controllerUpdate();
 	}
 
@@ -51,7 +51,7 @@ public class MainApp extends Application {
 			loader.setLocation(MainApp.class.getResource("view/BorderLayout.fxml"));
 			borderLayout = (BorderPane) loader.load();
 			scene = new Scene(borderLayout);
-			this.primaryStage.setTitle("Start");
+			this.primaryStage.setTitle("Login");
 			this.primaryStage.setScene(scene);
 			this.primaryStage.show();
 
@@ -88,6 +88,7 @@ public class MainApp extends Application {
 		AdminViewAddAzubiController.setMainApp(this);
 		BorderLayout.setMainApp(this);
 		ChangePasswordController.setMainApp(this);
+		AdminViewInstructorController.setMainApp(this);
 	}
 
 	public Stage getPrimaryStage() {
