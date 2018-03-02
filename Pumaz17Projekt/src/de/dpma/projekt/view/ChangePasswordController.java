@@ -2,11 +2,9 @@ package de.dpma.projekt.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -55,6 +53,16 @@ public class ChangePasswordController {
 		prepStatUp.setString(1, newPassword.getText());
 		prepStatUp.setString(2, username.getText());
 		prepStatUp.executeUpdate();
+		
+		Alert alert = new Alert(AlertType.WARNING);
+        alert.initOwner(mainApp.getPrimaryStage());
+        alert.setTitle("Passwort ändern.");
+        alert.setHeaderText("Passwort geändert!");
+        alert.setContentText("Sie haben Ihr Passwort erfolgreich geändert.");
+
+        alert.showAndWait();
+        
+		mainApp.loadScene("view/LoginWindow.fxml", "Übersicht");
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(mainApp.getPrimaryStage());
@@ -67,9 +75,21 @@ public class ChangePasswordController {
 		}
 		log.info("-->Beende: handleSaveButton");	
 	}
+	
+	@FXML
+	private void handleCancelButton() {
+		mainApp.loadScene("view/LoginWindow.fxml", "Login");
+	}
 
 	public static void setMainApp(MainApp mainApp) {
-		LoginWindowController.mainApp = mainApp;
+		ChangePasswordController.mainApp = mainApp;
 
+	}
+	
+	@FXML
+	private void initialize() {
+	}
+
+	public ChangePasswordController() {
 	}
 }
