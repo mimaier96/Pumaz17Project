@@ -216,7 +216,7 @@ public class AdminViewAddAzubiController {
     }
 	
 	/**
-	 * Wird aufgerufen, wenn der user auf speichern klickt
+	 * Wird aufgerufen, wenn der user auf speichern klickt 
 	 * 
 	 * @author MaSpecter
 	 */

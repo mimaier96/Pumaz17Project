@@ -35,7 +35,7 @@ public class UserDaoImplementation implements UserDao {
 
 		/**
 		 * Daten in Datenbank schreiben Reihenfolge: firstname, lastname, username,
-		 * password, role, email
+		 * password, role, email 
 		 * 
 		 * @author MaSpecter
 		 */
