@@ -62,9 +62,9 @@ public class Apprentice extends User {
 		this.endOfApprenticeship = endOfApprenticeship;
 	}
 	
-	public ReportBook createReportBook(  String job, Date dateA, Date dateE) {
+	public ReportBook createReportBook( Date dateA, Date dateE) {
 		//Differenzierung zwischen Daily und Weekly
-		ReportBook rb = new ReportBook(this.user_id,job, dateA, dateE);
+		ReportBook rb = new ReportBook(this.user_id,this.job, dateA, dateE);
 		return rb;
 	}
 

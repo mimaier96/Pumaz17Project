@@ -35,9 +35,9 @@ public class ReportBookList {
 		return null;
 	}
 
-	public static void addUser(User user) {
+	public static void addReportBook(ReportBook reportBook) {
 
-		reportBook.add(user);
+		reportBookList.add(reportBook);
 
 	}
 }
