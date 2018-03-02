@@ -10,7 +10,7 @@ public class DateUtil {
 
     private static final String DATE_PATTERN = "dd.MM.yyyy";
 
-    /** Date formatter */
+    /** Date formatter. */
     private static final DateTimeFormatter DATE_FORMATTER = 
             DateTimeFormatter.ofPattern(DATE_PATTERN);
 
