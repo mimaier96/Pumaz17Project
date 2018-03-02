@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.AdminViewAddAzubiController">
+<AnchorPane maxHeight="400.0" maxWidth="300.0" minHeight="400.0" minWidth="300.0" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.AdminViewAddUserController">
    <children>
       <GridPane maxHeight="359.0" maxWidth="280.0" prefHeight="359.0" prefWidth="280.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>

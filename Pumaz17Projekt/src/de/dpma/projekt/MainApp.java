@@ -9,7 +9,7 @@ import de.dpma.projekt.models.user.Instructor;
 import de.dpma.projekt.models.util.JobList;
 import de.dpma.projekt.models.util.RoleList;
 import de.dpma.projekt.models.util.UserList;
-import de.dpma.projekt.view.AdminViewAddAzubiController;
+import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewInstructorController;
 import de.dpma.projekt.view.BorderLayout;
@@ -27,7 +27,8 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private Scene scene;
 	private BorderPane borderLayout;
-
+	
+	
 	@Override
 	public void start(Stage primaryStage) {
 
@@ -85,7 +86,7 @@ public class MainApp extends Application {
 		LoginWindowController.setMainApp(this);
 		StartViewInstructorController.setMainApp(this);
 		AdminViewAddUserController.setMainApp(this);
-		AdminViewAddAzubiController.setMainApp(this);
+		AdminViewAddUserController.setMainApp(this);
 		BorderLayout.setMainApp(this);
 		ChangePasswordController.setMainApp(this);
 		AdminViewInstructorController.setMainApp(this);
@@ -95,6 +96,14 @@ public class MainApp extends Application {
 
 		return primaryStage;
 
+	}
+
+	public User getLoggedInUser() {
+		return loggedInUser;
+	}
+
+	public void setLoggedInUser(User loggedInUser) {
+		this.loggedInUser = loggedInUser;
 	}
 
 	public static void setTemporaryDataBase() {
