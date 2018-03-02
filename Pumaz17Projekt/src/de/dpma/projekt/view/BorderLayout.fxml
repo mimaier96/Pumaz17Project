@@ -16,13 +16,24 @@
           </Menu>
           <Menu fx:id="view" mnemonicParsing="false" text="Ansicht">
             <items>
-              <MenuItem mnemonicParsing="false" text="Verwaltungsfachangestellte / -r, Fachrichtung Bundesverwaltung" />
-                  <MenuItem mnemonicParsing="false" text="Fachinformatiker / - in, Fachrichtung Anwendungsentwicklung" />
-                  <MenuItem mnemonicParsing="false" text="Fachinformatiker / - in, Fachrichtung Systemintegration" />
-                  <MenuItem mnemonicParsing="false" text="Tischer / -in" />
-                  <MenuItem mnemonicParsing="false" text="Elektroniker / -in für Energie &amp; Gebäudetechnik" />
-                  <MenuItem mnemonicParsing="false" text="Kaufmann / -frau für Büromanagement" />
-                  <MenuItem mnemonicParsing="false" text="Fachangestellte / -r für Medien- &amp; Informationstechnik" />
+                  <Menu fx:id="view1" mnemonicParsing="false" text="Ausbildungsberufe">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Verwaltungsfachangestellte / -r, Fachrichtung Bundesverwaltung" />
+                        <MenuItem mnemonicParsing="false" text="Fachinformatiker / - in, Fachrichtung Anwendungsentwicklung" />
+                        <MenuItem mnemonicParsing="false" text="Fachinformatiker / - in, Fachrichtung Systemintegration" />
+                        <MenuItem mnemonicParsing="false" text="Tischer / -in" />
+                        <MenuItem mnemonicParsing="false" text="Elektroniker / -in für Energie &amp; Gebäudetechnik" />
+                        <MenuItem mnemonicParsing="false" text="Kaufmann / -frau für Büromanagement" />
+                        <MenuItem mnemonicParsing="false" text="Fachangestellte / -r für Medien- &amp; Informationstechnik" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="view11" mnemonicParsing="false" text="Benutzerrollen">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Auszubildender" />
+                        <MenuItem mnemonicParsing="false" text="Ausbildungsleiter" />
+                        <MenuItem mnemonicParsing="false" text="Administrator" />
+                     </items>
+                  </Menu>
             </items>
           </Menu>
           <Menu fx:id="options" mnemonicParsing="false" text="Einstellungen">
