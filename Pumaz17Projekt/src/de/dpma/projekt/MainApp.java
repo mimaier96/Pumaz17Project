@@ -33,7 +33,7 @@ public class MainApp extends Application {
 
 		this.primaryStage = primaryStage;
 		initBorderLayout();
-		loadScene("view/LoginWindow.fxml", "Login");
+		loadScene("view/AdminViewAddUser.fxml", "Login");
 		controllerUpdate();
 	}
 

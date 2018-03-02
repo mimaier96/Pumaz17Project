@@ -14,7 +14,7 @@ public class StartViewInstructorController {
 
 	@FXML
 	private void menuItemLogout() {
-		mainApp.loadScene("view/LoginWindow.fxml", "Anchor", "Anmledung");
+		mainApp.loadScene("view/LoginWindow.fxml",  "Anmledung");
 	}
 
 	@FXML
@@ -28,7 +28,7 @@ public class StartViewInstructorController {
 
 	@FXML
 	private void handleAdminButton() {
-		mainApp.loadScene("view/AdminViewInstructor.fxml", "Anchor", "Admin");
+		mainApp.loadScene("view/AdminViewInstructor.fxml", "Admin");
 	}
 
 	@FXML

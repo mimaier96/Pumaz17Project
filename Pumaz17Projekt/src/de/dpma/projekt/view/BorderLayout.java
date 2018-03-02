@@ -29,7 +29,8 @@ public class BorderLayout {
 	private  MenuBar menubar;
 	
 	@FXML private  Menu menu;
-	@FXML private  Menu view;
+	@FXML private  Menu viewJobs;
+	@FXML private  Menu viewRoles;
 	@FXML private  Menu options;
 	@FXML private  Menu help;
 	
@@ -37,7 +38,7 @@ public class BorderLayout {
 	
 	
 	@FXML private void initialize() {
-		hidePartsBut(menu,help);
+		hidePartsBut(menu);
 	}
 
 	public static void setMainApp(MainApp mainApp) {
