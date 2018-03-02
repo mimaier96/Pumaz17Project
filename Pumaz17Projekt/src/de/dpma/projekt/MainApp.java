@@ -12,6 +12,7 @@ import de.dpma.projekt.models.util.UserList;
 import de.dpma.projekt.view.AdminViewAddAzubiController;
 import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewInstructorController;
+import de.dpma.projekt.view.BorderLayout;
 import de.dpma.projekt.view.LoginWindowController;
 import de.dpma.projekt.view.StartViewInstructorController;
 import javafx.application.Application;
@@ -84,6 +85,7 @@ public class MainApp extends Application {
 		StartViewInstructorController.setMainApp(this);
 		AdminViewAddUserController.setMainApp(this);
 		AdminViewAddAzubiController.setMainApp(this);
+		BorderLayout.setMainApp(this);
 	}
 
 	public Stage getPrimaryStage() {
