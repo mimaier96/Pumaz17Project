@@ -28,7 +28,6 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private Scene scene;
 	private BorderPane borderLayout;
-	public BorderLayout blc= new BorderLayout();
 	
 	
 	@Override
@@ -37,7 +36,6 @@ public class MainApp extends Application {
 		this.primaryStage = primaryStage;
 		initBorderLayout();
 		loadScene("view/LoginWindow.fxml", "Login");
-		blc.layoutLoginWndow();
 		controllerUpdate();
 	}
 

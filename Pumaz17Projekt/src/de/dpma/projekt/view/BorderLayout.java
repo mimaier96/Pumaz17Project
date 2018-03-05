@@ -44,10 +44,6 @@ public class BorderLayout {
 		hidePartsBut(help);
 	}
 
-	public BorderLayout() {
-		
-
-	}
 
 	public static void setMainApp(MainApp mainApp) {
 		LoginWindowController.mainApp = mainApp;
@@ -63,27 +59,5 @@ public class BorderLayout {
 
 	}
 
-	public void layoutLoginWndow() {
-
-		hidePartsBut(help);
-
-	}
-
-	public void layoutStartViewInstructor() {
-
-		hidePartsBut(help);
-
-	}
-	public void layoutAdminViewInstructor() {
-
-		hidePartsBut(help);
-
-	}
-
-	public void layoutGeneral() {
-
-		hidePartsBut(help);
-
-	}
 	
 }
