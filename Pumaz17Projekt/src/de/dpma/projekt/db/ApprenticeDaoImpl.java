@@ -1,13 +1,16 @@
 package de.dpma.projekt.db;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.sql.ResultSet;
 
 import java.util.ArrayList;
 
 import de.dpma.projekt.models.user.Apprentice;
+import de.dpma.projekt.utils4Code.DateUtil;
 
 public class ApprenticeDaoImpl implements ApprenticeDao {
 
@@ -77,11 +80,44 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 
 
 	@Override
-	public boolean updateApprentice(Apprentice apprentice, String update , String change) throws SQLException {
+	public boolean updateApprentice(Apprentice apprentice, String update , String change) throws SQLException, ParseException {
+		boolean success = false;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_UPDATE);
 
 		prepStat.setString(1, update);
-		prepStat.setString(2, change);
+		
+		switch (update.toLowerCase()) {
+		case "userid":
+		case "jobid":
+		case "yearofemployment":
+		case "house number":
+		case "postalcode":
+			try {
+			int changeYear = Integer.parseInt(change);
+			prepStat.setInt(2, changeYear);
+			success = true;
+			} catch (Exception e) {
+			success = false;
+			}
+		break;
+		
+		case "birthday":
+		case "begin of apprenticeship":
+		case "end of apprenticeship":
+			try {
+			Date changeDate = (Date) DateUtil.formatDate(change);
+			prepStat.setDate(2, changeDate);
+			success = true;
+			} catch (Exception e) {
+			success = false;
+			}
+		break;
+		
+		default:
+			prepStat.setString(2, change);
+			break;
+		}
+		
 		prepStat.setString(3, apprentice.getUsername());
 		
 		prepStat.execute();

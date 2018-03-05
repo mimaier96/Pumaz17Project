@@ -1,11 +1,13 @@
 package de.dpma.projekt.utils4Code;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
+import java.util.Locale;
 
 
 public class DateUtil {
@@ -49,5 +51,12 @@ public class DateUtil {
         return DateUtil.parse(dateString) != null;
     }
     
+    public static Date formatDate(String dateString) throws ParseException {
+    DateFormat format = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
+    Date date = format.parse(dateString);
+    
+    return date;
+    }
+        
 }
 
