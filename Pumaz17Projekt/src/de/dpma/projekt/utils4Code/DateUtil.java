@@ -1,8 +1,11 @@
 package de.dpma.projekt.utils4Code;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Date;
 
 
 public class DateUtil {
@@ -15,7 +18,16 @@ public class DateUtil {
             DateTimeFormatter.ofPattern(DATE_PATTERN);
 
     
-    public static String format(LocalDate date) {
+    public static String format(Date date) {
+    
+    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    String dateText = dateFormat.format(date);
+     
+    return dateText;
+    }
+    
+   /* 
+    	public static String format(LocalDate date) {
         if (date == null) {
             return null;
         }
@@ -36,5 +48,6 @@ public class DateUtil {
         // Parse String
         return DateUtil.parse(dateString) != null;
     }
+    */
 }
 

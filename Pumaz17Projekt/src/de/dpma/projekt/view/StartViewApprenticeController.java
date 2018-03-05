@@ -3,6 +3,8 @@ package de.dpma.projekt.view;
 import de.dpma.projekt.MainApp;
 import de.dpma.projekt.models.ReportBook;
 import de.dpma.projekt.models.User;
+import de.dpma.projekt.models.user.Apprentice;
+import de.dpma.projekt.utils4Code.DateUtil;
 //import de.dpma.projekt.models.user.Apprentice;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,7 +17,7 @@ public class StartViewApprenticeController {
 
 	@FXML
 	private void menuItemLogout() {
-		mainApp.loadScene("view/LoginWindow.fxml", "Anchor", "Anmledung");
+		mainApp.loadScene("view/LoginWindow.fxml", "Anmeldung");
 	}
 
 	@FXML
@@ -31,23 +33,23 @@ public class StartViewApprenticeController {
 	@FXML
 	private Label deploymentLocation;
 
-	// Konstruktor
+	// Construktor
 	public StartViewApprenticeController() {
 	}
 
-	private void showApprenticeDetails(User apprentice) {
+	private void showApprenticeDetails(Apprentice apprentice) {
 		if (apprentice != null) {
 			
 			/**
 			 * TODO von Datenbank Getter setzen
 			 * @author MaSpecter
 			 */
-			nameLabel.;
-			birthdayLabel.;
-			adressLabel.;
-			beginOfEmployment.;
-			endOfEmployment.;
-			deploymentLocation.;
+			nameLabel.setText(apprentice.getFirstname() + " " + apprentice.getLastname());
+			birthdayLabel.setText(DateUtil.format(apprentice.getApprenticeBirthday()));
+			adressLabel.setText(apprentice.getAdressStreetApprentice() + " " + apprentice.getAdressHouseNumberApprentice() + "\n" + apprentice.getAdressPostalCode() + apprentice.getAdressCity());
+			beginOfEmployment.setText(DateUtil.format(apprentice.getBeginOfApprenticeship()));
+			endOfEmployment.setText(DateUtil.format(apprentice.getEndOfApprenticeship()));
+			deploymentLocation.setText(apprentice.getLocationOfDeployment());
 		}
 	}
 

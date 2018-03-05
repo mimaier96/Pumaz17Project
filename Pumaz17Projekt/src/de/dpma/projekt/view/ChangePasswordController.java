@@ -36,7 +36,7 @@ public class ChangePasswordController {
 		PreparedStatement prepStatUp = null; 
 		PreparedStatement prepStatGet = null;
 		ResultSet result = null;
-		String passwordDataBase = null;
+		String passwordDataBase = "";
 		final String GET_USERNAME_PASSWORD = "SELECT Username, Password FROM berichtsheft.user WHERE username = ?";
 		final String UPDATE_PASSWORD = "UPDATE berichtsheft.user SET Password = ? WHERE Username = ?";
 		
@@ -48,13 +48,33 @@ public class ChangePasswordController {
 			passwordDataBase = result.getString("Password");
 		}
 		
-		if(newPassword.getText().equals(newPasswordCheck.getText()) && passwordDataBase.equals(oldPassword.getText())) {
+		// Überprüft ob ein Benutzer eingegeben wurde, falls nicht wird er zurück zum Login geworfen
+		if(username.getText().equals("")) {
+			mainApp.loadScene("view/LoginWindow.fxml", "Übersicht");	
+		}
+		
+		//Überprüft ob der eingegebene User ein Passwort hat, falls nicht Fehlermeldung
+		else if(passwordDataBase.equals("") && !username.getText().equals("")) {
+			
+			Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("Falsche Eingabe!");
+            alert.setHeaderText("Benutzername, Altes Passwort oder Neues Passwort inkorrekt!");
+            alert.setContentText("Bitte versuchen Sie es erneut.");
+
+            alert.showAndWait();
+			log.info("--> Eingabefehler!");
+		}
+		
+		//Überprüft ob alle Daten richtig eingegeben wurde und ändert das Passwort
+		else if(newPassword.getText().equals(newPasswordCheck.getText()) && passwordDataBase.equals(oldPassword.getText())) {
+			
 		prepStatUp = con.prepareStatement(UPDATE_PASSWORD);
 		prepStatUp.setString(1, newPassword.getText());
 		prepStatUp.setString(2, username.getText());
 		prepStatUp.executeUpdate();
 		
-		Alert alert = new Alert(AlertType.WARNING);
+		Alert alert = new Alert(AlertType.INFORMATION);
         alert.initOwner(mainApp.getPrimaryStage());
         alert.setTitle("Passwort ändern.");
         alert.setHeaderText("Passwort geändert!");
@@ -63,7 +83,11 @@ public class ChangePasswordController {
         alert.showAndWait();
         
 		mainApp.loadScene("view/LoginWindow.fxml", "Übersicht");
-		} else {
+		}
+		
+		//Falls eine der EIngaben fehlerhaft ist, wird eine Fehlermeldung ausgegeben
+		else {
+			
 			Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(mainApp.getPrimaryStage());
             alert.setTitle("Falsche Eingabe!");
@@ -73,7 +97,8 @@ public class ChangePasswordController {
             alert.showAndWait();
 			log.info("--> Eingabefehler!");	
 		}
-		log.info("-->Beende: handleSaveButton");	
+		
+			log.info("-->Beende: handleSaveButton");	
 	}
 	
 	@FXML
