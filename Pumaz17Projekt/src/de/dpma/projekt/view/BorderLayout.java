@@ -45,7 +45,7 @@ public class BorderLayout {
 	}
 
 	public BorderLayout() {
-
+		
 
 	}
 
@@ -85,4 +85,5 @@ public class BorderLayout {
 		hidePartsBut(help);
 
 	}
+	
 }
