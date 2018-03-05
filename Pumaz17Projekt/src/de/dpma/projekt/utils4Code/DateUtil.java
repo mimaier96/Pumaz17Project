@@ -34,7 +34,7 @@ public class DateUtil {
         return DATE_FORMATTER.format(date);
     }
 
-   
+   */
     public static LocalDate parse(String dateString) {
         try {
             return DATE_FORMATTER.parse(dateString, LocalDate::from);
@@ -48,6 +48,6 @@ public class DateUtil {
         // Parse String
         return DateUtil.parse(dateString) != null;
     }
-    */
+    
 }
 
