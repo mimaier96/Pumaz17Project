@@ -95,7 +95,7 @@
 				</Label>
 			</children>
 		</GridPane>
-		<Button layoutX="15.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Neues Berichtsheft" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="163.0" />
+		<Button layoutX="15.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleCreateReportBook" prefHeight="25.0" prefWidth="139.0" text="Neues Berichtsheft" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="163.0" />
 		<Button layoutX="15.0" layoutY="204.0" mnemonicParsing="false" text="Berichtsheft bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="204.0" />
       <Label layoutX="1051.2" layoutY="39.0" text="Willkommen" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="39.0">
          <font>

@@ -15,6 +15,7 @@ import de.dpma.projekt.view.AdminViewInstructorController;
 import de.dpma.projekt.view.BorderLayout;
 import de.dpma.projekt.view.ChangePasswordController;
 import de.dpma.projekt.view.LoginWindowController;
+import de.dpma.projekt.view.StartViewApprenticeController;
 import de.dpma.projekt.view.StartViewInstructorController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -87,6 +88,7 @@ public class MainApp extends Application {
 	public void controllerUpdate() {
 		LoginWindowController.setMainApp(this);
 		StartViewInstructorController.setMainApp(this);
+		StartViewApprenticeController.setMainApp(this);
 		AdminViewAddUserController.setMainApp(this);
 		AdminViewAddUserController.setMainApp(this);
 		BorderLayout.setMainApp(this);
