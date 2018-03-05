@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.AdminViewInstructorController">
    <children>
-      <ImageView fitHeight="102.0" fitWidth="213.0" layoutX="14.0" layoutY="25.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
+      <ImageView fitHeight="102.0" fitWidth="213.0" layoutX="14.0" layoutY="25.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="40.0">
          <image>
             <Image url="@../../../../../resource/logo_dpma.png" />
          </image>
@@ -40,5 +40,6 @@
          </font>
       </Label>
       <Label layoutX="1108.0" layoutY="66.0" text="Label" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <Button layoutX="22.0" layoutY="701.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="26.0" prefWidth="72.0" text="zurück" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" />
    </children>
 </AnchorPane>

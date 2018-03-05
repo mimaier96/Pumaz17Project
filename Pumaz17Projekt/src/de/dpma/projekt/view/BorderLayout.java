@@ -41,12 +41,11 @@ public class BorderLayout {
 
 	@FXML
 	private void initialize() {
-		hidePartsBut(help);
+		hidePartsBut(menu);
 	}
 
-
 	public static void setMainApp(MainApp mainApp) {
-		LoginWindowController.mainApp = mainApp;
+		BorderLayout.mainApp = mainApp;
 
 	}
 
@@ -59,5 +58,9 @@ public class BorderLayout {
 
 	}
 
-	
+	@FXML
+	private void logout() {
+		mainApp.loadScene("view/LoginWindow.fxml", "Login");
+	}
+
 }
