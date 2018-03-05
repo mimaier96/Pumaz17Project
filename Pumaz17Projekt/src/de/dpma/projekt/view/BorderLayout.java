@@ -26,33 +26,63 @@ public class BorderLayout {
 	public static MainApp mainApp;
 
 	@FXML
-	private  MenuBar menubar;
-	
-	@FXML private  Menu menu;
-	@FXML private  Menu viewJobs;
-	@FXML private  Menu viewRoles;
-	@FXML private  Menu options;
-	@FXML private  Menu help;
-	
-	
-	
-	
-	@FXML private void initialize() {
-		hidePartsBut(menu);
+	private MenuBar menubar;
+
+	@FXML
+	private Menu menu;
+	@FXML
+	private Menu viewJobs;
+	@FXML
+	private Menu viewRoles;
+	@FXML
+	private Menu options;
+	@FXML
+	private Menu help;
+
+	@FXML
+	private void initialize() {
+		hidePartsBut(help);
+	}
+
+	public BorderLayout() {
+
+
 	}
 
 	public static void setMainApp(MainApp mainApp) {
 		LoginWindowController.mainApp = mainApp;
-		
+
 	}
 
-	
 	public void hidePartsBut(Menu... men) {
-		
-		 menubar.getMenus().clear();
-		 for(Menu m : men) {
-		 menubar.getMenus().addAll(m);}
-		
+
+		menubar.getMenus().clear();
+		for (Menu m : men) {
+			menubar.getMenus().addAll(m);
+		}
+
 	}
-	
+
+	public void layoutLoginWndow() {
+
+		hidePartsBut(help);
+
+	}
+
+	public void layoutStartViewInstructor() {
+
+		hidePartsBut(help);
+
+	}
+	public void layoutAdminViewInstructor() {
+
+		hidePartsBut(help);
+
+	}
+
+	public void layoutGeneral() {
+
+		hidePartsBut(help);
+
+	}
 }

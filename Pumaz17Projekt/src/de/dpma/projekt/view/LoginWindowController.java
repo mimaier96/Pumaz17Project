@@ -65,7 +65,7 @@ public class LoginWindowController {
 			log.info("-->Login erfolgreich!");
 			switch (roleDataBase) {
 			case "apprentice":
-				mainApp.loadScene("view/StartViewApprentice.fxml", "Digitales Berichtsheft");
+				mainApp.loadScene("view/StartViewApprentice.fxml", "Digitales Berichtsheft");			
 			break;
 			case "trainer":
 			case "instructor":
