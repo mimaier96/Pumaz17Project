@@ -22,6 +22,8 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 	private static final String PREPARED_SELECT = "SELECT * FROM berichtsheft.apprentice WHERE username = ?;";
 
 	private static final String PREPARED_UPDATE = "UPDATE berichtsheft.apprentice SET ? = ? WHERE username = ?";
+	
+	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.apprentice WHERE username = ?";
 
 	@Override
 	public Apprentice insertApprentice(Apprentice apprentice) throws SQLException {
@@ -115,22 +117,31 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 		
 		default:
 			prepStat.setString(2, change);
+			success = true;
 			break;
 		}
 		
 		prepStat.setString(3, apprentice.getUsername());
 		
-		prepStat.execute();
+		prepStat.executeUpdate();
 		
 		getApprentice(apprentice);
 		
+		if (success = true) {
+		return true;
+		} else {
 		return false;
+		}
 	}
 
 	@Override
-	public boolean deleteApprentice(String username) {
-
-		return false;
+	public boolean deleteApprentice(String username) throws SQLException {
+		PreparedStatement prepStat = con.prepareStatement(PREPARED_DELETE);
+		prepStat.setString(1, username);
+		
+		prepStat.executeUpdate();
+		
+		return true;
 	}
 
 
