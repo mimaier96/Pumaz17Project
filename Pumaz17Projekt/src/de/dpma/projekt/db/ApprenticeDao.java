@@ -11,12 +11,9 @@ public interface ApprenticeDao {
 	
 	public Apprentice getApprentice(Apprentice apprentice) throws SQLException;
 
-	public ArrayList<Apprentice> insertApprentice(ArrayList<Apprentice> apprentices);
+	public boolean updateApprentice(Apprentice apprentice, String update, String change) throws SQLException;
 
-	public boolean updateApprentice(Apprentice apprentice);
-	
 	public boolean deleteApprentice(String username);
-	
-	public ArrayList<Apprentice> allApprentices();
+
 		
 }

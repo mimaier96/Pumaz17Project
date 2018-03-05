@@ -18,6 +18,7 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 	
 	private static final String PREPARED_SELECT = "SELECT * FROM berichtsheft.apprentice WHERE username = ?;";
 
+	private static final String PREPARED_UPDATE = "UPDATE berichtsheft.apprentice SET ? = ? WHERE username = ?";
 
 	@Override
 	public Apprentice insertApprentice(Apprentice apprentice) throws SQLException {
@@ -73,16 +74,20 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 			}
 		return apprentice;
 	}
-	
-	@Override
-	public ArrayList<Apprentice> insertApprentice(ArrayList<Apprentice> apprentices) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
-	public boolean updateApprentice(Apprentice apprentice) {
+	public boolean updateApprentice(Apprentice apprentice, String update , String change) throws SQLException {
+		PreparedStatement prepStat = con.prepareStatement(PREPARED_UPDATE);
 
+		prepStat.setString(1, update);
+		prepStat.setString(2, change);
+		prepStat.setString(3, apprentice.getUsername());
+		
+		prepStat.execute();
+		
+		getApprentice(apprentice);
+		
 		return false;
 	}
 
@@ -92,11 +97,6 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 		return false;
 	}
 
-	@Override
-	public ArrayList<Apprentice> allApprentices() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 
