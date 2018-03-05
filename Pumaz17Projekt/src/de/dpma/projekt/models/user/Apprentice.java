@@ -11,7 +11,7 @@ public class Apprentice extends User {
 
 	private int job_id; //Ausbildungsberuf
 	private int user_id;
-	private User instructor; //Ausbildungsleiter/in
+	private String instructor; //Ausbildungsleiter/in
 	
 	private int yearOfEmployment; //Ausbildungsjahr, in dem sich der Azubi befindet
 	private Date apprenticeBirthday; //Geburtstag
@@ -25,7 +25,7 @@ public class Apprentice extends User {
 
 
 	public Apprentice( String firstname, String lastname, String username, String password, String role,
-			String email, int job_id, User instructor, int yearOfEmployment, Date apprenticeBirthday,
+			String email, int job_id, String instructor, int yearOfEmployment, Date apprenticeBirthday,
 			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
 			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
 		super( firstname, lastname, username, password, role, email);
@@ -44,7 +44,7 @@ public class Apprentice extends User {
 
 
 	public Apprentice(int id, String firstname, String lastname, String username, String password, String role,
-			String email, int job_id, User instructor, int yearOfEmployment, Date apprenticeBirthday,
+			String email, int job_id, String instructor, int yearOfEmployment, Date apprenticeBirthday,
 			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
 			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
 		super(id, firstname, lastname, username, password, role, email);
@@ -88,12 +88,12 @@ public class Apprentice extends User {
 		return rb;
 	}
 
-	public User getInstructor() {
+	public String getInstructor() {
 		return instructor;
 	}
 
 
-	public void setInstructor(User instructor) {
+	public void setInstructor(String instructor) {
 		this.instructor = instructor;
 	}
 
