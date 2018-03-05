@@ -9,7 +9,7 @@ import de.dpma.projekt.models.User;
 
 public class Apprentice extends User {
 
-	private String job; //Ausbildungsberuf
+	private int job_id; //Ausbildungsberuf
 	private int user_id;
 	private User instructor; //Ausbildungsleiter/in
 	
@@ -25,11 +25,11 @@ public class Apprentice extends User {
 
 
 	public Apprentice( String firstname, String lastname, String username, String password, String role,
-			String email, String job, User instructor, int yearOfEmployment, Date apprenticeBirthday,
+			String email, int job_id, User instructor, int yearOfEmployment, Date apprenticeBirthday,
 			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
 			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
 		super( firstname, lastname, username, password, role, email);
-		this.job = job;
+		this.job_id = job_id;
 		this.instructor = instructor;
 		this.yearOfEmployment = yearOfEmployment;
 		this.apprenticeBirthday = apprenticeBirthday;
@@ -44,11 +44,11 @@ public class Apprentice extends User {
 
 
 	public Apprentice(int id, String firstname, String lastname, String username, String password, String role,
-			String email, String job, User instructor, int yearOfEmployment, Date apprenticeBirthday,
+			String email, int job_id, User instructor, int yearOfEmployment, Date apprenticeBirthday,
 			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
 			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
 		super(id, firstname, lastname, username, password, role, email);
-		this.job = job;
+		this.job_id = job_id;
 		this.user_id = id;
 		this.instructor = instructor;
 		this.yearOfEmployment = yearOfEmployment;
@@ -62,21 +62,31 @@ public class Apprentice extends User {
 		this.endOfApprenticeship = endOfApprenticeship;
 	}
 	
+	public int getJob_id() {
+		return job_id;
+	}
+
+
+	public void setJob_id(int job_id) {
+		this.job_id = job_id;
+	}
+
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+
 	public ReportBook createReportBook( Date dateA, Date dateE) {
 		//Differenzierung zwischen Daily und Weekly
-		ReportBook rb = new ReportBook(this.user_id,this.job, dateA, dateE);
+		ReportBook rb = new ReportBook(this.user_id,this.job_id, dateA, dateE);
 		return rb;
 	}
-
-	public String getJob() {
-		return job;
-	}
-
-
-	public void setJob(String job) {
-		this.job = job;
-	}
-
 
 	public User getInstructor() {
 		return instructor;
