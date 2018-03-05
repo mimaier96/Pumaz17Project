@@ -18,8 +18,6 @@ public class UserDaoImplementation implements UserDao {
 
 	private Connection con = DatabaseConnection.getInstance();
 
-
-
 	/**
 	 * SQL Statement Strings
 	 * 
@@ -30,50 +28,45 @@ public class UserDaoImplementation implements UserDao {
 	private final static String PREPARED_SELECT_USER = "SELECT id, firstname, lastname, username, password, role, email FROM user WHERE id = ?";
 	private final static String PREPARED_INSERT_APPRENTICE = "INSERT INTO user (firstname, lastname, username, password, role, email) VALUES (?,?,?,Anfang12,?,?); INSERT INTO apprentice (job, instructor, YearOfEmployment, birthday, street, house number, postal code, city, location of deployment, Begin of apprenticeship, End of apprenticeship) VALUES(?,?,?,?,?,?,?,?,?,?,?);";
 
+	private Stage dialogStage;
+
+	
+	String roleDataBase = null;
+	PreparedStatement prepStat = null;
+	
+	public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+	
+
 	@Override
 	public Apprentice insertApprentice(Apprentice apprentice) throws SQLException {
 
 		/**
 		 * Daten in Datenbank schreiben Reihenfolge: firstname, lastname, username,
-		 * password, role, email 
+		 * password, role, email
 		 * 
 		 * @author MaSpecter
 		 */
 
-		String generatedColumns[] = { "ID" };
-		PreparedStatement preparedApprenticeInsert = con.prepareStatement(PREPARED_INSERT_USER, generatedColumns);
-
-		try {
-
-			preparedApprenticeInsert.setString(1, apprentice.getFirstname());
-			preparedApprenticeInsert.setString(2, apprentice.getLastname());
-			preparedApprenticeInsert.setString(3, apprentice.getUsername());
-			// preparedApprenticeInsert.setString(4, apprentice.getPassword());
-			preparedApprenticeInsert.setString(5, apprentice.getRole());
-			preparedApprenticeInsert.setString(6, apprentice.getEmail());
-		} catch (Exception e) {
-			preparedApprenticeInsert.setString(1, null);
-			preparedApprenticeInsert.setString(2, null);
-			preparedApprenticeInsert.setString(3, null);
-			// preparedApprenticeInsert.setString(4, null);
-			preparedApprenticeInsert.setString(5, null);
-			preparedApprenticeInsert.setString(6, null);
-		}
-
-		// NUR bei Azubi
-
-		/**
-		 * Reihenfolge: job, instructor, YearOfEmployment, birthday, street, house
-		 * number, postal code, city, location of deployment, Begin of apprenticeship,
-		 * End of apprenticeship
-		 * 
-		 * @author MaSpecter
-		 */
-
-	
-
+		
+//Getter aus User List, der das Dropdown abfrägt
+		switch (roleDataBase) {
+		case "apprentice":
+			
+			String generatedColumns[] = { "ID" };
+			PreparedStatement preparedApprenticeInsert = con.prepareStatement(PREPARED_INSERT_APPRENTICE, generatedColumns);
+		
+			
 			try {
 
+				preparedApprenticeInsert.setString(1, apprentice.getFirstname());
+				preparedApprenticeInsert.setString(2, apprentice.getLastname());
+				preparedApprenticeInsert.setString(3, apprentice.getUsername());
+				// preparedApprenticeInsert.setString(4, apprentice.getPassword());
+				preparedApprenticeInsert.setString(5, apprentice.getRole());
+				preparedApprenticeInsert.setString(6, apprentice.getEmail());
+				
 				preparedApprenticeInsert.setString(7, apprentice.getJob());
 				preparedApprenticeInsert.setString(8,
 						(apprentice.getInstructor().getFirstname() + " " + apprentice.getInstructor().getLastname()));
@@ -86,6 +79,13 @@ public class UserDaoImplementation implements UserDao {
 				preparedApprenticeInsert.setDate(15, apprentice.getBeginOfApprenticeship());
 				preparedApprenticeInsert.setDate(15, apprentice.getEndOfApprenticeship());
 			} catch (Exception e) {
+				preparedApprenticeInsert.setString(1, null);
+				preparedApprenticeInsert.setString(2, null);
+				preparedApprenticeInsert.setString(3, null);
+				// preparedApprenticeInsert.setString(4, null);
+				preparedApprenticeInsert.setString(5, null);
+				preparedApprenticeInsert.setString(6, null);
+				
 				preparedApprenticeInsert.setString(7, null);
 				preparedApprenticeInsert.setString(8, null);
 				preparedApprenticeInsert.setInt(9, (Integer) null);
@@ -96,29 +96,78 @@ public class UserDaoImplementation implements UserDao {
 				preparedApprenticeInsert.setString(14, null);
 				preparedApprenticeInsert.setDate(15, null);
 				preparedApprenticeInsert.setDate(15, null);
+				
+				Alert alert = new Alert(AlertType.ERROR);
+	            alert.initOwner(dialogStage);
+	            alert.setTitle("Fehler bei der Datenübermittlung");
+	            alert.setHeaderText("Fehler bei der Datenübermittlung!");
+	            alert.setContentText("Bitte versuchen Sie es erneut, oder überprüfen Ihre Internetverbindung.");
+
+	            alert.showAndWait();
 			}
-		
+			
+			
+			preparedApprenticeInsert.execute();
 
-		preparedApprenticeInsert.execute();
+			ResultSet resSetA = preparedApprenticeInsert.getGeneratedKeys();
+			
+			if (resSetA.next()) {
+				int id = (int) resSetA.getLong(1);
+				apprentice.setId(id);
+			}
+			
+			break;
+		case "instructor":
+		case "trainer":
+			
+			String generatedColumnsU[] = { "ID" };
+			PreparedStatement preparedUserInsert = con.prepareStatement(PREPARED_INSERT_USER, generatedColumnsU);
+			
+			try {
 
-		ResultSet resSet = preparedApprenticeInsert.getGeneratedKeys();
+				preparedUserInsert.setString(1, apprentice.getFirstname());
+				preparedUserInsert.setString(2, apprentice.getLastname());
+				preparedUserInsert.setString(3, apprentice.getUsername());
+				// preparedApprenticeInsert.setString(4, apprentice.getPassword());
+				preparedUserInsert.setString(5, apprentice.getRole());
+				preparedUserInsert.setString(6, apprentice.getEmail());
+			} catch (Exception e) {
+				preparedUserInsert.setString(1, null);
+				preparedUserInsert.setString(2, null);
+				preparedUserInsert.setString(3, null);
+				// preparedApprenticeInsert.setString(4, null);
+				preparedUserInsert.setString(5, null);
+				preparedUserInsert.setString(6, null);
+				
+				Alert alert = new Alert(AlertType.ERROR);
+	            alert.initOwner(dialogStage);
+	            alert.setTitle("Fehler bei der Datenübermittlung");
+	            alert.setHeaderText("Fehler bei der Datenübermittlung!");
+	            alert.setContentText("Bitte versuchen Sie es erneut, oder überprüfen Ihre Internetverbindung.");
 
-		if (resSet.next()) {
-			int id = (int) resSet.getLong(1);
-			apprentice.setId(id);
+	            alert.showAndWait();
+			}
+			
+			preparedUserInsert.execute();
+
+			ResultSet resSetU = preparedUserInsert.getGeneratedKeys();
+			
+			if (resSetU.next()) {
+				int id = (int) resSetU.getLong(1);
+				apprentice.setId(id);
+			}
+			
+			break;
+		default:
+			break;
 		}
 
+		
 		return apprentice;
 	}
 
-	
-
-	
-
-	
-
 	public Instructor getInstructor(int id) {
-		// TODO ausbessern
+		// TODO ergänzen
 		return null;
 	}
 
