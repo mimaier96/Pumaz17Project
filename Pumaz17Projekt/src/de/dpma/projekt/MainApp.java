@@ -97,14 +97,7 @@ public class MainApp extends Application {
 		return primaryStage;
 
 	}
-
-	public User getLoggedInUser() {
-		return loggedInUser;
-	}
-
-	public void setLoggedInUser(User loggedInUser) {
-		this.loggedInUser = loggedInUser;
-	}
+	
 
 	public static void setTemporaryDataBase() {
 

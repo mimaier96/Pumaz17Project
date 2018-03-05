@@ -295,9 +295,7 @@ public class AdminViewAddUserController {
 		roles.add("Ausbilder");
 		roleComboBox.setItems(roles);
 		roleComboBox.setValue("Bitte wählen ...");
-		// Weglassen, wenn Dao komplett
-
-//		gpApprentice.clearConstraints(all);
+		isApprentice();
 	}
 
 	public static void setMainApp(MainApp mainApp) {
@@ -313,15 +311,14 @@ public class AdminViewAddUserController {
 	
 	@FXML
 	private void isApprentice() {
-		
 		if(roleComboBox.getValue().equals("Azubi") ==false) {
-			
-//			gpApprentice.setVisible(false);
+
+			gpApprentice.setVisible(false);
 			
 			
 		}
 		else {
-//			gpApprentice.setVisible(true);
+			gpApprentice.setVisible(true);
 			
 		}
 		
