@@ -258,7 +258,7 @@ public class AdminViewAddUserController {
 
 	@FXML
 	private void handleCancel() {
-		dialogStage.close();
+		mainApp.loadScene("view/AdminViewInstructor.fxml", "");
 	}
 	
 	@FXML
