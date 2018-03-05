@@ -15,10 +15,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class AdminViewAddUserController {
@@ -38,14 +40,16 @@ public class AdminViewAddUserController {
 	 * 'Anfang12' gesetzt wird
 	 */
 
-	@FXML
-	private TextField passwordField;
+//	@FXML
+//	private TextField passwordField;
 
 	// Dropdown Role
 	@FXML
 	private ComboBox<String> roleComboBox;
 	@FXML
 	private TextField emailField;
+	@FXML
+	private Button fileUploadButton;
 
 	// Nur bei Azubi
 
@@ -118,9 +122,11 @@ public class AdminViewAddUserController {
 			errorMessage += "Kein gültiger Benutzername!\n";
 		}
 
-		if (passwordField.getText() == null || passwordField.getText().length() == 0) {
-			errorMessage += "Kein gültiges Passwort!\n";
-		}
+		// hier nicht nötig
+		
+//		if (passwordField.getText() == null || passwordField.getText().length() == 0) {
+//			errorMessage += "Kein gültiges Passwort!\n";
+//		}
 
 		// Variablen zur Überprüfung, ob Email '@ und .' enthält
 		String eMCs = "@.";
@@ -134,7 +140,7 @@ public class AdminViewAddUserController {
 
 		boolean isEmailCorrect = emailField.getText().contains(emailMustChars);
 		if (emailField.getText() == null || emailField.getText().length() == 0) {
-			errorMessage += "Keine gültige E-Mail Adresse!\\n";
+			errorMessage += "Bitte geben Sie eine E-Mail Adresse an!\\n";
 		} else if (isEmailCorrect == false) {
 			errorMessage += "Keine gültige E-Mail Adresse!\\n";
 		}
@@ -175,7 +181,7 @@ public class AdminViewAddUserController {
 
 		// Überprüft, ob die Eingabe eine fünfstellige Ganzzahl ist
 		if (postalCodeField.getText() == null || postalCodeField.getText().length() != 5) {
-			errorMessage += "Keine gültige Postleitzahl!\\n";
+			errorMessage += "Bitte geben Sie eine Postleitzahl ein!\\n";
 		} else {
 			try {
 				/**
@@ -254,6 +260,13 @@ public class AdminViewAddUserController {
 	private void handleCancel() {
 		dialogStage.close();
 	}
+	
+	@FXML
+	private void handleFileUpload() {
+		FileChooser chooser = new FileChooser();
+		chooser.setTitle("Unterschrift hochladen");
+		chooser.showOpenDialog(fileUploadButton.getScene().getWindow());
+	}
 
 	/**
 	 * Initialisiert diese Controller Klasse. Methode wird nach laden des
@@ -266,7 +279,11 @@ public class AdminViewAddUserController {
 
 		ObservableList<String> instructors = FXCollections.observableArrayList(UserList.getInstructors());
 		instructorComboBox.setItems(instructors);
-		instructorComboBox.setValue("Bitte wählen ...");
+		
+		/**
+		 * TODO Wieder frei kommentieren, sobald DB handling gemacht
+		 */
+//		instructorComboBox.setValue(instructors.get(0));
 
 		ObservableList<String> jobs = FXCollections.observableArrayList(JobList.getJobs());
 		jobComboBox.setItems(jobs);
@@ -280,7 +297,7 @@ public class AdminViewAddUserController {
 		roleComboBox.setValue("Bitte wählen ...");
 		// Weglassen, wenn Dao komplett
 
-		gpApprentice.clearConstraints(all);
+//		gpApprentice.clearConstraints(all);
 	}
 
 	public static void setMainApp(MainApp mainApp) {
@@ -299,12 +316,12 @@ public class AdminViewAddUserController {
 		
 		if(roleComboBox.getValue().equals("Azubi") ==false) {
 			
-			gpApprentice.setVisible(false);
+//			gpApprentice.setVisible(false);
 			
 			
 		}
 		else {
-			gpApprentice.setVisible(true);
+//			gpApprentice.setVisible(true);
 			
 		}
 		
