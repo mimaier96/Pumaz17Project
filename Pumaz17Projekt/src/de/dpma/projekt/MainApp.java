@@ -51,23 +51,23 @@ public class MainApp extends Application {
 
 	}
 
-	public void initBorderLayout() {
-		try {
-//			FXMLLoader loader = new FXMLLoader();
-//			loader.setLocation(MainApp.class.getResource("view/MenuFull.fxml"));
-//			borderLayout = (BorderPane) loader.load();
-			borderLayout = new BorderPane();
-			scene = new Scene(borderLayout);
-			this.primaryStage.setTitle("Login");
-			this.primaryStage.setScene(scene);
-			this.primaryStage.show();
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+//	public void initBorderLayout() {
+//		try {
+////			FXMLLoader loader = new FXMLLoader();
+////			loader.setLocation(MainApp.class.getResource("view/MenuFull.fxml"));
+////			borderLayout = (BorderPane) loader.load();
+//			borderLayout = new BorderPane();
+//			scene = new Scene(borderLayout);
+//			this.primaryStage.setTitle("Login");
+//			this.primaryStage.setScene(scene);
+//			this.primaryStage.show();
+//
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 	public void loadScene(String path, String title) {
 		try {
