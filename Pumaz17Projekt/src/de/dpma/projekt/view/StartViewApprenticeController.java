@@ -14,6 +14,10 @@ import javafx.scene.control.Label;
 public class StartViewApprenticeController {
 
 	public static MainApp mainApp;
+	
+	//Für nameTag
+	private static String firstName;
+	private static String lastName;
 
 	@FXML
 	private void menuItemLogout() {
@@ -33,8 +37,10 @@ public class StartViewApprenticeController {
 	private Label endOfEmployment;
 	@FXML
 	private Label deploymentLocation;
+	@FXML
+	private Label nameTag;
 
-	// Construktor
+	// Constructor
 	public StartViewApprenticeController() {
 	}
 
@@ -56,6 +62,8 @@ public class StartViewApprenticeController {
 
 	@FXML
 	private void handleCreateReportBook() {
+		
+		mainApp.loadScene("view/ReportBookWeekly.fxml", "");
 
 	}
 
@@ -84,6 +92,17 @@ public class StartViewApprenticeController {
         }
 		
 	}
+	
+	@FXML
+	private void initialize() {
+		nameTag.setText(firstName + " " + lastName);
+	}
+	
+	//setzt das nameTag
+		public static void setNameTag(String userFirstName, String userLastName) {
+			firstName = userFirstName;
+			lastName = userLastName;	
+		}
 
 	public static void setMainApp(MainApp mainApp) {
 		StartViewApprenticeController.mainApp = mainApp;

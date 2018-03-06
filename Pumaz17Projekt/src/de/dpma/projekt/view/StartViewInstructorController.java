@@ -1,9 +1,18 @@
 package de.dpma.projekt.view;
 
 import de.dpma.projekt.MainApp;
+import de.dpma.projekt.models.User;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class StartViewInstructorController {
+	
+	@FXML
+	private Label nameTag;
+	
+	private static String firstName;
+	private static String lastName;
+	
 
 	public static MainApp mainApp;
 
@@ -20,7 +29,7 @@ public class StartViewInstructorController {
 
 	@FXML
 	private void initialize() {
-
+		nameTag.setText(firstName + " " + lastName);
 	}
 
 	public StartViewInstructorController() {
@@ -56,5 +65,11 @@ public class StartViewInstructorController {
 	public static void setMainApp(MainApp mainApp) {
 		StartViewInstructorController.mainApp = mainApp;
 
+	}
+
+	public static void setNameTag(String userFirstName, String userLastName) {
+		firstName = userFirstName;
+		lastName = userLastName;
+		
 	}
 }

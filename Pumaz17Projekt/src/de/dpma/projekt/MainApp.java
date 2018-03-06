@@ -22,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
@@ -87,27 +88,68 @@ public class MainApp extends Application {
 
 	}
 	
-	public void loadBorder(String path, String title) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource(path));
+	
+	public boolean showUserAddDialog() {
+        try {
+            
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/AdminViewAddUser.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
 
-				borderLayout = (BorderPane) loader.load();
-				
-			
-//			this.primaryStage.setTitle(title);
+            
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Benutzer hinzufügen");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
 
-				scene = new Scene(borderLayout);
-				this.primaryStage.setScene(scene);
-//			this.borderLayout.setTop(anchor);
-			this.primaryStage.show();
+             
+            AdminViewAddUserController addUserController = loader.getController();
+            addUserController.setDialogStage(dialogStage);
+            addUserController.addUserData();
 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
 
-	}
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+	
+	
+	public boolean showUserEditDialog(User user) {
+        try {
+            
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/AdminViewAddUser.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Benutzer bearbeiten");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+             
+            AdminViewAddUserController addUserController = loader.getController();
+            addUserController.setDialogStage(dialogStage);
+            addUserController.setUserData(user);
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+	
 
 	public void controllerUpdate() {
 		LoginWindowController.setMainApp(this);

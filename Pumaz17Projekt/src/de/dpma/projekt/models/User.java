@@ -1,90 +1,95 @@
-package de.dpma.projekt.models;
+package models;
+
+import javafx.beans.property.StringProperty;
 
 public class User {
 
-	private String firstname, lastname, username, password, role, email;
+	private StringProperty firstname, lastname, username, password, role, email;
 	private int id;
 
 	//Dieser Konstruktor wird aus der Datenbank ausgeführt
 	public User(int id, String firstname, String lastname, String username, String password, String role,
 			String email) {
 		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.username = username;
-		this.password = password;
-		this.role = role;
-		this.email = email;
+		this.firstname.set(firstname);
+		this.lastname.set(lastname);
+		this.username.set(username);
+		this.password.set(password);
+		this.role.set(role);
+		this.email.set(email);
 		this.id = id;
 	}
 	//Dieser Konstruktor wird aus der Datenbank ausgeführt - keine ID wird erzeugt, da diese in der DB automatisch hinzugefügt wird
 	public User(String firstname, String lastname, String username, String password, String role,
 			String email) {
 		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.username = username;
-		this.password = password;
-		this.role = role;
-		this.email = email;
+		this.firstname.set(firstname);
+		this.lastname.set(lastname);
+		this.username.set(username);
+		this.password.set(password);
+		this.role.set(role);
+		this.email.set(email);
 	}
-
-	
-	
-	public String getFirstname() {
+	public StringProperty userFirstNameProperty() {
 		return firstname;
 	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	
+	public String getFirstname(){
+		return firstname.get();
 	}
-
-	public String getLastname() {
+	public void setFirstName(String firstName) {
+		this.firstname.set(firstName);
+	}
+	
+	public StringProperty userLastNameProperty() {
 		return lastname;
 	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	
+	public String getLastname(){
+		return firstname.get();
 	}
-
-	public String getUsername() {
+	public void setLastName(String lastname) {
+		this.lastname.set(lastname);
+	}
+	public StringProperty userUsernameProperty() {
 		return username;
 	}
-
-	public void setUsername(String username) {
-		this.username = username;
+	
+	public String getUsername(){
+		return username.get();
 	}
-
-	public String getPassword() {
+	public void setUsername(String username) {
+		this.username.set(username);
+	}
+	public StringProperty userPasswordProperty() {
 		return password;
 	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	
+	public String getPassword(){
+		return password.get();
 	}
-
-	public String getRole() {
+	public void setPassword(String password) {
+		this.password.set(password);
+	}
+	public StringProperty userRoleProperty() {
 		return role;
 	}
-
-	public void setRole(String role) {
-		this.role = role;
+	
+	public String getRole(){
+		return role.get();
 	}
-
-	public String getEmail() {
+	public void setRole(String role) {
+		this.role.set(role);
+	}
+	public StringProperty userEmailProperty() {
 		return email;
 	}
-
+	
+	public String getEmail(){
+		return email.get();
+	}
 	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		this.email.set(email);
 	}
 
 }

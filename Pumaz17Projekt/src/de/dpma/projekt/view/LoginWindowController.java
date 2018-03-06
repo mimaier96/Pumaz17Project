@@ -38,10 +38,14 @@ public class LoginWindowController {
 	@FXML
 	private void handleLoginButton() throws SQLException {
 		log.info("-->Starte: handleLogin");
-		final String GET_USERNAME_PASSWORD_ROLE = "SELECT Username, Password, Role FROM User WHERE Username = '" + username.getText() + "'" ;
+		final String GET_USERNAME_PASSWORD_ROLE = "SELECT Firstname, Lastname, Username, Password, Role FROM User WHERE Username = '" + username.getText() + "'" ;
 		String usernameDataBase = null;
 		String passwordDataBase = null;
 		String roleDataBase = null;
+		
+		//Für nameTag @author MaSpecter
+		String userFirstName = null, userLastName = null;
+		
 		ResultSet result = null;
 		PreparedStatement prepStat = null;
 		
@@ -53,9 +57,14 @@ public class LoginWindowController {
 			passwordDataBase = result.getString("Password");
 			usernameDataBase = result.getString("Username");
 			roleDataBase = result.getString("Role").toLowerCase();
+			
+			//für nameTag
+			userFirstName = result.getString("Firstname");
+			userLastName = result.getString("Lastname");
 			}
 			}catch(Exception e){
 			} 
+	
 		
 		if(username.getText().equals(usernameDataBase) && password.getText().equals(passwordDataBase)
 		   || username.getText().equals("Admin") && password.getText().equals("Anfang12")) {
@@ -65,10 +74,14 @@ public class LoginWindowController {
 			log.info("-->Login erfolgreich!");
 			switch (roleDataBase) {
 			case "apprentice":
+				//setzt nameTag
+				StartViewApprenticeController.setNameTag(userFirstName, userLastName);
 				mainApp.loadScene("view/StartViewApprentice.fxml", "Digitales Berichtsheft");			
 			break;
 			case "trainer":
 			case "instructor":
+				//setzt nameTag
+				StartViewInstructorController.setNameTag(userFirstName, userLastName);
 				mainApp.loadScene("view/StartViewInstructor.fxml", "Ausbildungsleiter/in");
 			break;
 			}	
