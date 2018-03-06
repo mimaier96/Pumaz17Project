@@ -103,6 +103,7 @@ public class ChangePasswordController {
 	
 	@FXML
 	private void handleCancelButton() {
+		
 		mainApp.loadBorder("view/MenuPart4.fxml", "title");
 		mainApp.loadScene("view/LoginWindow.fxml", "Login");
 	}
