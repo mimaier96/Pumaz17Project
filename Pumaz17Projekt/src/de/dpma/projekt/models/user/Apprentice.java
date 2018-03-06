@@ -84,7 +84,7 @@ public class Apprentice extends User {
 
 	public ReportBook createReportBook( Date dateA, Date dateE) {
 		//Differenzierung zwischen Daily und Weekly
-		ReportBook rb = new ReportBook(this.user_id,this.job_id, dateA, dateE);
+		ReportBook rb = new ReportBook(???, this.user_id, this.job_id, dateA, dateE);
 		return rb;
 	}
 

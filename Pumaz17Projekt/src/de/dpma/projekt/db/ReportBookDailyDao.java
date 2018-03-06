@@ -1,18 +1,21 @@
 package de.dpma.projekt.db;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 
 import de.dpma.projekt.models.ReportBook;
+import de.dpma.projekt.models.reportBook.ReportBookDaily;
 
 public interface ReportBookDailyDao {
 
-	public ReportBook insertReportBookDaily(ReportBook rb) throws SQLException;
+	public ReportBook insertReportBookDaily(ReportBookDaily rb) throws SQLException, FileNotFoundException;
 	
-	public ReportBook getReportBookDaily(ReportBook rb) throws SQLException;
+	public ReportBook getReportBookDaily(ReportBookDaily rb) throws SQLException;
+	
+	public boolean updateReportBookDaily(ReportBookDaily rb, String update, String change) throws SQLException, ParseException;
 
-	public boolean updateReportBookDaily(ReportBook rb, String update, String change) throws SQLException, ParseException;
-
-	public boolean deleteReportBookDaily(String username) throws SQLException;
+	public boolean deleteReportBookDaily(int apprenticeId, int number) throws SQLException;
 	
 }

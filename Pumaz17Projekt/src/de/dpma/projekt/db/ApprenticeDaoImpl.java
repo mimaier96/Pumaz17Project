@@ -93,8 +93,8 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 		case "house number":
 		case "postalcode":
 			try {
-			int changeYear = Integer.parseInt(change);
-			prepStat.setInt(2, changeYear);
+			int changeInt = Integer.parseInt(change);
+			prepStat.setInt(2, changeInt);
 			success = true;
 			} catch (Exception e) {
 			success = false;
