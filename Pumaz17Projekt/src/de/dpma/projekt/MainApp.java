@@ -88,6 +88,27 @@ public class MainApp extends Application {
 
 	}
 	
+	public void loadBorder(String path, String title) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource(path));
+
+				borderLayout = (BorderPane) loader.load();
+				
+			
+//			this.primaryStage.setTitle(title);
+
+				scene = new Scene(borderLayout);
+				this.primaryStage.setScene(scene);
+//			this.borderLayout.setTop(anchor);
+			this.primaryStage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 	
 	public boolean showUserAddDialog() {
         try {
