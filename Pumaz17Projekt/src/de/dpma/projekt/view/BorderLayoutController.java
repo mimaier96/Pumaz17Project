@@ -21,7 +21,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 
-public class BorderLayout {
+public class BorderLayoutController {
 
 	public static MainApp mainApp;
 
@@ -41,11 +41,11 @@ public class BorderLayout {
 
 	@FXML
 	private void initialize() {
-		hidePartsBut(menu);
+//		hidePartsBut(menu);
 	}
 
 	public static void setMainApp(MainApp mainApp) {
-		BorderLayout.mainApp = mainApp;
+		BorderLayoutController.mainApp = mainApp;
 
 	}
 

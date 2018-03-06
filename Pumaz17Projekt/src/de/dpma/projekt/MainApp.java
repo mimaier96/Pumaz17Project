@@ -12,7 +12,7 @@ import de.dpma.projekt.models.util.UserList;
 import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewInstructorController;
-import de.dpma.projekt.view.BorderLayout;
+import de.dpma.projekt.view.BorderLayoutController;
 import de.dpma.projekt.view.ChangePasswordController;
 import de.dpma.projekt.view.LoginWindowController;
 import de.dpma.projekt.view.StartViewApprenticeController;
@@ -34,9 +34,13 @@ public class MainApp extends Application {
 	public void start(Stage primaryStage) {
 
 		this.primaryStage = primaryStage;
-		initBorderLayout();
+//		initBorderLayout();
+		loadBorder("view/MenuFull.fxml", "title");
 		loadScene("view/LoginWindow.fxml", "Login");
+
+		loadBorder("view/MenuPart4.fxml", "title");
 		controllerUpdate();
+		
 	}
 
 	public static void main(String[] args) {
@@ -49,15 +53,16 @@ public class MainApp extends Application {
 
 	public void initBorderLayout() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/BorderLayout.fxml"));
-			borderLayout = (BorderPane) loader.load();
+//			FXMLLoader loader = new FXMLLoader();
+//			loader.setLocation(MainApp.class.getResource("view/MenuFull.fxml"));
+//			borderLayout = (BorderPane) loader.load();
+			borderLayout = new BorderPane();
 			scene = new Scene(borderLayout);
 			this.primaryStage.setTitle("Login");
 			this.primaryStage.setScene(scene);
 			this.primaryStage.show();
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -70,11 +75,33 @@ public class MainApp extends Application {
 			loader.setLocation(MainApp.class.getResource(path));
 
 				AnchorPane anchor = (AnchorPane) loader.load();
-				
+				System.out.println("dddd");
 			
 //			this.primaryStage.setTitle(title);
 			this.borderLayout.setCenter(anchor);
 //			this.primaryStage.show();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	public void loadBorder(String path, String title) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource(path));
+
+				borderLayout = (BorderPane) loader.load();
+				
+			
+//			this.primaryStage.setTitle(title);
+
+				scene = new Scene(borderLayout);
+				this.primaryStage.setScene(scene);
+//			this.borderLayout.setTop(anchor);
+			this.primaryStage.show();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -89,7 +116,7 @@ public class MainApp extends Application {
 		StartViewApprenticeController.setMainApp(this);
 		AdminViewAddUserController.setMainApp(this);
 		AdminViewAddUserController.setMainApp(this);
-		BorderLayout.setMainApp(this);
+		BorderLayoutController.setMainApp(this);
 		ChangePasswordController.setMainApp(this);
 		AdminViewInstructorController.setMainApp(this);
 	}

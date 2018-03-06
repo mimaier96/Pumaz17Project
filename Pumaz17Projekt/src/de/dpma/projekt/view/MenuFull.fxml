@@ -5,33 +5,24 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
-
-<BorderPane prefHeight="750.0" prefWidth="1200.0"
-	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+<BorderPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.BorderLayoutController">
 	<top>
 		<MenuBar fx:id="menubar" BorderPane.alignment="CENTER">
 			<menus>
 				<Menu fx:id="menu" mnemonicParsing="false" text="Menü">
 					<items>
-						<MenuItem mnemonicParsing="false" onAction="#logout"
-							text="Abmelden" />
+						<MenuItem mnemonicParsing="false" onAction="#logout" text="Abmelden" />
 					</items>
 				</Menu>
 				<Menu fx:id="viewJobs" mnemonicParsing="false" text="Ausbildungsberufe">
 					<items>
-						<MenuItem mnemonicParsing="false"
-							text="Verwaltungsfachangestellte / -r, Fachrichtung Bundesverwaltung" />
-						<MenuItem mnemonicParsing="false"
-							text="Fachinformatiker / - in, Fachrichtung Anwendungsentwicklung" />
-						<MenuItem mnemonicParsing="false"
-							text="Fachinformatiker / - in, Fachrichtung Systemintegration" />
+						<MenuItem mnemonicParsing="false" text="Verwaltungsfachangestellte / -r, Fachrichtung Bundesverwaltung" />
+						<MenuItem mnemonicParsing="false" text="Fachinformatiker / - in, Fachrichtung Anwendungsentwicklung" />
+						<MenuItem mnemonicParsing="false" text="Fachinformatiker / - in, Fachrichtung Systemintegration" />
 						<MenuItem mnemonicParsing="false" text="Tischer / -in" />
-						<MenuItem mnemonicParsing="false"
-							text="Elektroniker / -in für Energie &amp; Gebäudetechnik" />
-						<MenuItem mnemonicParsing="false"
-							text="Kaufmann / -frau für Büromanagement" />
-						<MenuItem mnemonicParsing="false"
-							text="Fachangestellte / -r für Medien- &amp; Informationstechnik" />
+						<MenuItem mnemonicParsing="false" text="Elektroniker / -in für Energie &amp; Gebäudetechnik" />
+						<MenuItem mnemonicParsing="false" text="Kaufmann / -frau für Büromanagement" />
+						<MenuItem mnemonicParsing="false" text="Fachangestellte / -r für Medien- &amp; Informationstechnik" />
 					</items>
 				</Menu>
 				<Menu fx:id="viewRoles" mnemonicParsing="false" text="Benutzerrollen">
