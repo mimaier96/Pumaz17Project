@@ -77,11 +77,11 @@ public class ReportBookDailyDaoImpl implements ReportBookDailyDao {
 			rb.setKindOfApprentice(result.getString("Kind"));
 			rb.setDepartment(result.getString("Department"));
 			rb.setTextMon(result.getString("Text_Monday"));
-			rb.setTextMon(result.getString("Text_Tuesday"));
-			rb.setTextMon(result.getString("Text_Wednesday"));
-			rb.setTextMon(result.getString("Text_Thursday"));
-			rb.setTextMon(result.getString("Text_Friday"));
-			rb.setTextMon(result.getString("Text_Saturday"));	
+			rb.setTextTue(result.getString("Text_Tuesday"));
+			rb.setTextWed(result.getString("Text_Wednesday"));
+			rb.setTextThu(result.getString("Text_Thursday"));
+			rb.setTextFri(result.getString("Text_Friday"));
+			rb.setTextSat(result.getString("Text_Saturday"));	
 		}
 		return rb;
 	}

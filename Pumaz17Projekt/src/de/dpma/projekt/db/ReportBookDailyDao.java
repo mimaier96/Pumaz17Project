@@ -1,7 +1,6 @@
 package de.dpma.projekt.db;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
 
