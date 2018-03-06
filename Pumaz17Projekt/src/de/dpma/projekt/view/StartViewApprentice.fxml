@@ -99,9 +99,34 @@
 		<Button layoutX="15.0" layoutY="204.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Berichtsheft bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="165.0" />
       <Label layoutX="1051.2" layoutY="39.0" text="Willkommen" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <font>
+
+            <Font size="20.0" />
+
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
+
+      <Label fx:id="nameTag" alignment="CENTER_RIGHT" layoutX="1032.8" layoutY="66.0" prefHeight="20.0" prefWidth="127.0" text="Label" textAlignment="RIGHT" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="66.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Label>
+      <Button layoutX="15.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="PDF erstellen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="286.0" />
+      <Button layoutX="15.0" layoutY="245.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Notiz bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="245.0" />
+      <ScrollPane layoutX="180.0" layoutY="130.0" prefHeight="613.0" prefWidth="1002.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0">
+         <content>
+      		<TableView prefHeight="615.0" prefWidth="1015.0">
+      			<columns>
+      				<TableColumn prefWidth="75.0" text="Status" />
+      				<TableColumn prefWidth="75.0" text="Nr." />
+      				<TableColumn prefWidth="168.0" text="Datum" />
+      				<TableColumn prefWidth="266.0" text="Ausbildungsreferat" />
+                  <TableColumn prefWidth="201.0" text="Art" />
+                  <TableColumn prefWidth="224.0" text="Notiz" />
+      			</columns>
+      		</TableView>
+         </content>
+      </ScrollPane>
+
       <Label layoutX="1132.0" layoutY="64.0" text="Label" textAlignment="RIGHT" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
          <font>
             <Font name="System Italic" size="14.0" />

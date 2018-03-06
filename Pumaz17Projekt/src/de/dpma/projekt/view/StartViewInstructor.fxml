@@ -23,6 +23,9 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
+
+      <Label fx:id="nameTag" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1121.0" layoutY="76.0" prefHeight="20.0" prefWidth="151.0" text="Label" textAlignment="RIGHT" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="76.0">
+
       <Label layoutX="1092.0" layoutY="77.0" text="Label" textAlignment="RIGHT" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
          <font>
             <Font name="System Italic" size="14.0" />
