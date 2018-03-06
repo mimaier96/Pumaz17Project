@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.sql.ResultSet;
 
-import java.util.ArrayList;
-
 import de.dpma.projekt.models.user.Apprentice;
 import de.dpma.projekt.utils4Code.DateUtil;
 
@@ -127,7 +125,7 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 		
 		getApprentice(apprentice);
 		
-		if (success = true) {
+		if (success == true) {
 		return true;
 		} else {
 		return false;

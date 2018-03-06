@@ -22,7 +22,7 @@ public class DateUtil {
     
     public static String format(Date date) {
     
-    DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     String dateText = dateFormat.format(date);
      
     return dateText;
