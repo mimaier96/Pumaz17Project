@@ -50,6 +50,7 @@ public class ChangePasswordController {
 		
 		// Überprüft ob ein Benutzer eingegeben wurde, falls nicht wird er zurück zum Login geworfen
 		if(username.getText().equals("")) {
+			mainApp.loadBorder("view/MenuPart4.fxml", "title");
 			mainApp.loadScene("view/LoginWindow.fxml", "Übersicht");	
 		}
 		
@@ -81,7 +82,7 @@ public class ChangePasswordController {
         alert.setContentText("Sie haben Ihr Passwort erfolgreich geändert.");
 
         alert.showAndWait();
-        
+        mainApp.loadBorder("view/MenuPart4.fxml", "title");
 		mainApp.loadScene("view/LoginWindow.fxml", "Übersicht");
 		}
 		

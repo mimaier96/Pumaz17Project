@@ -14,6 +14,7 @@ public class StartViewInstructorController {
 
 	@FXML
 	private void menuItemLogout() {
+		mainApp.loadBorder("view/MenuPart4.fxml", "title");
 		mainApp.loadScene("view/LoginWindow.fxml",  "Login");
 	}
 
@@ -28,6 +29,7 @@ public class StartViewInstructorController {
 
 	@FXML
 	private void handleAdminButton() {
+		mainApp.loadBorder("view/MenuPart3.fxml", "title");
 		mainApp.loadScene("view/AdminViewInstructor.fxml", "Administrator");
 	}
 
