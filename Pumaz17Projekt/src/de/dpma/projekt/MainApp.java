@@ -35,10 +35,9 @@ public class MainApp extends Application {
 
 		this.primaryStage = primaryStage;
 //		initBorderLayout();
-		loadBorder("view/MenuFull.fxml", "title");
+		loadBorder("view/MenuPart4.fxml", "title");
 		loadScene("view/LoginWindow.fxml", "Login");
 
-		loadBorder("view/MenuPart4.fxml", "title");
 		controllerUpdate();
 		
 	}

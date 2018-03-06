@@ -92,6 +92,7 @@ public class LoginWindowController {
 
 	@FXML
 	private void handlePasswordLostButton() {
+		mainApp.loadBorder("view/MenuPart3.fxml", "Passwort vergessen");
 		mainApp.loadScene("view/ChangePassword.fxml", "Passwort vergessen");
 	}
 
