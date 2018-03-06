@@ -12,7 +12,7 @@ import de.dpma.projekt.models.util.UserList;
 import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewInstructorController;
-import de.dpma.projekt.view.BorderLayout;
+import de.dpma.projekt.view.BorderLayoutController;
 import de.dpma.projekt.view.ChangePasswordController;
 import de.dpma.projekt.view.LoginWindowController;
 import de.dpma.projekt.view.StartViewApprenticeController;
@@ -27,16 +27,19 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 	private Stage primaryStage;
 	private Scene scene;
-	private BorderPane borderLayout;
+	public BorderLayoutController borderLayout;
+	public BorderPane borderPane;
+	
 	
 	
 	@Override
 	public void start(Stage primaryStage) {
 
 		this.primaryStage = primaryStage;
+		controllerUpdate();
 		initBorderLayout();
 		loadScene("view/LoginWindow.fxml", "Login");
-		controllerUpdate();
+		
 	}
 
 	public static void main(String[] args) {
@@ -49,15 +52,17 @@ public class MainApp extends Application {
 
 	public void initBorderLayout() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("view/BorderLayout.fxml"));
-			borderLayout = (BorderPane) loader.load();
-			scene = new Scene(borderLayout);
+//			FXMLLoader loader = new FXMLLoader();
+			borderLayout = new BorderLayoutController();
+//			loader.setLocation(MainApp.class.getResource("view/BorderLayout.fxml"));
+			borderPane = borderLayout.getBorderPane();
+	
+			scene = new Scene(borderPane);
 			this.primaryStage.setTitle("Login");
 			this.primaryStage.setScene(scene);
 			this.primaryStage.show();
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -73,7 +78,7 @@ public class MainApp extends Application {
 				
 			
 //			this.primaryStage.setTitle(title);
-			this.borderLayout.setCenter(anchor);
+			this.borderPane.setCenter(anchor);
 //			this.primaryStage.show();
 
 		} catch (IOException e) {
@@ -89,7 +94,7 @@ public class MainApp extends Application {
 		StartViewApprenticeController.setMainApp(this);
 		AdminViewAddUserController.setMainApp(this);
 		AdminViewAddUserController.setMainApp(this);
-		BorderLayout.setMainApp(this);
+		BorderLayoutController.setMainApp(this);
 		ChangePasswordController.setMainApp(this);
 		AdminViewInstructorController.setMainApp(this);
 	}

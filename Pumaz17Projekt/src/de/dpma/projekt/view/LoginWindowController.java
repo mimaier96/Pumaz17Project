@@ -18,7 +18,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
-public class LoginWindowController {
+public class LoginWindowController  {
 	static final Logger log = LogManager.getLogger(LoginWindowController.class.getName());
 	private Connection con = DatabaseConnection.getInstance();	
 	
@@ -30,6 +30,9 @@ public class LoginWindowController {
 
 	@FXML
 	private void initialize() {
+		System.out.println(mainApp);
+		System.out.println(mainApp.borderLayout);
+		System.out.println(mainApp.borderLayout.menu);
 	}
 
 	public LoginWindowController() {
@@ -84,15 +87,25 @@ public class LoginWindowController {
             username.clear();
             password.clear();
 
+        
             alert.showAndWait();
 			log.info("-->Login fehlgeschlagen!");
 		}
 		log.info("-->Beende: handleLogin");
+		
+		mainApp.borderLayout.menu.setVisible(false);
 	}
 
 	@FXML
 	private void handlePasswordLostButton() {
+		
+		//menu.setVisible(false);
 		mainApp.loadScene("view/ChangePassword.fxml", "Passwort vergessen");
+
+		
+		
+		
+		
 	}
 
 	public static void setMainApp(MainApp mainApp) {
