@@ -40,6 +40,6 @@
          </font>
       </Label>
       <Label layoutX="1108.0" layoutY="66.0" text="Label" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
-      <Button layoutX="22.0" layoutY="701.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="26.0" prefWidth="72.0" text="zurück" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" />
+      <Button layoutX="22.0" layoutY="701.0" mnemonicParsing="false" onAction="#backToInstructorView" prefHeight="26.0" prefWidth="72.0" text="zurück" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" />
    </children>
 </AnchorPane>

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="750.0" maxWidth="1200.0" minHeight="750.0" minWidth="1200.0" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="750.0" maxWidth="1200.0" minHeight="750.0" minWidth="1200.0" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.ReportBookDailyController">
 	<children>
 		<GridPane layoutX="43.0" layoutY="44.0" prefHeight="129.0" prefWidth="293.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
 			<columnConstraints>
@@ -74,7 +74,7 @@
 			</children>
 		</GridPane>
 		<Button layoutX="1109.0" layoutY="705.0" mnemonicParsing="false" text="bestätigen und speichern" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" />
-		<Button layoutX="1028.0" layoutY="705.0" mnemonicParsing="false" text="abbrechen" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="210.0" />
+		<Button layoutX="1028.0" layoutY="705.0" mnemonicParsing="false" onAction="#backToApprenticeView" text="abbrechen" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="210.0" />
 		<Label layoutX="50.0" layoutY="709.0" text="*Durch betätigen des &quot;bestätigen und speichern&quot; Buttons  wird die Richtigkeit und Vollständigkeit der obigen Angaben bestätigt." AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" />
       <GridPane layoutX="50.0" layoutY="199.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
         <columnConstraints>
