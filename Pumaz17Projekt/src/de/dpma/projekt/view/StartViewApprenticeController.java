@@ -62,7 +62,8 @@ public class StartViewApprenticeController {
 
 	@FXML
 	private void handleCreateReportBook() {
-		
+
+		loadBorder("view/MenuPart4.fxml", "title");
 		mainApp.loadScene("view/ReportBookWeekly.fxml", "");
 
 	}

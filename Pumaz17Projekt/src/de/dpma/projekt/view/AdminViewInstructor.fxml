@@ -18,20 +18,7 @@
          </image>
       </ImageView>
       <Button layoutX="22.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="26.0" prefWidth="123.0" text="Benutzer anlegen" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="165.0" />
-      <ScrollPane layoutX="141.0" layoutY="125.0" prefHeight="615.0" prefWidth="1015.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0">
-         <content>
-            <TableView fx:id="userTable" prefHeight="615.0" prefWidth="1015.0">
-              <columns>
-                <TableColumn fx:id="idColumn" prefWidth="65.60005187988281" text="ID" />
-                <TableColumn fx:id="userLastName" prefWidth="145.60003662109375" text="Nachame" />
-                  <TableColumn fx:id="userFirstName" prefWidth="144.79998779296875" text="Vorname" />
-                  <TableColumn fx:id="userUserName" prefWidth="179.46670532226562" text="Benutzername" />
-                  <TableColumn fx:id="userRole" minWidth="0.0" prefWidth="239.73321533203125" text="Rolle" />
-                  <TableColumn fx:id="userEmail" minWidth="0.0" prefWidth="246.66668701171875" text="E-Mail" />
-              </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
+     
       <Button layoutX="22.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleEditUser" text="Benutzer bearbeiten" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="207.0" />
       <Button layoutX="22.0" layoutY="248.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="123.0" text="Benutzer löschen" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="248.0" />
       <Label layoutX="1074.2" layoutY="34.0" text="Willkommen" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="34.0">

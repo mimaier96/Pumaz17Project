@@ -36,7 +36,7 @@ public class MainApp extends Application {
 
 		this.primaryStage = primaryStage;
 //		initBorderLayout();
-		loadBorder("view/MenuPart4.fxml", "title");
+		loadBorder("view/MenuPart3.fxml", "title");
 		loadScene("view/LoginWindow.fxml", "Login");
 
 		controllerUpdate();
@@ -75,7 +75,7 @@ public class MainApp extends Application {
 			loader.setLocation(MainApp.class.getResource(path));
 
 				AnchorPane anchor = (AnchorPane) loader.load();
-				System.out.println("dddd");
+				
 			
 //			this.primaryStage.setTitle(title);
 			this.borderLayout.setCenter(anchor);

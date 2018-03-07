@@ -60,6 +60,7 @@ public class AdminViewInstructorController {
 	
 	@FXML
 	private void handleEditUser() {
+		mainApp.loadBorder("view/MenuPart4.fxml", "title");
 		mainApp.loadScene("view/AdminViewAddUser.fxml", "Benutzer bearbeiten");
 	}
 	
@@ -71,6 +72,7 @@ public class AdminViewInstructorController {
 
 	@FXML
 	private void backToInstructorView() {
+		mainApp.loadBorder("view/MenuPart4.fxml", "title");
 		mainApp.loadScene("view/StartViewInstructor.fxml", "Übersicht");
 	}
 
