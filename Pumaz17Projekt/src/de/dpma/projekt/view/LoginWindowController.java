@@ -1,5 +1,7 @@
 package de.dpma.projekt.view;
 
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,8 +20,8 @@ import javafx.scene.control.Alert.AlertType;
 
 public class LoginWindowController {
 	static final Logger log = LogManager.getLogger(LoginWindowController.class.getName());
-	private Connection con = DatabaseConnection.getInstance();
-
+	private Connection con = DatabaseConnection.getInstance();	
+	
 	@FXML
 	private TextField username;
 	@FXML
@@ -36,70 +38,53 @@ public class LoginWindowController {
 	@FXML
 	private void handleLoginButton() throws SQLException {
 		log.info("-->Starte: handleLogin");
-		final String GET_USERNAME_PASSWORD_ROLE = "SELECT Firstname, Lastname, Username, Password, Role FROM User WHERE Username = '"
-				+ username.getText() + "'";
+		final String GET_USERNAME_PASSWORD_ROLE = "SELECT Username, Password, Role FROM User WHERE Username = '" + username.getText() + "'" ;
 		String usernameDataBase = null;
 		String passwordDataBase = null;
 		String roleDataBase = null;
-
-		// Für nameTag @author MaSpecter
-		String userFirstName = null, userLastName = null;
-
 		ResultSet result = null;
 		PreparedStatement prepStat = null;
-
-		try {
+		
+		try{
 			prepStat = con.prepareStatement(GET_USERNAME_PASSWORD_ROLE);
 			result = prepStat.executeQuery();
-
-			while (result.next()) {
-				passwordDataBase = result.getString("Password");
-				usernameDataBase = result.getString("Username");
-				roleDataBase = result.getString("Role").toLowerCase();
-
-				// für nameTag
-				userFirstName = result.getString("Firstname");
-				userLastName = result.getString("Lastname");
+			
+			while(result.next()) {
+			passwordDataBase = result.getString("Password");
+			usernameDataBase = result.getString("Username");
+			roleDataBase = result.getString("Role").toLowerCase();
 			}
-		} catch (Exception e) {
-		}
-
-		if (username.getText().equals(usernameDataBase) && password.getText().equals(passwordDataBase)
-				|| username.getText().equals("Admin") && password.getText().equals("Anfang12")) {
-			if (username.getText().equals("Admin")) {
+			}catch(Exception e){
+			} 
+		
+		if(username.getText().equals(usernameDataBase) && password.getText().equals(passwordDataBase)
+		   || username.getText().equals("Admin") && password.getText().equals("Anfang12")) {
+			if(username.getText().equals("Admin")) {
 				roleDataBase = "instructor";
 			}
 			log.info("-->Login erfolgreich!");
 			switch (roleDataBase) {
 			case "apprentice":
-				// setzt nameTag
-				StartViewApprenticeController.setNameTag(userFirstName, userLastName);
-
-				mainApp.loadBorder("view/MenuPart4.fxml", "title");
-				mainApp.loadScene("view/StartViewApprentice.fxml", "Digitales Berichtsheft");
-				break;
+				mainApp.loadScene("view/StartViewApprentice.fxml", "Digitales Berichtsheft");			
+			break;
 			case "trainer":
 			case "instructor":
-				// setzt nameTag
-				StartViewInstructorController.setNameTag(userFirstName, userLastName);
-
-				mainApp.loadBorder("view/MenuPart4.fxml", "title");
 				mainApp.loadScene("view/StartViewInstructor.fxml", "Ausbildungsleiter/in");
-				break;
-			}
+			break;
+			}	
 		} else {
+			
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("Falsche Eingabe!");
+            alert.setHeaderText("Benutzername oder Passwort inkorrekt!");
+            alert.setContentText("Bitte versuchen Sie es erneut.");
+            
+            //Bei falscher Eingabe werden die beiden Eingabefelder gecleared
+            username.clear();
+            password.clear();
 
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(mainApp.getPrimaryStage());
-			alert.setTitle("Falsche Eingabe!");
-			alert.setHeaderText("Benutzername oder Passwort inkorrekt!");
-			alert.setContentText("Bitte versuchen Sie es erneut.");
-
-			// Bei falscher Eingabe werden die beiden Eingabefelder gecleared
-			username.clear();
-			password.clear();
-
-			alert.showAndWait();
+            alert.showAndWait();
 			log.info("-->Login fehlgeschlagen!");
 		}
 		log.info("-->Beende: handleLogin");
@@ -107,7 +92,6 @@ public class LoginWindowController {
 
 	@FXML
 	private void handlePasswordLostButton() {
-		mainApp.loadBorder("view/MenuPart3.fxml", "Passwort vergessen");
 		mainApp.loadScene("view/ChangePassword.fxml", "Passwort vergessen");
 	}
 

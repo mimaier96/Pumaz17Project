@@ -11,17 +11,6 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.AdminViewInstructorController">
-   <children>
-      <ImageView fitHeight="102.0" fitWidth="213.0" layoutX="14.0" layoutY="25.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="35.0">
-         <image>
-            <Image url="@../../../../../resource/logo_dpma.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="22.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="26.0" prefWidth="123.0" text="Benutzer anlegen" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="165.0" />
-     
-      <Button layoutX="22.0" layoutY="207.0" mnemonicParsing="false" onAction="#handleEditUser" text="Benutzer bearbeiten" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="207.0" />
-      <Button layoutX="22.0" layoutY="248.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="123.0" text="Benutzer löschen" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="248.0" />
-      <Label layoutX="1074.2" layoutY="34.0" text="Willkommen" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="34.0">
 	<children>
 		<ImageView fitHeight="102.0" fitWidth="213.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.0">
 			<image>
@@ -30,18 +19,9 @@
 		</ImageView>
       <Label layoutX="1130.0" layoutY="35.0" text="Willkommen" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <font>
-
-            <Font size="20.0" />
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-
-      <Label fx:id="nameTag" alignment="CENTER_RIGHT" layoutX="1155.0" layoutY="59.0" prefHeight="20.0" prefWidth="137.0" text="Label" textAlignment="RIGHT" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="59.0">
-         <font>
-            <Font name="System Italic" size="14.0" />
-         </font></Label>
-   </children>
-
       <Label layoutX="1157.0" layoutY="63.0" text="Label" textAlignment="RIGHT" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
          <font>
             <Font name="System Italic" size="14.0" />

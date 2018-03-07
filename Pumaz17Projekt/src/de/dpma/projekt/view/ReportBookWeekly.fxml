@@ -28,11 +28,11 @@
             <Label text="Ausbildungsreferat" GridPane.rowIndex="1" />
             <Label text="Woche vom ..." GridPane.rowIndex="2" />
             <Label text="bis ..." GridPane.rowIndex="3" />
-            <DatePicker prefHeight="26.0" prefWidth="187.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DatePicker prefHeight="26.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ChoiceBox prefHeight="26.0" prefWidth="188.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label layoutX="10.0" layoutY="51.0" text="Ausbildungsart" />
-            <ChoiceBox layoutX="122.0" layoutY="47.0" prefHeight="26.0" prefWidth="185.0" GridPane.columnIndex="1" />
+            <ChoiceBox layoutX="122.0" layoutY="47.0" prefWidth="150.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <GridPane layoutX="400.0" layoutY="50.0" prefHeight="129.0" prefWidth="450.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="50.0">
@@ -87,6 +87,6 @@
          </font>
       </Label>
       <TextArea layoutX="50.0" layoutY="516.0" prefHeight="50.0" prefWidth="1100.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="520.0" />
-      <Label layoutX="50.0" layoutY="677.4" text="*Durch betätigen des &quot;bestätigen und speichern&quot; Buttons  wird die Richtigkeit und Vollständigkeit der obigen Angaben bestätigt." AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" />
+      <Label layoutX="50.0" layoutY="709.0" text="*Durch betätigen des &quot;bestätigen und speichern&quot; Buttons  wird die Richtigkeit und Vollständigkeit der obigen Angaben bestätigt." AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" />
    </children>
 </AnchorPane>

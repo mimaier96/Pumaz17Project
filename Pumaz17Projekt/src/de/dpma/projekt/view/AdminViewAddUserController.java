@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import de.dpma.projekt.MainApp;
 import de.dpma.projekt.db.UserDaoImplementation;
-import de.dpma.projekt.models.User;
 import de.dpma.projekt.models.user.Apprentice;
 import de.dpma.projekt.models.util.JobList;
 import de.dpma.projekt.models.util.RoleList;
@@ -18,7 +17,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -28,11 +26,9 @@ import javafx.stage.Stage;
 public class AdminViewAddUserController {
 	public static MainApp mainApp;
 
-	private boolean addClicked = false;
+	private boolean saveClicked = false;
 	private Stage dialogStage;
 
-	@FXML
-	private TableView<User> userTable;
 	@FXML
 	private TextField firstNameField;
 	@FXML
@@ -106,7 +102,7 @@ public class AdminViewAddUserController {
 	@FXML
 	private ChoiceBox<String> chooseRole;
 
-	public void setDialogStage(Stage dialogStage) {
+	private void setDialogStage(Stage dialogStage) {
 		this.dialogStage = dialogStage;
 	}
 
@@ -239,6 +235,9 @@ public class AdminViewAddUserController {
 		}
 	}
 
+	public boolean isSaveClicked() {
+		return saveClicked;
+	}
 
 	/**
 	 * Wird aufgerufen, wenn der user auf speichern klickt
@@ -247,19 +246,19 @@ public class AdminViewAddUserController {
 	 */
 
 	@FXML
-	private void handleSaveAddUser() {
+	private void handleSaveAddApprentice() {
 		if (inputIsValid()) {
 
 			// TODO im Code Methode aufrufen, die Insert in DB macht
 
-			addClicked = true;
+			saveClicked = true;
 			dialogStage.close();
 		}
 	}
 
 	@FXML
 	private void handleCancel() {
-		dialogStage.close();
+		mainApp.loadScene("view/AdminViewInstructor.fxml", "");
 	}
 	
 	@FXML
@@ -268,40 +267,13 @@ public class AdminViewAddUserController {
 		chooser.setTitle("Unterschrift hochladen");
 		chooser.showOpenDialog(fileUploadButton.getScene().getWindow());
 	}
-	
-	public User addUserData() {
-		
-		return null;
-	}
 
-	
-	public User setUserData(User user) {
-		this.user = user;
-		
-		firstNameField.setText(user.getFirstname());
-		lastNameField.setText(user.getLastname());
-		userNameField.setText(user.getUsername());
-		roleComboBox.setValue(user.getRole());
-		emailField.setText(user.getEmail());
-		
-		
-		User selectedUser = userTable.getSelectionModel().getSelectedItem();
-		
-		if(selectedUser != null) {
-			boolean addClicked = mainApp.showUserEditDialog(selectedUser);
-		} else {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.initOwner(mainApp.getPrimaryStage());
-			alert.setTitle("Keine Auswahl");
-			alert.setHeaderText("Kein Benutzer ausgewählt!");
-			alert.setContentText("Bitte wählen Sie einen Benutzer aus der Tabelle aus.");
-		}
-		
-		
-		return null;
-	}
-	
-	
+	/**
+	 * Initialisiert diese Controller Klasse. Methode wird nach laden des
+	 * zugehörigen fxml files aufgerufen
+	 * 
+	 * @author MaSpecter
+	 */
 	@FXML
 	private void initialize() {
 
@@ -331,6 +303,10 @@ public class AdminViewAddUserController {
 
 	}
 
+	@FXML
+	private void handleChooseDocumentButton() {
+
+	}
 
 	
 	@FXML
