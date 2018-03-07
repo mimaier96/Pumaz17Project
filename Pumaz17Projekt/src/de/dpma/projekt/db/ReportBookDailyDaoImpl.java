@@ -141,14 +141,23 @@ public class ReportBookDailyDaoImpl implements ReportBookDailyDao {
 
 	@Override
 	public boolean deleteReportBookDaily(int apprenticeId, int number) throws SQLException {
-		
+		boolean success = true;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_DELETE);
-		prepStat.setInt(1, apprenticeId);
-		prepStat.setInt(2, number);
 		
-		prepStat.executeUpdate();
+		try {
+			prepStat.setInt(1, apprenticeId);
+			prepStat.setInt(2, number);
+			
+			prepStat.executeUpdate();
+		} catch (Exception e) {
+			success = false;
+		}
 		
-		return true;
+		if (success == false) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 

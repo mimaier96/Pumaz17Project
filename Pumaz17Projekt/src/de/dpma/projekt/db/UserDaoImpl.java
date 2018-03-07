@@ -15,6 +15,7 @@ public class UserDaoImpl implements UserDao {
 	private final static String PREPARED_INSERT = "INSERT INTO berichtsheft.user (firstname, lastname, username, password, role, email) VALUES (?,?,?,Anfang12,?,?)";
 	private final static String PREPARED_SELECT = "SELECT * FROM berichtsheft.user WHERE username = ?";
 	private final static String PREPARED_UPDATE = "UPDATE berichtsheft.user SET ? = ? WHERE username = ?;";
+	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.user WHERE username = ?";
 
 	@Override
 	public User insertUser(User user) throws SQLException {
@@ -61,23 +62,45 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean updateUser(User user, String update, String change) throws SQLException {
-		boolean success = false;
+		boolean success = true;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_UPDATE);
-		
-		prepStat.setString(1, update);
-		prepStat.setString(2, change);
-		prepStat.setString(3, user.getUsername());
-		
-		prepStat.executeUpdate();
-		
+
+		try {
+			prepStat.setString(1, update);
+			prepStat.setString(2, change);
+			prepStat.setString(3, user.getUsername());
+			
+			prepStat.executeUpdate();
+		} catch (Exception e) {
+			success = false;
+		}
+
+		if (success == false) {
 		return false;
+		} else {
+		return true;
+		}
 	}
 
 
 	@Override
 	public boolean deleteUser(String username) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		boolean success = true;
+		PreparedStatement prepStat = con.prepareStatement(PREPARED_DELETE);
+		
+		try {
+			prepStat.setString(1, username);
+			
+			prepStat.executeUpdate();
+		} catch (Exception e) {
+			success = false;
+		}
+		
+		if (success == false) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 }

@@ -134,15 +134,21 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 
 	@Override
 	public boolean deleteApprentice(String username) throws SQLException {
+		boolean success = true;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_DELETE);
-		prepStat.setString(1, username);
 		
-		prepStat.executeUpdate();
+		try {
+			prepStat.setString(1, username);
+			
+			prepStat.executeUpdate();
+		} catch (Exception e) {
+			success = false;
+		}
 		
-		return true;
+		if (success == false) {
+			return false;
+		} else {
+			return true;
+		}
 	}
-
-
-
-
 }
