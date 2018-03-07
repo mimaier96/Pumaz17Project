@@ -17,29 +17,25 @@
 				<Image url="@../../../../../resource/logo_dpma.png" />
 			</image>
 		</ImageView>
-      <Label layoutX="1130.0" layoutY="35.0" text="Willkommen" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <Label layoutX="1068.8" layoutY="52.0" text="Willkommen" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="52.0">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="1157.0" layoutY="63.0" text="Label" textAlignment="RIGHT" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
-         <font>
-            <Font name="System Italic" size="14.0" />
-         </font></Label>
-      <Button layoutX="31.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="25.0" prefWidth="155.0" text="Benutzer hinzufügen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="125.0" />
-      <TableView layoutX="196.0" layoutY="118.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="125.0">
+      <Button layoutX="13.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="25.0" prefWidth="155.0" text="Benutzer hinzufügen" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="154.0" />
+      <TableView layoutX="181.0" layoutY="118.0" prefHeight="610.0" prefWidth="989.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="125.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-            <TableColumn prefWidth="98.0" text="Rolle" />
-          <TableColumn prefWidth="126.0" text="Vorname" />
-            <TableColumn prefWidth="183.0" text="Nachname" />
-            <TableColumn prefWidth="216.0" text="Benutzername" />
-            <TableColumn prefWidth="296.0" text="E-Mail" />
+          <TableColumn fx:id="idColumn" prefWidth="64.00003051757812" text="ID" />
+            <TableColumn fx:id="userRoleColumn" prefWidth="133.60000610351562" text="Rolle" />
+          <TableColumn fx:id="userFirstNameColumn" prefWidth="189.5999755859375" text="Vorname" />
+            <TableColumn fx:id="userLastNameColumn" prefWidth="204.0" text="Nachname" />
+            <TableColumn fx:id="userUserNameColumn" prefWidth="173.5999755859375" text="Benutzername" />
+            <TableColumn fx:id="userEmailColumn" prefWidth="233.599853515625" text="E-Mail" />
         </columns>
       </TableView>
       <ScrollBar layoutX="1173.0" layoutY="125.0" orientation="VERTICAL" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0" />
-      <Button layoutX="15.0" layoutY="165.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Benutzer bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="165.0" />
-      <Button layoutX="17.0" layoutY="204.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Benutzer löschen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="205.0" />
-      <Button layoutX="15.0" layoutY="391.0" mnemonicParsing="false" onAction="#backToInstructorView" prefHeight="25.0" prefWidth="60.0" text="zurück" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+      <Button layoutX="13.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Benutzer bearbeiten" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="194.0" />
+      <Button layoutX="13.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Benutzer löschen" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="234.0" />
+      <Button layoutX="15.0" layoutY="391.0" mnemonicParsing="false" onAction="#backToInstructorView" prefHeight="25.0" prefWidth="60.0" text="Zurück" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
 	</children>
 </AnchorPane>

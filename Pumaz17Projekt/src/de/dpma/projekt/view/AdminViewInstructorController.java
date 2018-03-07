@@ -1,5 +1,8 @@
 package de.dpma.projekt.view;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import de.dpma.projekt.MainApp;
 import de.dpma.projekt.models.User;
 import javafx.fxml.FXML;
@@ -8,39 +11,41 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class AdminViewInstructorController {
+	
+	static final Logger log = LogManager.getLogger(LoginWindowController.class.getName());
 
 	public static MainApp mainApp;
 	
-	private static String firstName;
-	private static String lastName;
-	
-	@FXML
-	private Label nameTag;
-	
+	//Tabellen Ansicht Elemente
 	@FXML
 	private TableView<User> userTable;
 	@FXML
 	private TableColumn<User, Integer> idColumn;
 	@FXML
-	private TableColumn<User, String> userLastName;
+	private TableColumn<User, String> userLastNameColumn;
 	@FXML
-	private TableColumn<User, String> userFirstName;
+	private TableColumn<User, String> userFirstNameColumn;
 	@FXML
-	private TableColumn<User,String> userUserName;
+	private TableColumn<User,String> userUserNameColumn;
 	@FXML
-	private TableColumn<User, String> userRole;
+	private TableColumn<User, String> userRoleColumn;
 	@FXML
-	private TableColumn<User, String> userEmail;
+	private TableColumn<User, String> userEmailColumn;
 	
 	
 
 	@FXML
 	private void initialize() {
-
-//		nameTag.setText(firstName + " " + lastName);
 		
-//		userFirstName.setCellValueFactory(cellData -> cellData.getValue().userFirstNameProperty());
-
+		log.info("-->Starte: setTableView Data");		
+		//setzt die Werte für die Benutzertabelle
+		userFirstNameColumn.setCellValueFactory(cellData -> cellData.getValue().userFirstNameProperty());
+		userLastNameColumn.setCellValueFactory(cellData -> cellData.getValue().userLastNameProperty());
+		userEmailColumn.setCellValueFactory(cellData -> cellData.getValue().userEmailProperty());
+		userUserNameColumn.setCellValueFactory(cellData -> cellData.getValue().userEmailProperty());
+		userRoleColumn.setCellValueFactory(cellData -> cellData.getValue().userRoleProperty());
+		
+		log.info("-->Beende: setTableView Data");
 
 	}
 
@@ -55,7 +60,6 @@ public class AdminViewInstructorController {
 
 	@FXML
 	private void handleAddUser() {
-//		mainApp.loadScene("view/AdminViewAddUser.fxml", "Benutzer hinzufügen");
 		mainApp.showUserAddDialog();
 	}
 	
@@ -64,11 +68,6 @@ public class AdminViewInstructorController {
 		mainApp.loadScene("view/AdminViewAddUser.fxml", "Benutzer bearbeiten");
 	}
 	
-	public static void setNameTag(String userFirstName, String userLastName) {
-		firstName = userFirstName;
-		lastName = userLastName;
-		
-	}
 
 	@FXML
 	private void backToInstructorView() {

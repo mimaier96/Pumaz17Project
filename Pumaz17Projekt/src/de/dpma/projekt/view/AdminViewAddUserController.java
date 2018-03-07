@@ -3,7 +3,7 @@ package de.dpma.projekt.view;
 import java.util.ArrayList;
 
 import de.dpma.projekt.MainApp;
-import de.dpma.projekt.db.UserDaoImplementation;
+import de.dpma.projekt.db.UserDaoImpl;
 import de.dpma.projekt.models.User;
 import de.dpma.projekt.models.user.Apprentice;
 import de.dpma.projekt.models.util.JobList;
