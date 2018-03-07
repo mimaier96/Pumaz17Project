@@ -9,8 +9,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class AdminViewInstructorController {
+	
+	private User user;
 	
 	static final Logger log = LogManager.getLogger(LoginWindowController.class.getName());
 
@@ -65,7 +69,31 @@ public class AdminViewInstructorController {
 	
 	@FXML
 	private void handleEditUser() {
-		mainApp.loadScene("view/AdminViewAddUser.fxml", "Benutzer bearbeiten");
+		mainApp.showUserEditDialog(user);
+	}
+	
+	@FXML
+	private void handleDeleteUser() {
+		
+		try {
+		int selectedUser = userTable.getSelectionModel().getSelectedIndex();
+		if(selectedUser >= 0) {
+			userTable.getItems().remove(selectedUser);
+		} else {
+			//Kein Benutzer ausgewählt
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("Keine Auswahl");
+			alert.setHeaderText("Kein Benutzer ausgewählt");
+			alert.setContentText("Bitte wählen Sie einen Benutzer aus!");
+		}
+		} catch (Exception e) {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("Keine Auswahl");
+			alert.setHeaderText("Kein Benutzer ausgewählt");
+			alert.setContentText("Bitte wählen Sie einen Benutzer aus!");
+		}
 	}
 	
 

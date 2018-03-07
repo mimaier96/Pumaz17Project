@@ -34,8 +34,8 @@
         </columns>
       </TableView>
       <ScrollBar layoutX="1173.0" layoutY="125.0" orientation="VERTICAL" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0" />
-      <Button layoutX="13.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Benutzer bearbeiten" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="194.0" />
-      <Button layoutX="13.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Benutzer löschen" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="234.0" />
+      <Button layoutX="13.0" layoutY="194.0" mnemonicParsing="false" onAction="#handleEditUser" prefHeight="25.0" prefWidth="155.0" text="Benutzer bearbeiten" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="194.0" />
+      <Button layoutX="13.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleDeleteUser" prefHeight="25.0" prefWidth="155.0" text="Benutzer löschen" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="234.0" />
       <Button layoutX="15.0" layoutY="391.0" mnemonicParsing="false" onAction="#backToInstructorView" prefHeight="25.0" prefWidth="60.0" text="Zurück" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
 	</children>
 </AnchorPane>
