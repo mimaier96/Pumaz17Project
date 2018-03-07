@@ -27,6 +27,8 @@ import javafx.stage.Stage;
 
 public class AdminViewAddUserController {
 	public static MainApp mainApp;
+	
+	private User user;
 
 	private boolean addClicked = false;
 	private Stage dialogStage;
@@ -275,31 +277,31 @@ public class AdminViewAddUserController {
 	}
 
 	
-//	public User setUserData(User user) {
-//		this.user = user;
-//		
-//		firstNameField.setText(user.getFirstname());
-//		lastNameField.setText(user.getLastname());
-//		userNameField.setText(user.getUsername());
-//		roleComboBox.setValue(user.getRole());
-//		emailField.setText(user.getEmail());
-//		
-//		
-//		User selectedUser = userTable.getSelectionModel().getSelectedItem();
-//		
-//		if(selectedUser != null) {
-//			boolean addClicked = mainApp.showUserEditDialog(selectedUser);
-//		} else {
-//			Alert alert = new Alert(AlertType.WARNING);
-//			alert.initOwner(mainApp.getPrimaryStage());
-//			alert.setTitle("Keine Auswahl");
-//			alert.setHeaderText("Kein Benutzer ausgewählt!");
-//			alert.setContentText("Bitte wählen Sie einen Benutzer aus der Tabelle aus.");
-//		}
-//		
-//		
-//		return null;
-//	}
+	public User setUserData(User user) {
+		this.user = user;
+		
+		firstNameField.setText(user.getFirstname());
+		lastNameField.setText(user.getLastname());
+		userNameField.setText(user.getUsername());
+		roleComboBox.setValue(user.getRole());
+		emailField.setText(user.getEmail());
+		
+		
+		User selectedUser = userTable.getSelectionModel().getSelectedItem();
+		
+		if(selectedUser != null) {
+			boolean addClicked = mainApp.showUserEditDialog(selectedUser);
+		} else {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("Keine Auswahl");
+			alert.setHeaderText("Kein Benutzer ausgewählt!");
+			alert.setContentText("Bitte wählen Sie einen Benutzer aus der Tabelle aus.");
+		}
+		
+		
+		return null;
+	}
 	
 	
 	@FXML
