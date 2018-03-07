@@ -1,11 +1,17 @@
 package de.dpma.projekt.view;
 
 import de.dpma.projekt.MainApp;
+import de.dpma.projekt.models.ReportBook;
 import de.dpma.projekt.models.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 
 public class StartViewInstructorController {
+	
+//	static final Logger log = LogManager.getLogger(LoginWindowController.class.getName());
 	
 	@FXML
 	private Label nameTag;
@@ -13,6 +19,22 @@ public class StartViewInstructorController {
 	private static String firstName;
 	private static String lastName;
 	
+	@FXML
+	private TableView<ReportBook> reportBookTableInstructor;
+	@FXML
+	private TableColumn<ReportBook, Image> statusColumn;
+	@FXML
+	private TableColumn<ReportBook, Integer> numberColumn;
+	@FXML
+	private TableColumn<ReportBook, String> nameColumn;
+	@FXML
+	private TableColumn<ReportBook, String> weekColumn;
+	@FXML
+	private TableColumn<ReportBook, Integer> yearColumn;
+	@FXML
+	private TableColumn<ReportBook, String> jobColumn;
+	@FXML
+	private TableColumn<ReportBook, String> noteColumn;
 
 	public static MainApp mainApp;
 

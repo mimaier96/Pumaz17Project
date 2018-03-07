@@ -1,6 +1,10 @@
 package de.dpma.projekt.view;
 
+import java.io.File;
 import java.util.ArrayList;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import de.dpma.projekt.MainApp;
 import de.dpma.projekt.db.UserDaoImpl;
@@ -27,6 +31,8 @@ import javafx.stage.Stage;
 
 public class AdminViewAddUserController {
 	public static MainApp mainApp;
+	
+	static final Logger log = LogManager.getLogger(LoginWindowController.class.getName());
 	
 	private User user;
 
@@ -113,6 +119,8 @@ public class AdminViewAddUserController {
 	}
 
 	private boolean inputIsValid() {
+		
+		log.info("-->Starte: inputIsValid -- Datenüberprüfung");
 
 		String errorMessage = "";
 
@@ -225,6 +233,7 @@ public class AdminViewAddUserController {
 		}
 
 		if (errorMessage.length() == 0) {
+			log.info("-->Beende: inputIsValid -- Datenüberprüfung");
 			return true;
 		} else {
 
@@ -236,9 +245,12 @@ public class AdminViewAddUserController {
 			alert.setContentText(errorMessage);
 
 			alert.showAndWait();
+			
+			log.info("-->Beende: inputIsValid -- Datenüberprüfung");
 
 			return false;
 		}
+		
 	}
 
 
@@ -266,9 +278,19 @@ public class AdminViewAddUserController {
 	
 	@FXML
 	private void handleFileUpload() {
+		log.info("-->Starte: File Upload Dialog");
 		FileChooser chooser = new FileChooser();
 		chooser.setTitle("Unterschrift hochladen");
-		chooser.showOpenDialog(null);
+//		chooser.showOpenDialog(null);
+		
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
+                "PNG files (*.png)", "*.png");
+		chooser.getExtensionFilters().add(extFilter);
+
+        // Show open file dialog
+        File file = chooser.showOpenDialog(mainApp.getPrimaryStage());
+
+        
 	}
 	
 	public User addUserData() {
@@ -279,6 +301,8 @@ public class AdminViewAddUserController {
 	
 	public User setUserData(User user) {
 		this.user = user;
+		
+		try {
 		
 		firstNameField.setText(user.getFirstname());
 		lastNameField.setText(user.getLastname());
@@ -292,6 +316,13 @@ public class AdminViewAddUserController {
 		if(selectedUser != null) {
 			boolean addClicked = mainApp.showUserEditDialog(selectedUser);
 		} else {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("Keine Auswahl");
+			alert.setHeaderText("Kein Benutzer ausgewählt!");
+			alert.setContentText("Bitte wählen Sie einen Benutzer aus der Tabelle aus.");
+		}
+		}catch (Exception e) {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
 			alert.setTitle("Keine Auswahl");
@@ -320,9 +351,9 @@ public class AdminViewAddUserController {
 		jobComboBox.setValue("Bitte wählen ...");
 
 		ObservableList<String> roles = FXCollections.observableArrayList(RoleList.getRoles());
-		roles.add("Ausbildungsleiter");
-		roles.add("Azubi");
-		roles.add("Ausbilder");
+		roles.add("Ausbildungsleiter/in");
+		roles.add("Auszubildende/r");
+		roles.add("Ausbilder/in");
 		roleComboBox.setItems(roles);
 		roleComboBox.setValue("Bitte wählen ...");
 		isApprentice();
@@ -337,7 +368,7 @@ public class AdminViewAddUserController {
 	
 	@FXML
 	private void isApprentice() {
-		if(roleComboBox.getValue().equals("Azubi") ==false) {
+		if(roleComboBox.getValue().equals("Auszubildende/r") ==false) {
 
 			gpApprentice.setVisible(false);
 			

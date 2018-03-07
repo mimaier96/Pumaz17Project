@@ -12,6 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
 
 public class StartViewApprenticeController {
 
@@ -45,7 +46,7 @@ public class StartViewApprenticeController {
 	@FXML
 	private TableView<ReportBook> reportBookTable;
 	@FXML
-	private TableColumn<ReportBook, String> statusColumn;
+	private TableColumn<ReportBook, Image> statusColumn;
 	@FXML
 	private TableColumn<ReportBook, Integer> numberColumn;
 	@FXML
