@@ -266,7 +266,7 @@ public class AdminViewAddUserController {
 	private void handleFileUpload() {
 		FileChooser chooser = new FileChooser();
 		chooser.setTitle("Unterschrift hochladen");
-		chooser.showOpenDialog(fileUploadButton.getScene().getWindow());
+		chooser.showOpenDialog(null);
 	}
 	
 	public User addUserData() {
