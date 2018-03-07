@@ -60,7 +60,7 @@
             </Label>
 			</children>
 		</GridPane>
-      <Button defaultButton="true" layoutX="233.0" layoutY="629.0" mnemonicParsing="false" onAction="#handleSaveAddApprentice" prefHeight="30.0" prefWidth="114.0" text="Hinzufügen">
+      <Button defaultButton="true" layoutX="233.0" layoutY="629.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="114.0" text="Hinzufügen">
          <font>
             <Font size="13.0" />
          </font></Button>

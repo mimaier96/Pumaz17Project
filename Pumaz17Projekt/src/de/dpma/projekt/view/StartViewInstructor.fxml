@@ -20,24 +20,24 @@
       </ImageView>
       <Label layoutX="1046.0" layoutY="50.0" text="Willkommen" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="1092.0" layoutY="77.0" text="Label" textAlignment="RIGHT" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+      <Label fx:id="nameTag" alignment="CENTER_RIGHT" layoutX="1092.0" layoutY="77.0" prefHeight="20.0" prefWidth="155.0" text="Label" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
          <font>
             <Font name="System Italic" size="14.0" />
          </font>
       </Label>
       <Button layoutX="14.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleAdminButton" prefHeight="25.0" prefWidth="155.0" styleClass="baustein_weight" text="Administrator Funktionen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="125.0" />
-      <Button layoutX="25.0" layoutY="319.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" styleClass="baustein_farbe" text="Genehmigen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="165.0">
+      <Button layoutX="15.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" styleClass="baustein_farbe" text="Genehmigen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="178.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button cancelButton="true" layoutX="46.0" layoutY="369.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" styleClass="baustein_weight" text="Zurückweisen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="205.0" />
-      <Button layoutX="41.0" layoutY="426.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" styleClass="baustein_weight" text="Anmerkung bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="205.0" />
-      <Button layoutX="59.0" layoutY="468.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" styleClass="baustein_weight" text="PDF erstellen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="245.0" />
-      <TableView layoutX="241.0" layoutY="118.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="125.0">
+      <Button cancelButton="true" layoutX="15.0" layoutY="218.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" styleClass="baustein_weight" text="Zurückweisen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="218.0" />
+      <Button layoutX="15.0" layoutY="257.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" styleClass="baustein_weight" text="Anmerkung bearbeiten" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="257.0" />
+      <Button layoutX="15.0" layoutY="295.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" styleClass="baustein_weight" text="PDF erstellen" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="295.0" />
+      <TableView layoutX="185.0" layoutY="118.0" prefHeight="610.0" prefWidth="985.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="125.0">
         <columns>
           <TableColumn maxWidth="1.7976931348623157E308" prefWidth="75.0" text="Status" />
           <TableColumn maxWidth="1.7976931348623157E308" prefWidth="75.0" text="Nr." />

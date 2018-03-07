@@ -141,35 +141,35 @@ public class MainApp extends Application {
     }
 	
 	
-	public boolean showUserEditDialog(User user) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/AdminViewAddUser.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
-
-            
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Benutzer bearbeiten");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-
-             
-            AdminViewAddUserController addUserController = loader.getController();
-            addUserController.setDialogStage(dialogStage);
-            addUserController.setUserData(user);
-
-            // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
-
-            return false;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+//	public boolean showUserEditDialog(User user) {
+//        try {
+//            
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(MainApp.class.getResource("view/AdminViewAddUser.fxml"));
+//            AnchorPane page = (AnchorPane) loader.load();
+//
+//            
+//            Stage dialogStage = new Stage();
+//            dialogStage.setTitle("Benutzer bearbeiten");
+//            dialogStage.initModality(Modality.WINDOW_MODAL);
+//            dialogStage.initOwner(primaryStage);
+//            Scene scene = new Scene(page);
+//            dialogStage.setScene(scene);
+//
+//             
+//            AdminViewAddUserController addUserController = loader.getController();
+//            addUserController.setDialogStage(dialogStage);
+//            addUserController.setUserData(user);
+//
+//            // Show the dialog and wait until the user closes it
+//            dialogStage.showAndWait();
+//
+//            return false;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//    }
 	
 
 	public void controllerUpdate() {

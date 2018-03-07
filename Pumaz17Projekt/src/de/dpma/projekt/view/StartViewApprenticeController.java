@@ -14,6 +14,10 @@ import javafx.scene.control.Label;
 public class StartViewApprenticeController {
 
 	public static MainApp mainApp;
+	
+	//Für nameTag
+	private static String firstName;
+	private static String lastName;
 
 	@FXML
 	private void menuItemLogout() {
@@ -32,8 +36,10 @@ public class StartViewApprenticeController {
 	private Label endOfEmployment;
 	@FXML
 	private Label deploymentLocation;
+	@FXML
+	private Label nameTag;
 
-	// Construktor
+	// Constructor
 	public StartViewApprenticeController() {
 	}
 
@@ -55,6 +61,8 @@ public class StartViewApprenticeController {
 
 	@FXML
 	private void handleCreateReportBook() {
+		
+		mainApp.loadScene("view/ReportBookWeekly.fxml", "");
 
 	}
 
@@ -62,27 +70,38 @@ public class StartViewApprenticeController {
 	 * Berichtsheft bearbeiten Button
 	 * @author MaSpecter
 	 */
+//	@FXML
+//	private void handleEditReportBook() {
+//		
+//		ReportBook selectedReportBook = /*TODO Datenbank*/.getSelectionModel().getSelectedItem();
+//        if (selectedReportBook != null) {
+//            boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
+//            if (okClicked) {
+//                showReportBookDetails(selectedReportBook);
+//            }
+//
+//        } else {
+//            // Kein Berichtsheft ausgewählt
+//            Alert alert = new Alert(AlertType.WARNING);
+//            alert.setTitle("Keine Auswahl");
+//            alert.setHeaderText("Kein Berichtsheft ausgewählt");
+//            alert.setContentText("Kein Berichtsheft ausgewählt!");
+//
+//            alert.showAndWait();
+//        }
+//		
+//	}
+	
 	@FXML
-	private void handleEditReportBook() {
-		
-		ReportBook selectedReportBook = /*TODO Datenbank*/.getSelectionModel().getSelectedItem();
-        if (selectedReportBook != null) {
-            boolean okClicked = mainApp.showPersonEditDialog(selectedPerson);
-            if (okClicked) {
-                showReportBookDetails(selectedReportBook);
-            }
-
-        } else {
-            // Kein Berichtsheft ausgewählt
-            Alert alert = new Alert(AlertType.WARNING);
-            alert.setTitle("Keine Auswahl");
-            alert.setHeaderText("Kein Berichtsheft ausgewählt");
-            alert.setContentText("Kein Berichtsheft ausgewählt!");
-
-            alert.showAndWait();
-        }
-		
+	private void initialize() {
+		nameTag.setText(firstName + " " + lastName);
 	}
+	
+	//setzt das nameTag
+		public static void setNameTag(String userFirstName, String userLastName) {
+			firstName = userFirstName;
+			lastName = userLastName;	
+		}
 
 	public static void setMainApp(MainApp mainApp) {
 		StartViewApprenticeController.mainApp = mainApp;
