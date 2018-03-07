@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 	private Stage primaryStage;
 	private Scene scene;
-	private BorderPane borderLayout;
+	public BorderPane borderLayout = new BorderPane();
 	
 	
 	@Override
