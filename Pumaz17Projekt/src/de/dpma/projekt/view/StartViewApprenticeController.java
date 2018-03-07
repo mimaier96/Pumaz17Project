@@ -10,6 +10,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class StartViewApprenticeController {
 
@@ -38,6 +40,22 @@ public class StartViewApprenticeController {
 	private Label deploymentLocation;
 	@FXML
 	private Label nameTag;
+	
+	//Tabellen Ansicht Berichtshefte
+	@FXML
+	private TableView<ReportBook> reportBookTable;
+	@FXML
+	private TableColumn<ReportBook, String> statusColumn;
+	@FXML
+	private TableColumn<ReportBook, Integer> numberColumn;
+	@FXML
+	private TableColumn<ReportBook, String> weekColumn;
+	@FXML
+	private TableColumn<ReportBook, String> departmentColumn;
+	@FXML
+	private TableColumn<ReportBook, String> kindOfReportColumn;
+	@FXML
+	private TableColumn<ReportBook, String> noteColumn;
 
 	// Constructor
 	public StartViewApprenticeController() {
@@ -94,7 +112,20 @@ public class StartViewApprenticeController {
 	
 	@FXML
 	private void initialize() {
+		//setzt das NameTag
 		nameTag.setText(firstName + " " + lastName);
+		//setzt die Werte für die Berichtsheft Tabelle
+		
+		/**
+		 * TODO Daniel fragen
+		 */
+		
+//		statusColumn.setCellValueFactory(cellData -> cellData.getValue());
+//		numberColumn.setCellValueFactory(cellData -> cellData.getValue().getNumber());
+//		weekColumn.setCellValueFactory(cellData -> cellData.getValue().getDateA() + cellData.getValue().getDateE());
+//		departmentColumn.setCellValueFactory(cellData -> cellData.getValue().getDepartment());
+		
+		
 	}
 	
 	//setzt das nameTag

@@ -2,6 +2,8 @@ package de.dpma.projekt.models;
 
 import java.sql.Date;
 
+import javafx.beans.property.StringProperty;
+
 public class ReportBook {
 
 	private int id;
@@ -9,7 +11,7 @@ public class ReportBook {
 	private int number;
 	private int year;
 	private String job;
-	private String department;
+	private StringProperty department;
 	private String KindOfApprentice;
 	private Date dateA;
 	private Date dateE;
@@ -57,11 +59,15 @@ public class ReportBook {
 	public void setJob(String job) {
 		this.job = job;
 	}
-	public String getDepartment() {
+	
+	public StringProperty apprenticeDepartmentProperty() {
 		return department;
 	}
+	public String getDepartment() {
+		return department.get();
+	}
 	public void setDepartment(String department) {
-		this.department = department;
+		this.department.set(department);
 	}
 	public String getKindOfApprentice() {
 		return KindOfApprentice;

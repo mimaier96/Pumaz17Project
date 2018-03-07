@@ -28,11 +28,11 @@
 				<Label text="Ausbildungsreferat" GridPane.rowIndex="1" />
 				<Label text="Woche vom ..." GridPane.rowIndex="2" />
 				<Label text="bis ..." GridPane.rowIndex="3" />
-				<DatePicker GridPane.columnIndex="1" GridPane.rowIndex="3" />
-				<DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
-				<ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<DatePicker prefHeight="26.0" prefWidth="185.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+				<DatePicker prefHeight="26.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+				<ChoiceBox prefHeight="26.0" prefWidth="190.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 				<Label layoutX="10.0" layoutY="51.0" text="Ausbildungsart" />
-				<ChoiceBox layoutX="122.0" layoutY="47.0" prefWidth="150.0" GridPane.columnIndex="1" />
+				<ChoiceBox layoutX="122.0" layoutY="47.0" prefHeight="26.0" prefWidth="182.0" GridPane.columnIndex="1" />
 			</children>
 		</GridPane>
 		<GridPane layoutX="400.0" layoutY="50.0" prefHeight="129.0" prefWidth="450.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="50.0">
@@ -73,8 +73,8 @@
 				</Label>
 			</children>
 		</GridPane>
-		<Button layoutX="1109.0" layoutY="705.0" mnemonicParsing="false" text="bestätigen und speichern" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" />
-		<Button layoutX="1028.0" layoutY="705.0" mnemonicParsing="false" onAction="#backToApprenticeView" text="abbrechen" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="210.0" />
+		<Button layoutX="913.0" layoutY="703.0" mnemonicParsing="false" text="Bestätigen und Speichern" AnchorPane.bottomAnchor="21.399999999999977" AnchorPane.rightAnchor="135.79999999999995" />
+		<Button layoutX="1075.0" layoutY="703.0" mnemonicParsing="false" onAction="#backToApprenticeView" text="Abbrechen" AnchorPane.bottomAnchor="21.399999999999977" AnchorPane.rightAnchor="50.59999999999991" />
 		<Label layoutX="50.0" layoutY="709.0" text="*Durch betätigen des &quot;bestätigen und speichern&quot; Buttons  wird die Richtigkeit und Vollständigkeit der obigen Angaben bestätigt." AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" />
       <GridPane layoutX="50.0" layoutY="199.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
         <columnConstraints>

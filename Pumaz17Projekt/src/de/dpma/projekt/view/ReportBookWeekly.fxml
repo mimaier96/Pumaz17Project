@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="750.0" maxWidth="1200.0" minHeight="750.0" minWidth="1200.0" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.ReportBookWeeklyController">
+<AnchorPane maxHeight="750.0" maxWidth="1200.0" minHeight="737.0" minWidth="1200.0" prefHeight="737.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dpma.projekt.view.ReportBookWeeklyController">
    <children>
       <GridPane layoutX="43.0" layoutY="44.0" prefHeight="129.0" prefWidth="293.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
         <columnConstraints>
@@ -28,11 +28,11 @@
             <Label text="Ausbildungsreferat" GridPane.rowIndex="1" />
             <Label text="Woche vom ..." GridPane.rowIndex="2" />
             <Label text="bis ..." GridPane.rowIndex="3" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker prefHeight="26.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker prefHeight="26.0" prefWidth="184.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ChoiceBox prefHeight="26.0" prefWidth="185.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label layoutX="10.0" layoutY="51.0" text="Ausbildungsart" />
-            <ChoiceBox layoutX="122.0" layoutY="47.0" prefWidth="150.0" GridPane.columnIndex="1" />
+            <ChoiceBox layoutX="122.0" layoutY="47.0" prefHeight="26.0" prefWidth="188.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <GridPane layoutX="400.0" layoutY="50.0" prefHeight="129.0" prefWidth="450.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="50.0">
@@ -79,14 +79,14 @@
          </font>
       </Label>
       <TextArea layoutX="50.0" layoutY="229.0" prefHeight="250.0" prefWidth="1100.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="230.0" />
-      <Button layoutX="1109.0" layoutY="705.0" mnemonicParsing="false" text="bestätigen und speichern" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0" />
-      <Button layoutX="1028.0" layoutY="705.0" mnemonicParsing="false" onAction="#backToApprenticeView" text="abbrechen" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="210.0" />
+      <Button layoutX="911.0" layoutY="693.0" mnemonicParsing="false" text="Bestätigen und Speichern" AnchorPane.bottomAnchor="31.399999999999977" AnchorPane.rightAnchor="137.79999999999995" />
+      <Button layoutX="1075.0" layoutY="693.0" mnemonicParsing="false" onAction="#backToApprenticeView" text="Abbrechen" AnchorPane.bottomAnchor="31.399999999999977" AnchorPane.rightAnchor="50.59999999999991" />
       <Label layoutX="50.0" layoutY="496.0" text="Notiz" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="490.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <TextArea layoutX="50.0" layoutY="516.0" prefHeight="50.0" prefWidth="1100.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="520.0" />
-      <Label layoutX="50.0" layoutY="709.0" text="*Durch betätigen des &quot;bestätigen und speichern&quot; Buttons  wird die Richtigkeit und Vollständigkeit der obigen Angaben bestätigt." AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0" />
+      <Label layoutX="50.0" layoutY="697.4" text="*Durch betätigen des &quot;bestätigen und speichern&quot; Buttons  wird die Richtigkeit und Vollständigkeit der obigen Angaben bestätigt." AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="50.0" />
    </children>
 </AnchorPane>
