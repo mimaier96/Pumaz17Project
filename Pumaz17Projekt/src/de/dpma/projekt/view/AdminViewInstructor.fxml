@@ -23,7 +23,7 @@
          </font>
       </Label>
       <Button layoutX="13.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="25.0" prefWidth="155.0" text="Benutzer hinzufügen" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="154.0" />
-      <TableView layoutX="181.0" layoutY="118.0" prefHeight="610.0" prefWidth="989.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="userTable" layoutX="181.0" layoutY="118.0" prefHeight="610.0" prefWidth="989.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="125.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="64.00003051757812" text="ID" />
             <TableColumn fx:id="userRoleColumn" prefWidth="133.60000610351562" text="Rolle" />

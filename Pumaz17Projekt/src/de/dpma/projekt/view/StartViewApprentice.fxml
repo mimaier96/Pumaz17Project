@@ -108,7 +108,7 @@
          </font></Label>
       <Button layoutX="13.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="PDF erstellen" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="273.0" />
       <Button layoutX="13.0" layoutY="233.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" text="Notiz bearbeiten" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="233.0" />
-      <TableView layoutX="241.0" layoutY="118.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="reportBookTable" layoutX="241.0" layoutY="118.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="125.0">
         <columns>
           <TableColumn maxWidth="1.7976931348623157E308" prefWidth="75.0" resizable="false" text="Status" />
           <TableColumn maxWidth="1.7976931348623157E308" prefWidth="75.0" resizable="false" text="Nr." />
