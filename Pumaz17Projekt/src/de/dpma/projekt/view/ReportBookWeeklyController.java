@@ -9,11 +9,12 @@ public class ReportBookWeeklyController {
 
 	@FXML
 	private void backToApprenticeView() {
+		mainApp.loadBorder("view/MenuPart3", "title");
 		mainApp.loadScene("view/StartViewApprentice.fxml", "Übersicht");
 	}
 
 	public static void setMainApp(MainApp mainApp) {
-		AdminViewInstructorController.mainApp = mainApp;
+		ReportBookWeeklyController.mainApp = mainApp;
 
 	}
 

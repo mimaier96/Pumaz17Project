@@ -24,6 +24,7 @@ public class StartViewApprenticeController {
 
 	@FXML
 	private void menuItemLogout() {
+		mainApp.loadBorder("view/MenuPart2.fxml", "title");;
 		mainApp.loadScene("view/LoginWindow.fxml", "Anmeldung");
 	}
 
