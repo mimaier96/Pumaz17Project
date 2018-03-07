@@ -3,21 +3,19 @@ package de.dpma.projekt.db;
 
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.text.ParseException;
 
-import de.dpma.projekt.models.user.Apprentice;
+import de.dpma.projekt.models.User;
 
 public interface UserDao {
 	
-public Apprentice insertApprentice(Apprentice apprentice) throws SQLException;
+	public User insertUser(User user) throws SQLException;
 	
-	public ArrayList<Apprentice> insertApprentice(ArrayList<Apprentice> apprentices);
+	public User getUser(User user) throws SQLException;
 
-	public boolean updateApprentice(Apprentice apprentice);
+	public boolean updateUser(User user, String update, String change)  throws SQLException, ParseException;
 
 	
-	public boolean deleteApprentice(int userId);
-	
-	public ArrayList<Apprentice> allApprentices();
+	public boolean deleteUser(String username) throws SQLException;
 
 }

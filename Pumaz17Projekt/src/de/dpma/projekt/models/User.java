@@ -1,4 +1,4 @@
-package models;
+package de.dpma.projekt.models;
 
 import javafx.beans.property.StringProperty;
 
@@ -92,4 +92,10 @@ public class User {
 		this.email.set(email);
 	}
 
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 }
