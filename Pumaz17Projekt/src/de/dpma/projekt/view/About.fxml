@@ -4,17 +4,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="100.0" maxWidth="500.0" minHeight="100.0" minWidth="500.0" prefHeight="100.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+<AnchorPane maxHeight="100.0" maxWidth="500.0" minHeight="100.0" minWidth="500.0" prefHeight="100.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="27.0" layoutY="48.0" prefHeight="17.0" prefWidth="447.0" text="Autoren: Stefan Jaura, Luca Rohde, Daniel Lindinger, Michael Maier, Marcus Schaipp" />
+      <Label layoutX="27.0" layoutY="48.0" prefHeight="17.0" prefWidth="447.0" text="Autoren: Stefan Jaura, Luca Rohde, Daniel Lindinger, Michael Maier, Marcus Schaipp" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="50.0" />
       <Label layoutX="23.0" layoutY="169.0" />
-      <Label layoutX="30.0" layoutY="14.0" text="Digitales Berichtsheft Client / Programm">
+      <Label layoutX="30.0" layoutY="14.0" text="Digitales Berichtsheft Client / Programm" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="413.0" layoutY="65.0" text="version 1.0" />
-      <Label layoutX="27.0" layoutY="65.0" text="Entiwicklunsgstart: 26.02.2018" />
+      <Label layoutX="413.0" layoutY="65.0" text="version 1.0" AnchorPane.leftAnchor="415.0" AnchorPane.topAnchor="70.0" />
+      <Label layoutX="27.0" layoutY="65.0" text="Entiwicklunsgstart: 26.02.2018" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="70.0" />
    </children>
 </AnchorPane>

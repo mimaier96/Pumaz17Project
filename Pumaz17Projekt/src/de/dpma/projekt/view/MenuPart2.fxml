@@ -16,13 +16,13 @@
 				</Menu>
 				<Menu fx:id="options" mnemonicParsing="false" text="Einstellungen">
 					<items>
-						<MenuItem mnemonicParsing="false" text="Passwort ändern" />
+						<MenuItem mnemonicParsing="false" onAction="#changePw" text="Passwort ändern" />
 					</items>
 				</Menu>
 				<Menu fx:id="help" mnemonicParsing="false" text="Help">
 					<items>
-						<MenuItem mnemonicParsing="false" text="About" />
-						<MenuItem mnemonicParsing="false" text="Hife" />
+						<MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+						<MenuItem mnemonicParsing="false" onAction="#help" text="Hife" />
 					</items>
 				</Menu>
 			</menus>

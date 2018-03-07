@@ -1,25 +1,16 @@
 package de.dpma.projekt.view;
 
-import java.util.ArrayList;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.io.IOException;
 
 import de.dpma.projekt.MainApp;
-import de.dpma.projekt.models.User;
-import de.dpma.projekt.models.user.Instructor;
-import de.dpma.projekt.models.util.JobList;
-import de.dpma.projekt.models.util.RoleList;
-import de.dpma.projekt.models.util.UserList;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.ComboBox;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class BorderLayoutController {
 
@@ -36,12 +27,10 @@ public class BorderLayoutController {
 	private Menu viewRoles;
 	@FXML
 	private Menu options;
-	@FXML
-	private Menu help;
 
 	@FXML
 	private void initialize() {
-//		hidePartsBut(menu);
+		// hidePartsBut(menu);
 	}
 
 	public static void setMainApp(MainApp mainApp) {
@@ -59,7 +48,49 @@ public class BorderLayoutController {
 	}
 
 	@FXML
+	public void changePw() {
+		mainApp.loadBorder("view/MenuPart2.fxml", "title");
+		mainApp.loadScene("view/CHangePassword.fxml", "Passwort ändern");
+	}
+
+	@FXML
+	private void help() throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainApp.class.getResource("view/HelpView.fxml"));
+		AnchorPane page = (AnchorPane) loader.load();
+
+		Stage dialogStage = new Stage();
+		dialogStage.setTitle("Programmhilfe");
+		dialogStage.initModality(Modality.WINDOW_MODAL);
+
+		Scene scene = new Scene(page);
+		dialogStage.setScene(scene);
+
+		// Show the dialog and wait until the user closes it
+		dialogStage.showAndWait();
+	}
+
+	@FXML
+	private void about() throws IOException {
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainApp.class.getResource("view/About.fxml"));
+		AnchorPane page = (AnchorPane) loader.load();
+
+		Stage dialogStage = new Stage();
+		dialogStage.setTitle("Programminformationen");
+		dialogStage.initModality(Modality.WINDOW_MODAL);
+
+		Scene scene = new Scene(page);
+		dialogStage.setScene(scene);
+
+		// Show the dialog and wait until the user closes it
+		dialogStage.showAndWait();
+	}
+
+	@FXML
 	private void logout() {
+		mainApp.loadBorder("view/MenuPart2.fxml", "title");
 		mainApp.loadScene("view/LoginWindow.fxml", "Login");
 	}
 
