@@ -12,6 +12,11 @@ public class ReportBookWeeklyController {
 		mainApp.loadBorder("view/MenuPart3", "title");
 		mainApp.loadScene("view/StartViewApprentice.fxml", "Übersicht");
 	}
+	
+	@FXML
+	private void handleAbort() {
+		
+	}
 
 	public static void setMainApp(MainApp mainApp) {
 		ReportBookWeeklyController.mainApp = mainApp;
