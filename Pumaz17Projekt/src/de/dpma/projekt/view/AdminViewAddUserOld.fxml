@@ -15,8 +15,8 @@
    <children>
 		<GridPane fx:id="gpAll" layoutX="25.0" layoutY="18.0" prefHeight="226.0" prefWidth="415.0">
 			<columnConstraints>
-				<ColumnConstraints hgrow="SOMETIMES" maxWidth="203.20001220703125" minWidth="10.0" prefWidth="170.0" />
-				<ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="245.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="203.20001220703125" minWidth="10.0" prefWidth="172.79998779296875" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="246.4000244140625" minWidth="10.0" prefWidth="243.20001220703125" />
 			</columnConstraints>
 			<rowConstraints>
 				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -47,14 +47,13 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-      				<Button mnemonicParsing="false" onAction="#handleFileUpload" prefHeight="26.0" prefWidth="93.0" text="Datei wählen" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      				<Label layoutX="10.0" layoutY="138.0" text="Unterschrift*" GridPane.rowIndex="4">
+				<Button fx:id="fileUploadButton" mnemonicParsing="false" onAction="#handleFileUpload" prefHeight="26.0" prefWidth="93.0" text="Datei wählen" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+				<Label layoutX="10.0" layoutY="138.0" text="Unterschrift*" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
+               </font></Label>
             <ComboBox fx:id="roleComboBox" onAction="#isApprentice" onDragDetected="#isApprentice" onDragDone="#isApprentice" onDragDropped="#isApprentice" onDragEntered="#isApprentice" onDragExited="#isApprentice" onDragOver="#isApprentice" onMouseClicked="#isApprentice" onMouseDragEntered="#isApprentice" onMouseDragExited="#isApprentice" onMouseDragOver="#isApprentice" onMouseDragReleased="#isApprentice" onMouseExited="#isApprentice" onMouseReleased="#isApprentice" prefHeight="26.0" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="emailField1" layoutX="182.0" layoutY="107.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="userNameField" layoutX="182.0" layoutY="107.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label layoutX="10.0" layoutY="110.0" text="Benutzername" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -62,7 +61,7 @@
             </Label>
 			</children>
 		</GridPane>
-      <Button defaultButton="true" layoutX="233.0" layoutY="629.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="114.0" text="Hinzufügen">
+      <Button defaultButton="true" layoutX="233.0" layoutY="629.0" mnemonicParsing="false" onAction="#handleSaveAddUser" prefHeight="30.0" prefWidth="114.0" text="Hinzufügen">
          <font>
             <Font size="13.0" />
          </font></Button>
@@ -84,10 +83,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="yearOfEmploymentField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="postalCodeField" layoutX="10.0" layoutY="20.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="Ausbildungsberuf">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -108,63 +107,32 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="159.0" text="Straße / Hausnummer" GridPane.rowIndex="4">
+            <Label layoutX="10.0" layoutY="159.0" text="Anschrift" GridPane.rowIndex="4">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="204.0" text="Ausbildungsbeginn" GridPane.rowIndex="6">
+            <Label layoutX="10.0" layoutY="204.0" text="Ausbildungsbeginn" GridPane.rowIndex="5">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="248.0" text="Ausbildungsende" GridPane.rowIndex="7">
+            <Label layoutX="10.0" layoutY="248.0" text="Ausbildungsende" GridPane.rowIndex="6">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="292.0" text="Ausbildungsbehörde" GridPane.rowIndex="8">
+            <Label layoutX="10.0" layoutY="292.0" text="Ausbildungsbehörde" GridPane.rowIndex="7">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
             <ComboBox fx:id="instructorComboBox" prefHeight="26.0" prefWidth="246.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="jobComboBox" prefHeight="26.0" prefWidth="246.0" GridPane.columnIndex="1" />
-            <ComboBox prefHeight="26.0" prefWidth="248.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <DatePicker prefHeight="25.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <DatePicker layoutX="179.0" layoutY="155.0" prefHeight="25.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <DatePicker layoutX="179.0" layoutY="245.0" prefHeight="25.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="196.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="10.0" prefWidth="50.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <TextField layoutX="133.0" layoutY="25.0" />
-                  <TextField prefHeight="25.0" prefWidth="53.0" GridPane.columnIndex="1" />
-               </children>
-            </GridPane>
-            <Label layoutX="10.0" layoutY="180.0" text="Stadt / PLZ" GridPane.rowIndex="5">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Label>
-            <GridPane layoutX="179.0" layoutY="170.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="176.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="70.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <TextField layoutX="133.0" layoutY="25.0" />
-                  <TextField prefHeight="25.0" prefWidth="53.0" GridPane.columnIndex="1" />
-               </children>
-            </GridPane>
+            <ComboBox fx:id="locationOfDeploymentComboBox" prefHeight="26.0" prefWidth="248.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <DatePicker fx:id="birthdayField" prefHeight="25.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <DatePicker fx:id="beginOfApprenticeshipField" layoutX="179.0" layoutY="155.0" prefHeight="25.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <DatePicker fx:id="endOfApprenticeshipField" layoutX="179.0" layoutY="245.0" prefHeight="25.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
 		<Label layoutX="313.0" layoutY="181.0" text="*.png (300 x 200 Pixel)" />
