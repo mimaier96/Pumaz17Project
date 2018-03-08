@@ -5,11 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 import de.dpma.projekt.models.User;
 
 
-public class UserDaoImpl implements UserDao {
 
+public class UserDaoImpl implements UserDao {
+	
 	private Connection con = DatabaseConnection.getInstance();
 
 	private final static String PREPARED_INSERT = "INSERT INTO berichtsheft.user (firstname, lastname, username, password, role, email) VALUES (?,?,?,Anfang12,?,?)";
@@ -23,11 +25,11 @@ public class UserDaoImpl implements UserDao {
 		ResultSet result = null;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_INSERT, generatedColumns);
 		
-		prepStat.setString(1, user.getFirstname());
-		prepStat.setString(2, user.getLastname());
-		prepStat.setString(3, user.getUsername());
-		prepStat.setString(4, user.getRole());
-		prepStat.setString(5, user.getEmail());
+		prepStat.setString(1, user.getFirstnameS());
+		prepStat.setString(2, user.getLastnameS());
+		prepStat.setString(3, user.getUsernameS());
+		prepStat.setString(4, user.getRoleS());
+		prepStat.setString(5, user.getEmailS());
 
 		prepStat.execute();
 		
@@ -37,7 +39,6 @@ public class UserDaoImpl implements UserDao {
 			int id = (int) result.getLong(1);
 			user.setId(id);
 		}
-		
 		return user;
 	}
 
@@ -45,15 +46,15 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User getUser(User user) throws SQLException {
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_SELECT);
-		prepStat.setString(1, user.getUsername());
+		prepStat.setString(1, user.getUsernameS());
 		ResultSet result = prepStat.executeQuery();
 		
 		while (result.next()) {
-		user.setFirstName(result.getString("firstname"));
-		user.setLastName(result.getString("lastname"));
-		user.setUsername(result.getString("username"));
-		user.setRole(result.getString("role"));
-		user.setEmail(result.getString("email"));
+		user.setFirstnameS(result.getString("firstname"));
+		user.setLastnameS(result.getString("lastname"));
+		user.setUsernameS(result.getString("username"));
+		user.setRoleS(result.getString("role"));
+		user.setEmailS(result.getString("email"));
 		}
 		
 		return user;
@@ -68,7 +69,7 @@ public class UserDaoImpl implements UserDao {
 		try {
 			prepStat.setString(1, update);
 			prepStat.setString(2, change);
-			prepStat.setString(3, user.getUsername());
+			prepStat.setString(3, user.getUsernameS());
 			
 			prepStat.executeUpdate();
 		} catch (Exception e) {

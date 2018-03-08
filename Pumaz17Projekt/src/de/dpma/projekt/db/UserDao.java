@@ -15,7 +15,6 @@ public interface UserDao {
 
 	public boolean updateUser(User user, String update, String change)  throws SQLException, ParseException;
 
-	
 	public boolean deleteUser(String username) throws SQLException;
 
 }

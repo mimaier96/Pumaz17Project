@@ -2,7 +2,6 @@ package de.dpma.projekt.db;
 
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.ArrayList;
 
 import de.dpma.projekt.models.user.Apprentice;
 
@@ -15,6 +14,7 @@ public interface ApprenticeDao {
 	public boolean updateApprentice(Apprentice apprentice, String update, String change) throws SQLException, ParseException;
 
 	public boolean deleteApprentice(String username) throws SQLException;
+	
 
 		
 }

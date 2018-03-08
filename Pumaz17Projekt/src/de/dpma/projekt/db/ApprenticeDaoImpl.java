@@ -11,6 +11,7 @@ import de.dpma.projekt.models.user.Apprentice;
 import de.dpma.projekt.utils4Code.DateUtil;
 
 public class ApprenticeDaoImpl implements ApprenticeDao {
+	
 
 	private Connection con = DatabaseConnection.getInstance();
 	
@@ -18,7 +19,7 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 			"VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
 	
 	private static final String PREPARED_SELECT = "SELECT * FROM berichtsheft.apprentice WHERE username = ?;";
-
+	
 	private static final String PREPARED_UPDATE = "UPDATE berichtsheft.apprentice SET ? = ? WHERE username = ?";
 	
 	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.apprentice WHERE username = ?";
@@ -151,4 +152,5 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 			return true;
 		}
 	}
+
 }
