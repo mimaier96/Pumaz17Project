@@ -15,7 +15,7 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 
 	private Connection con = DatabaseConnection.getInstance();
 	
-	private static final String PREPARED_INSERT = "INSERT INTO berichtsheft.apprentice (´UserId´, ´JobId´, ´Instructor´, ´YearOfEmployment´, ´Birthday´, ´Street´, ´HouseNumber´, ´PostalCode´, ´City´, ´LocationOfDeployment´, ´BeginOfApprenticeship´, ´EndOfApprenticeship´) " + 
+	private static final String PREPARED_INSERT = "INSERT INTO berichtsheft.apprentice (UserId, JobId, Instructor, YearOfEmployment, Birthday, Street, HouseNumber, PostalCode, City, LocationOfDeployment, BeginOfApprenticeship, EndOfApprenticeship) " + 
 			"VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
 	
 	private static final String PREPARED_SELECT = "SELECT * FROM berichtsheft.apprentice WHERE username = ?;";
