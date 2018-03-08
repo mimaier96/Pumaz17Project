@@ -381,9 +381,9 @@ public class AdminViewAddUserController {
 		roleComboBox.setValue("Bitte wählen ...");
 		
 		ObservableList<String> dep = FXCollections.observableArrayList();
-		roles.add("München");
-		roles.add("Jena");
-		roles.add("Hauzenberg");
+		dep.add("München");
+		dep.add("Jena");
+		dep.add("Hauzenberg");
 		locationOfDeploymentComboBox.setItems(dep);
 		locationOfDeploymentComboBox.setValue("Bitte wählen ...");
 		
