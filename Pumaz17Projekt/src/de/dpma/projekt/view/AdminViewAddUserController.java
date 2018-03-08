@@ -24,6 +24,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -76,7 +77,7 @@ public class AdminViewAddUserController {
 	@FXML
 	private TextField yearOfEmploymentField;
 	@FXML
-	private TextField birthdayField;
+	private DatePicker birthdayField;
 	@FXML
 	private TextField streetField;
 	@FXML
@@ -86,9 +87,9 @@ public class AdminViewAddUserController {
 	@FXML
 	private TextField cityField;
 	@FXML
-	private TextField beginOfApprenticeshipField;
+	private DatePicker beginOfApprenticeshipField;
 	@FXML
-	private TextField endOfApprenticeshipField;
+	private DatePicker endOfApprenticeshipField;
 	// Ausbildungsbehörde Dropdown 
 	@FXML
 	private ComboBox<String> locationOfDeploymentComboBox;
@@ -174,13 +175,13 @@ public class AdminViewAddUserController {
 			}
 		}
 
-		if (birthdayField.getText() == null || birthdayField.getText().length() == 0) {
-			errorMessage += "Kein gültiges Geburtsdatum! Format: TT.MM.JJJJ\n";
-		} else {
-			if (!DateUtil.validDate(birthdayField.getText())) {
-				errorMessage += "Kein gültiges Geburtsdatum! Format: TT.MM.JJJJ\n";
-			}
-		}
+//		if (birthdayField.getText() == null || birthdayField.getText().length() == 0) {
+//			errorMessage += "Kein gültiges Geburtsdatum! Format: TT.MM.JJJJ\n";
+//		} else {
+//			if (!DateUtil.validDate(birthdayField.getText())) {
+//				errorMessage += "Kein gültiges Geburtsdatum! Format: TT.MM.JJJJ\n";
+//			}
+//		}
 
 //		if (streetField.getText() == null || streetField.getText().length() == 0) {
 //			errorMessage += "Keine gültiger Straßenname!\\n";
@@ -218,21 +219,21 @@ public class AdminViewAddUserController {
 //			errorMessage += "Keine gültige Stadt!\\n";
 //		}
 
-		if (beginOfApprenticeshipField.getText() == null || beginOfApprenticeshipField.getText().length() == 0) {
-			errorMessage += "Kein gültiges Datum für den Ausbildungsbeginn! Format: TT.MM.JJJJ\\n";
-		} else {
-			if (!DateUtil.validDate(beginOfApprenticeshipField.getText())) {
-				errorMessage += "Kein gültiges Datum für den Ausbildungsbeginn! Format: TT.MM.JJJJ\\n";
-			}
-		}
-
-		if (endOfApprenticeshipField.getText() == null || endOfApprenticeshipField.getText().length() == 0) {
-			errorMessage += "Kein gültiges Datum für das Ausbildungsende! Format: TT.MM.JJJJ\\n";
-		} else {
-			if (!DateUtil.validDate(endOfApprenticeshipField.getText())) {
-				errorMessage += "Kein gültiges Datum für das Ausbildungsende! Format: TT.MM.JJJJ\\n";
-			}
-		}
+//		if (beginOfApprenticeshipField.getText() == null || beginOfApprenticeshipField.getText().length() == 0) {
+//			errorMessage += "Kein gültiges Datum für den Ausbildungsbeginn! Format: TT.MM.JJJJ\\n";
+//		} else {
+//			if (!DateUtil.validDate(beginOfApprenticeshipField.getText())) {
+//				errorMessage += "Kein gültiges Datum für den Ausbildungsbeginn! Format: TT.MM.JJJJ\\n";
+//			}
+//		}
+//
+//		if (endOfApprenticeshipField.getText() == null || endOfApprenticeshipField.getText().length() == 0) {
+//			errorMessage += "Kein gültiges Datum für das Ausbildungsende! Format: TT.MM.JJJJ\\n";
+//		} else {
+//			if (!DateUtil.validDate(endOfApprenticeshipField.getText())) {
+//				errorMessage += "Kein gültiges Datum für das Ausbildungsende! Format: TT.MM.JJJJ\\n";
+//			}
+//		}
 
 		if (errorMessage.length() == 0) {
 			log.info("-->Beende: inputIsValid -- Datenüberprüfung");
