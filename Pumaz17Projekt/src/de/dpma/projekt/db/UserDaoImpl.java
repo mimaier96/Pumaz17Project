@@ -14,7 +14,7 @@ public class UserDaoImpl implements UserDao {
 	
 	private Connection con = DatabaseConnection.getInstance();
 
-	private final static String PREPARED_INSERT = "INSERT INTO berichtsheft.user (firstname, lastname, username, password, role, email) VALUES (?,?,?,Anfang12,?,?)";
+	private final static String PREPARED_INSERT = "INSERT INTO berichtsheft.user (´firstname´, ´lastname´, ´username´, ´password´, ´role´, ´email´) VALUES (?,?,?,´Anfang12´,?,?)";
 	private final static String PREPARED_SELECT = "SELECT * FROM berichtsheft.user WHERE username = ?";
 	private final static String PREPARED_UPDATE = "UPDATE berichtsheft.user SET ? = ? WHERE username = ?;";
 	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.user WHERE username = ?";

@@ -15,7 +15,7 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 
 	private Connection con = DatabaseConnection.getInstance();
 	
-	private static final String PREPARED_INSERT = "INSERT INTO berichtsheft.apprentice (UserId, JobId; Instructor, YearOfEmployment, Birthday, Street, House number, PostalCode, City, Location of deployment, Begin of apprenticeship, End of apprenticeship)\r\n" + 
+	private static final String PREPARED_INSERT = "INSERT INTO berichtsheft.apprentice (´UserId´, ´JobId´, ´Instructor´, ´YearOfEmployment´, ´Birthday´, ´Street´, ´HouseNumber´, ´PostalCode´, ´City´, ´LocationOfDeployment´, ´BeginOfApprenticeship´, ´EndOfApprenticeship´) " + 
 			"VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
 	
 	private static final String PREPARED_SELECT = "SELECT * FROM berichtsheft.apprentice WHERE username = ?;";
@@ -69,12 +69,12 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 				apprentice.setYearOfEmployment(result.getInt("YearOfEmployment"));
 				apprentice.setApprenticeBirthday(result.getDate("Birthday"));
 				apprentice.setAdressStreetApprentice(result.getString("Street"));
-				apprentice.setAdressHouseNumberApprentice(result.getInt("House number"));
+				apprentice.setAdressHouseNumberApprentice(result.getInt("HouseNumber"));
 				apprentice.setAdressPostalCode(result.getInt("PostalCode"));
 				apprentice.setAdressCity(result.getString("City"));
-				apprentice.setLocationOfDeployment(result.getString("Location of Deployment"));
-				apprentice.setBeginOfApprenticeship(result.getDate("Begin of apprenticeship"));
-				apprentice.setEndOfApprenticeship(result.getDate("End of apprenticeship"));
+				apprentice.setLocationOfDeployment(result.getString("LocationOfDeployment"));
+				apprentice.setBeginOfApprenticeship(result.getDate("BeginOfApprenticeship"));
+				apprentice.setEndOfApprenticeship(result.getDate("EndOfApprenticeship"));
 			}
 		return apprentice;
 	}
