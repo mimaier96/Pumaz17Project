@@ -13,17 +13,19 @@ public class Instructor extends User {
 
 	}
 
-	/*public User createApprentice(String firstname, String lastname, String username, String password, String role,
-			String email, String job, User instructor, int yearOfEmployment, Date apprenticeBirthday,
+	public User createApprentice(String firstname, String lastname, String username, String password, String role,
+			String email, int job_id, String instructor, int yearOfEmployment, Date apprenticeBirthday,
 			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
 			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
-		Apprentice a = new Apprentice(firstname, lastname, username, password, role, email, job, yearOfEmployment,
-				apprenticeBirthday, adressStreetApprentice, adressHouseNumberApprentice, adressPostalCode, adressCity,
-				locationOfDeployment, beginOfApprenticeship, endOfApprenticeship);
+		Apprentice a = new Apprentice(firstname, lastname, username, password, role,
+				email, job_id, instructor, yearOfEmployment, apprenticeBirthday,
+				adressStreetApprentice, adressHouseNumberApprentice, adressPostalCode, adressCity,
+				locationOfDeployment, beginOfApprenticeship, endOfApprenticeship) ;
 		UserList.addUser(a);
 		return a;
 
-	}*/
+			
+	}
 
 	public User createTrainer(int id, String firstname, String lastname, String username, String password, String role,
 			String email) {
@@ -37,5 +39,13 @@ public class Instructor extends User {
 
 		UserList.deleteUserById(id);
 		return UserList.searchUserByID(id);
+	}
+
+	public void createApprentice(String text, String text2, String text3, String password, String value, String text4,
+			int job_id, Instructor x, int yearOfEmployment, java.util.Date d, String text5,
+			int adressHouseNumberApprentice, int adressPostalCode, String text6, String value2, java.util.Date d2,
+			java.util.Date d3) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -3,7 +3,10 @@ package de.dpma.projekt.models.user;
 
 //import java.util.Date;
 import java.sql.Date;
+import java.sql.SQLException;
 
+import de.dpma.projekt.db.ApprenticeDaoImpl;
+import de.dpma.projekt.db.UserDaoImpl;
 import de.dpma.projekt.models.ReportBook;
 import de.dpma.projekt.models.User;
 
@@ -24,11 +27,12 @@ public class Apprentice extends User {
 	private Date endOfApprenticeship; //Ausbildungsende
 
 
-	public Apprentice( String firstname, String lastname, String username, String password, String role,
+	public Apprentice(String firstname, String lastname, String username, String password, String role,
 			String email, int job_id, String instructor, int yearOfEmployment, Date apprenticeBirthday,
 			String adressStreetApprentice, int adressHouseNumberApprentice, int adressPostalCode, String adressCity,
 			String locationOfDeployment, Date beginOfApprenticeship, Date endOfApprenticeship) {
-		super( firstname, lastname, username, password, role, email);
+		super(firstname, lastname, username, password, role, email) ;
+		System.out.println("luldiwadawd");
 		this.job_id = job_id;
 		this.instructor = instructor;
 		this.yearOfEmployment = yearOfEmployment;
@@ -40,6 +44,21 @@ public class Apprentice extends User {
 		this.locationOfDeployment = locationOfDeployment;
 		this.beginOfApprenticeship = beginOfApprenticeship;
 		this.endOfApprenticeship = endOfApprenticeship;
+		ApprenticeDaoImpl o = new ApprenticeDaoImpl();
+		try {
+			o.insertApprentice(this);
+		} catch (SQLException e) {
+
+			System.out.println("LuRL");
+			e.printStackTrace();
+		}
+		UserDaoImpl i = new UserDaoImpl();
+		try {
+			i.insertUser(this);
+		} catch (SQLException e) {
+			System.out.println("LARL");
+			e.printStackTrace();
+		}
 	}
 
 

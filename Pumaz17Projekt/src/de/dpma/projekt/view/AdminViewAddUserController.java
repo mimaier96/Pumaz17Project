@@ -2,6 +2,7 @@ package de.dpma.projekt.view;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.sql.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,6 +11,7 @@ import de.dpma.projekt.MainApp;
 import de.dpma.projekt.db.UserDaoImpl;
 import de.dpma.projekt.models.User;
 import de.dpma.projekt.models.user.Apprentice;
+import de.dpma.projekt.models.user.Instructor;
 import de.dpma.projekt.models.util.JobList;
 import de.dpma.projekt.models.util.RoleList;
 import de.dpma.projekt.models.util.UserList;
@@ -143,7 +145,7 @@ public class AdminViewAddUserController {
 //		}
 
 		// Variablen zur Überprüfung, ob Email '@ und .' enthält
-		String eMCs = "@.";
+		String eMCs = "@";
 		CharSequence emailMustChars = eMCs;
 
 		/**
@@ -180,41 +182,41 @@ public class AdminViewAddUserController {
 			}
 		}
 
-		if (streetField.getText() == null || streetField.getText().length() == 0) {
-			errorMessage += "Keine gültiger Straßenname!\\n";
-		}
-		if (houseNumberField.getText() == null || houseNumberField.getText().length() == 0) {
-			errorMessage += "Keine gültige Hausnummer!\\n";
-		} else {
-			try {
-				Integer.parseInt(houseNumberField.getText());
-			} catch (NumberFormatException e) {
-				errorMessage += "Keine gültige Hausnummer!\\n";
-			}
-		}
-
-		// Überprüft, ob die Eingabe eine fünfstellige Ganzzahl ist
-		if (postalCodeField.getText() == null || postalCodeField.getText().length() != 5) {
-			errorMessage += "Bitte geben Sie eine Postleitzahl ein!\\n";
-		} else {
-			try {
-				/**
-				 * Überprüft den gültigen Postleitzahlen-Bereich von Deutschland
-				 * 
-				 * @author MaSpecter
-				 */
-				int plzCheck = Integer.parseInt(postalCodeField.getText());
-				if (plzCheck < 01000 || plzCheck > 99998) {
-					errorMessage += "Keine gültige Postleizahl!\\n";
-				}
-			} catch (NumberFormatException e) {
-				errorMessage += "Keine gültige Postleitzahl!\\n";
-			}
-		}
-
-		if (cityField.getText() == null || cityField.getText().length() == 0) {
-			errorMessage += "Keine gültige Stadt!\\n";
-		}
+//		if (streetField.getText() == null || streetField.getText().length() == 0) {
+//			errorMessage += "Keine gültiger Straßenname!\\n";
+//		}
+//		if (houseNumberField.getText() == null || houseNumberField.getText().length() == 0) {
+//			errorMessage += "Keine gültige Hausnummer!\\n";
+//		} else {
+//			try {
+//				Integer.parseInt(houseNumberField.getText());
+//			} catch (NumberFormatException e) {
+//				errorMessage += "Keine gültige Hausnummer!\\n";
+//			}
+//		}
+//
+//		// Überprüft, ob die Eingabe eine fünfstellige Ganzzahl ist
+//		if (postalCodeField.getText() == null || postalCodeField.getText().length() != 5) {
+//			errorMessage += "Bitte geben Sie eine Postleitzahl ein!\\n";
+//		} else {
+//			try {
+//				/**
+//				 * Überprüft den gültigen Postleitzahlen-Bereich von Deutschland
+//				 * 
+//				 * @author MaSpecter
+//				 */
+//				int plzCheck = Integer.parseInt(postalCodeField.getText());
+//				if (plzCheck < 01000 || plzCheck > 99998) {
+//					errorMessage += "Keine gültige Postleizahl!\\n";
+//				}
+//			} catch (NumberFormatException e) {
+//				errorMessage += "Keine gültige Postleitzahl!\\n";
+//			}
+//		}
+//
+//		if (cityField.getText() == null || cityField.getText().length() == 0) {
+//			errorMessage += "Keine gültige Stadt!\\n";
+//		}
 
 		if (beginOfApprenticeshipField.getText() == null || beginOfApprenticeshipField.getText().length() == 0) {
 			errorMessage += "Kein gültiges Datum für den Ausbildungsbeginn! Format: TT.MM.JJJJ\\n";
@@ -264,8 +266,18 @@ public class AdminViewAddUserController {
 	private void handleSaveAddUser() {
 		if (inputIsValid()) {
 
-			// TODO im Code Methode aufrufen, die Insert in DB macht
+			//Wird später aus der db bezogen
+			
+			
+			Date d = new Date(2001,2,30);
+			System.out.println("dadw"+firstNameField.getText()+ lastNameField.getText()+ userNameField.getText()+"Lel"+ roleComboBox.getValue()+ emailField.getText());
+//			if(jobComboBox.getValue().equals("")) {
+				System.out.println(firstNameField.getText()+ lastNameField.getText()+ userNameField.getText()+"Lel"+ roleComboBox.getValue()+ emailField.getText());
+				System.out.println(d);
+				System.out.println(mainApp.i.getFirstnameS());
+//				mainApp.i.createApprentice(firstNameField.getText(), lastNameField.getText(), userNameField.getText(), "Lel", roleComboBox.getValue(), emailField.getText(), 1, "Dieter", 2018, d, streetField.getText(), 3, 81669, cityField.getText(),"DEPLOYMENT" ,d, d);
 
+				mainApp.i.createApprentice("THorste", "OTto", "OTTOWWWO", "Lel","adawda", "kalus@adwd", 1, "Dieter", 2018, d, "adawdad", 3, 81669, "adawda","DEPLOYMENT" ,d, d);//			}
 			addClicked = true;
 			dialogStage.close();
 		}
