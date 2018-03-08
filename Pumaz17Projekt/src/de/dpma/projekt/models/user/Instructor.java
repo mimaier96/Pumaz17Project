@@ -1,7 +1,9 @@
 package de.dpma.projekt.models.user;
 
 import java.sql.Date;
+import java.sql.SQLException;
 
+import de.dpma.projekt.db.UserDaoImpl;
 import de.dpma.projekt.models.User;
 import de.dpma.projekt.models.util.UserList;
 
@@ -10,8 +12,21 @@ public class Instructor extends User {
 	public Instructor(String firstname, String lastname, String username, String password, String role, String email) {
 
 		super(firstname, lastname, username, password, role, email);
+		UserDaoImpl i = new UserDaoImpl();
+		try {
+			i.insertUser(this);
+			i.getUserID(this);
+		} catch (SQLException e) {
+			System.out.println("LARL");
+			e.printStackTrace();
+		}
 
 	}
+	
+	//Bitte nachher löschen
+	public Instructor(int i,String firstname, String lastname, String username, String password, String role, String email) {
+
+		super(firstname, lastname, username, password, role, email);}
 
 	public User createApprentice(String firstname, String lastname, String username, String password, String role,
 			String email, int job_id, String instructor, int yearOfEmployment, Date apprenticeBirthday,
@@ -26,10 +41,18 @@ public class Instructor extends User {
 
 			
 	}
+	
 
-	public User createTrainer(int id, String firstname, String lastname, String username, String password, String role,
+	public User createTrainer(String firstname, String lastname, String username, String password, String role,
 			String email) {
-		Trainer a = new Trainer(id, firstname, lastname, username, password, role, email);
+		Trainer a = new Trainer(firstname, lastname, username, password, role, email);
+		UserList.addUser(a);
+		return a;
+
+	}
+	public User createInstructor(String firstname, String lastname, String username, String password, String role,
+			String email) {
+		Instructor a = new Instructor(firstname, lastname, username, password, role, email);
 		UserList.addUser(a);
 		return a;
 

@@ -29,7 +29,7 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private Scene scene;
 	public BorderPane borderLayout = new BorderPane();
-	public Instructor i= new Instructor("awd", "adwda", "adwd", "adada", "dawdawd", "adawd");
+	public Instructor i= new Instructor(1,"awd", "adwda", "adwd", "adada", "dawdawd", "adawd");
 	
 	@Override
 	public void start(Stage primaryStage) {

@@ -28,7 +28,7 @@ public class DateUtil {
     return dateText;
     }
     
-   /* 
+   
     	public static String format(LocalDate date) {
         if (date == null) {
             return null;
@@ -36,7 +36,7 @@ public class DateUtil {
         return DATE_FORMATTER.format(date);
     }
 
-   */
+  
     public static LocalDate parse(String dateString) {
         try {
             return DATE_FORMATTER.parse(dateString, LocalDate::from);

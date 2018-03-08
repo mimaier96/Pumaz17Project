@@ -16,6 +16,7 @@ import de.dpma.projekt.models.util.JobList;
 import de.dpma.projekt.models.util.RoleList;
 import de.dpma.projekt.models.util.UserList;
 import de.dpma.projekt.utils4Code.DateUtil;
+import java.sql.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -266,19 +267,23 @@ public class AdminViewAddUserController {
 	@FXML
 	private void handleSaveAddUser() {
 //		if (inputIsValid()) {
-
+		DateUtil u = new DateUtil();
 			//Wird später aus der db bezogen
-			
-			
-			Date d = new Date(2001,2,30);
-//			System.out.println("dadw"+firstNameField.getText()+ lastNameField.getText()+ userNameField.getText()+"Lel"+ roleComboBox.getValue()+ emailField.getText());
-////			if(jobComboBox.getValue().equals("")) {
-//				System.out.println(firstNameField.getText()+ lastNameField.getText()+ userNameField.getText()+"Lel"+ roleComboBox.getValue()+ emailField.getText());
-//				System.out.println(d);
-//				System.out.println(mainApp.i.getFirstnameS());
-//				mainApp.i.createApprentice(firstNameField.getText(), lastNameField.getText(), userNameField.getText(), "Lel", roleComboBox.getValue(), emailField.getText(), 1, "Dieter", 2018, d, streetField.getText(), 3, 81669, cityField.getText(),"DEPLOYMENT" ,d, d);
-
-				mainApp.i.createApprentice("mararararaasdarurararara", "cususasusususus", "cusausususasuasdsususus", "Lel","adawda", "marararaasdraarararararararara@cus.de", 1, "Dieter", 2018, d, "adawdad", 3, 81669, "adawda","DEPLOYMENT" ,d, d);//			}
+		switch(roleComboBox.getValue()) {
+		
+		case "Auszubildende/r":
+			System.out.println("a");
+			mainApp.i.createApprentice(firstNameField.getText(), lastNameField.getText(), userNameField.getText(), "Anfang12", "Apprentice", emailField.getText(), 5, instructorComboBox.getValue(),Integer.parseInt(yearOfEmploymentField.getText()), Date.valueOf(birthdayField.getValue()), streetField.getText(), Integer.parseInt(houseNumberField.getText()), Integer.parseInt(postalCodeField.getText()), cityField.getText(),locationOfDeploymentComboBox.getValue() ,Date.valueOf(beginOfApprenticeshipField.getValue()), Date.valueOf(endOfApprenticeshipField.getValue()));
+			break;
+		case "Ausbildungsleiter/in":
+			mainApp.i.createInstructor(firstNameField.getText(), lastNameField.getText(), userNameField.getText(), "Anfang12", "Instructor", emailField.getText());
+			System.out.println("b");
+			break;
+		case "Ausbilder/in":
+			mainApp.i.createTrainer(firstNameField.getText(), lastNameField.getText(), userNameField.getText(), "Anfang12", "Trainer", emailField.getText());
+			System.out.println("c");
+			break;
+		}
 			addClicked = true;
 			dialogStage.close();
 		}
@@ -352,7 +357,10 @@ public class AdminViewAddUserController {
 	private void initialize() {
 
 		ObservableList<String> instructors = FXCollections.observableArrayList(UserList.getInstructors());
+		instructors.add("Michael Baumgartner");
+		instructors.add("Peter Stremm");
 		instructorComboBox.setItems(instructors);
+		instructorComboBox.setValue("Bitte wählen ...");
 		
 		/**
 		 * TODO Wieder frei kommentieren, sobald DB handling gemacht
@@ -360,6 +368,8 @@ public class AdminViewAddUserController {
 //		instructorComboBox.setValue(instructors.get(0));
 
 		ObservableList<String> jobs = FXCollections.observableArrayList(JobList.getJobs());
+		jobs.add("FISI");
+		jobs.add("FIAN");
 		jobComboBox.setItems(jobs);
 		jobComboBox.setValue("Bitte wählen ...");
 
@@ -369,6 +379,14 @@ public class AdminViewAddUserController {
 		roles.add("Ausbilder/in");
 		roleComboBox.setItems(roles);
 		roleComboBox.setValue("Bitte wählen ...");
+		
+		ObservableList<String> dep = FXCollections.observableArrayList();
+		roles.add("München");
+		roles.add("Jena");
+		roles.add("Hauzenberg");
+		locationOfDeploymentComboBox.setItems(dep);
+		locationOfDeploymentComboBox.setValue("Bitte wählen ...");
+		
 		isApprentice();
 	}
 
