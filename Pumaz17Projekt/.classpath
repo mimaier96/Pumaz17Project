@@ -42,5 +42,6 @@
 	<classpathentry kind="lib" path="lib/log4j-api-2.10.0.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-core-2.10.0.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.45-bin.jar"/>
+	<classpathentry kind="lib" path="lib/itext-5.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
