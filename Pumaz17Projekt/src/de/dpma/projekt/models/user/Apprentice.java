@@ -53,7 +53,7 @@ public class Apprentice extends User {
 			System.out.println("LARL");
 			e.printStackTrace();
 		}
-		user_id=this.getId();
+//		user_id=this.getId();
 		
 		ApprenticeDaoImpl o = new ApprenticeDaoImpl();
 		try {

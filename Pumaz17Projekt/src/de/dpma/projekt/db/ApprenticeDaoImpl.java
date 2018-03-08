@@ -15,8 +15,8 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 
 	private Connection con = DatabaseConnection.getInstance();
 	
-	private static final String PREPARED_INSERT = "INSERT INTO berichtsheft.apprentice (Instructor, YearOfEmployment, Birthday, Street, HouseNumber, PostalCode, City, LocationOfDeployment, BeginOfApprenticeship, EndOfApprenticeship) " + 
-			"VALUES (?,?,?,?,?,?,?,?,?,?);";
+	private static final String PREPARED_INSERT = "INSERT INTO berichtsheft.apprentice (UserId, JobID, Instructor, YearOfEmployment, Birthday, Street, HouseNumber, PostalCode, City, LocationOfDeployment, BeginOfApprenticeship, EndOfApprenticeship) " + 
+			"VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
 	
 	private static final String PREPARED_SELECT = "SELECT * FROM berichtsheft.apprentice WHERE username = ?;";
 	
@@ -30,27 +30,27 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 		ResultSet result = null;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_INSERT);
 		
-//		prepStat.setInt(1, apprentice.getUser_id());
-//		prepStat.setInt(2, apprentice.getJob_id());
-		prepStat.setString(1, apprentice.getInstructor());
-		prepStat.setInt(2, apprentice.getYearOfEmployment());
-		prepStat.setDate(3, apprentice.getApprenticeBirthday());
-		prepStat.setString(4, apprentice.getAdressStreetApprentice());
-		prepStat.setInt(5, apprentice.getAdressHouseNumberApprentice());
-		prepStat.setInt(6, apprentice.getAdressPostalCode());
-		prepStat.setString(7, apprentice.getAdressCity());
-		prepStat.setString(8, apprentice.getLocationOfDeployment());
-		prepStat.setDate(9, apprentice.getBeginOfApprenticeship());
-		prepStat.setDate(10, apprentice.getEndOfApprenticeship());
-
+		prepStat.setInt(1, apprentice.getId());
+		prepStat.setInt(2, 5);
+		prepStat.setString(3, apprentice.getInstructor());
+		prepStat.setInt(4, apprentice.getYearOfEmployment());
+		prepStat.setDate(5, apprentice.getApprenticeBirthday());
+		prepStat.setString(6, apprentice.getAdressStreetApprentice());
+		prepStat.setInt(7, apprentice.getAdressHouseNumberApprentice());
+		prepStat.setInt(8, apprentice.getAdressPostalCode());
+		prepStat.setString(9, apprentice.getAdressCity());
+		prepStat.setString(10, apprentice.getLocationOfDeployment());
+		prepStat.setDate(11, apprentice.getBeginOfApprenticeship());
+		prepStat.setDate(12, apprentice.getEndOfApprenticeship());
+		
 		prepStat.execute();
 		
-		result = prepStat.getGeneratedKeys();
+		//result = prepStat.getGeneratedKeys();
 		
-		if (result.next()) {
+		//if (result.next()) {
 //			int id = (int) result.getLong(1);
 //			apprentice.setId(id);
-		}
+		//}
 		
 		return apprentice;
 	}
