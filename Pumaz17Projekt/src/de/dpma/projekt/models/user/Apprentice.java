@@ -44,19 +44,23 @@ public class Apprentice extends User {
 		this.locationOfDeployment = locationOfDeployment;
 		this.beginOfApprenticeship = beginOfApprenticeship;
 		this.endOfApprenticeship = endOfApprenticeship;
+		
+		UserDaoImpl i = new UserDaoImpl();
+		try {
+			i.insertUser(this);
+			i.getUserID(this);
+		} catch (SQLException e) {
+			System.out.println("LARL");
+			e.printStackTrace();
+		}
+		user_id=this.getId();
+		
 		ApprenticeDaoImpl o = new ApprenticeDaoImpl();
 		try {
 			o.insertApprentice(this);
 		} catch (SQLException e) {
 
 			System.out.println("LuRL");
-			e.printStackTrace();
-		}
-		UserDaoImpl i = new UserDaoImpl();
-		try {
-			i.insertUser(this);
-		} catch (SQLException e) {
-			System.out.println("LARL");
 			e.printStackTrace();
 		}
 	}
