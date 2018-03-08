@@ -17,4 +17,6 @@ public interface UserDao {
 
 	public boolean deleteUser(String username) throws SQLException;
 
+	public User getUserID(User user) throws SQLException;
+
 }

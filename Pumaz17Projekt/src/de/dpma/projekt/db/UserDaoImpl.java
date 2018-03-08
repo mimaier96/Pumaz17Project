@@ -16,6 +16,7 @@ public class UserDaoImpl implements UserDao {
 
 	private final static String PREPARED_INSERT = "INSERT INTO berichtsheft.user (´Firstname´, ´Lastname´, ´Username´, ´Password´, ´Role´, ´Email´) VALUES (?,?,?,´Anfang12´,?,?)";
 	private final static String PREPARED_SELECT = "SELECT * FROM berichtsheft.user WHERE username = ?";
+	private final static String PREPARED_SELECT_USERID = "SELECT ID FROM berichtsheft.user WHERE username = ?";
 	private final static String PREPARED_UPDATE = "UPDATE berichtsheft.user SET ? = ? WHERE username = ?;";
 	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.user WHERE username = ?";
 
@@ -31,7 +32,7 @@ public class UserDaoImpl implements UserDao {
 		prepStat.setString(4, user.getRoleS());
 		prepStat.setString(5, user.getEmailS());
 
-		prepStat.execute();
+		prepStat.execute(); 
 		
 		result = prepStat.getGeneratedKeys();
 		
@@ -60,6 +61,18 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
+	@Override
+	public User getUserID(User user) throws SQLException {
+		PreparedStatement prepStat = con.prepareStatement(PREPARED_SELECT_USERID);
+		prepStat.setString(1, user.getUsernameS());
+		ResultSet result = prepStat.executeQuery();
+		
+		while (result.next()) {
+		user.setId(result.getInt("Id"));
+		}
+		
+		return user;
+	}
 
 	@Override
 	public boolean updateUser(User user, String update, String change) throws SQLException {
