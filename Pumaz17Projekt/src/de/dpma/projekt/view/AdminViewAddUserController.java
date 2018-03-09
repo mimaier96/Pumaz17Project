@@ -164,6 +164,8 @@ public class AdminViewAddUserController {
 //		}
 //
 //		// Nur für Azubis
+	
+//	if (roleComboBox.getValue().equals("Auszubildene/r")) {
 //
 //		if (yearOfEmploymentField.getText() == null || yearOfEmploymentField.getText().length() == 0) {
 //			errorMessage += "Kein gültiges Ausbildungsjahr!\\n";
@@ -235,6 +237,7 @@ public class AdminViewAddUserController {
 ////				errorMessage += "Kein gültiges Datum für das Ausbildungsende! Format: TT.MM.JJJJ\\n";
 ////			}
 ////		}
+//}
 //
 //		if (errorMessage.length() == 0) {
 //			log.info("-->Beende: inputIsValid -- Datenüberprüfung");

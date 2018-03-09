@@ -7,16 +7,20 @@ import java.sql.SQLException;
 
 
 import de.dpma.projekt.models.User;
+import de.dpma.projekt.models.util.UserList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 
 public class UserDaoImpl implements UserDao {
 	
-	private Connection con = DatabaseConnection.getInstance();
+	private static Connection con = DatabaseConnection.getInstance();
 
 	private final static String PREPARED_INSERT = "INSERT INTO berichtsheft.user (Firstname, Lastname, Username, Password, Role, Email) VALUES (?,?,?,'Anfang12',?,?)";
 	private final static String PREPARED_SELECT = "SELECT * FROM berichtsheft.user WHERE username = ?";
 	private final static String PREPARED_SELECT_USERID = "SELECT ID FROM berichtsheft.user WHERE username = ?";
+	private final static String PREPARED_SELECT_ALLUSERS = "SELECT * FROM berichtsheft.user";
 	private final static String PREPARED_UPDATE = "UPDATE berichtsheft.user SET ? = ? WHERE username = ?;";
 	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.user WHERE username = ?";
 
@@ -72,6 +76,27 @@ public class UserDaoImpl implements UserDao {
 		}
 		
 		return user;
+	}
+	
+	public static ObservableList<User> getUsersList() throws SQLException {
+		PreparedStatement prepStat = con.prepareStatement(PREPARED_SELECT_ALLUSERS);
+		ResultSet resSet = prepStat.executeQuery();
+		
+		ObservableList<User> usersList = FXCollections.observableArrayList();
+		
+		while (resSet.next()) {
+		User user = new User();
+	
+		user.setFirstName(resSet.getString("firstname"));
+		user.setLastName(resSet.getString("lastname"));
+		user.setUsername(resSet.getString("username"));
+		user.setRole(resSet.getString("role"));
+		user.setEmail(resSet.getString("email"));
+		
+		usersList.add(user);
+		}
+		
+		return usersList;
 	}
 
 	@Override

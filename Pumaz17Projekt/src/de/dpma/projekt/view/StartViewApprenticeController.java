@@ -18,6 +18,16 @@ public class StartViewApprenticeController {
 
 	public static MainApp mainApp;
 	
+	/**
+	 * @param reportBookApproved
+	 *            case 1 das Berichtsheft ist noch nicht vervollständigt case 2 das
+	 *            Berichtsheft wurde vom Instructor genehmigt case 3 Das
+	 *            Berichtsheft wurde vom Instructor zurückgewiesen
+	 * 
+	 * @author MaSpecter
+	 */
+	public int reportBookApproved = 1;
+	
 	//Für nameTag
 	private static String firstName;
 	private static String lastName;
@@ -66,10 +76,7 @@ public class StartViewApprenticeController {
 	private void showApprenticeDetails(Apprentice apprentice) {
 		if (apprentice != null) {
 			
-			/**
-			 * TODO von Datenbank Getter setzen
-			 * @author MaSpecter
-			 */
+
 			nameLabel.setText(apprentice.getFirstname() + " " + apprentice.getLastname());
 			birthdayLabel.setText(DateUtil.format(apprentice.getApprenticeBirthday()));
 			adressLabel.setText(apprentice.getAdressStreetApprentice() + " " + apprentice.getAdressHouseNumberApprentice() + "\n" + apprentice.getAdressPostalCode() + apprentice.getAdressCity());
@@ -85,6 +92,14 @@ public class StartViewApprenticeController {
 		mainApp.loadScene("view/ReportBookWeekly.fxml", "Neues Berichtsheft");
 
 	}
+	
+	private void setStatusColumn(ReportBook reportBook) {
+//		if(reportBook.getReportBookApproved()) {
+//			
+//		}
+	}
+	
+	
 
 	/**
 	 * Berichtsheft bearbeiten Button

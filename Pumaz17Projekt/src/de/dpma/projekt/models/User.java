@@ -3,6 +3,7 @@ package de.dpma.projekt.models;
 import java.sql.SQLException;
 
 import de.dpma.projekt.db.UserDaoImpl;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class User {
@@ -13,6 +14,7 @@ public class User {
 	//Dieser Konstruktor wird aus der Datenbank ausgeführt
 	public User(int id, String firstname, String lastname, String username, String password, String role,
 			String email) {
+		this.firstname = this.lastname = this.email = this.username = this.password = this.role = new SimpleStringProperty();
 		this.firstname.set(firstname);
 		this.lastname.set(lastname);
 		this.username.set(username);
@@ -20,37 +22,42 @@ public class User {
 		this.role.set(role);
 		this.email.set(email);
 		this.id = id;
-		this.firstnameS=firstname;
-		this.lastnameS=lastname;
-		this.usernameS=username;
-		this.passwordS=password;
-		this.roleS=role;
-		this.emailS=email;
+		// this.firstnameS=firstname;
+		// this.lastnameS=lastname;
+		// this.usernameS=username;
+		// this.passwordS=password;
+		// this.roleS=role;
+		// this.emailS=email;
 	}
-	//Dieser Konstruktor wird aus der Datenbank ausgeführt - keine ID wird erzeugt, da diese in der DB automatisch hinzugefügt wird
-	public User(String firstname, String lastname, String username, String password, String role,
-			String email) {
-//		this.lastname.set(firstname);
-//		this.lastname.set(lastname);
-//		this.username.set(username);
-//		this.password.set(password);
-//		this.role.set(role);
-//		this.email.set(email);
-		System.out.println("awdawd");
-		this.firstnameS=firstname;
-		this.lastnameS=lastname;
-		this.usernameS=username;
-		this.passwordS=password;
-		this.roleS=role;
-		this.emailS=email;
 
-		
+	// Dieser Konstruktor wird aus der Datenbank ausgeführt - keine ID wird erzeugt,
+	// da diese in der DB automatisch hinzugefügt wird
+	public User(String firstname, String lastname, String username, String password, String role, String email) {
+		this();
+		this.firstname.set(firstname);
+		this.lastname.set(lastname);
+		this.username.set(username);
+		this.password.set(password);
+		this.role.set(role);
+		this.email.set(email);
+		System.out.println("awdawd");
+		// this.firstnameS=firstname;
+		// this.lastnameS=lastname;
+		// this.usernameS=username;
+		// this.passwordS=password;
+		// this.roleS=role;
+		// this.emailS=email;
+
+	}
+
+	public User() {
+		this.firstname = this.lastname = this.email = this.username = this.password = this.role = new SimpleStringProperty();
 	}
 	public StringProperty userFirstNameProperty() {
 		return firstname;
 	}
-	
-	public String getFirstname(){
+
+	public String getFirstname() {
 		return firstname.get();
 	}
 	public void setFirstName(String firstName) {
