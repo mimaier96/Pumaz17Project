@@ -14,6 +14,6 @@
          </font>
       </Label>
       <Label layoutX="413.0" layoutY="65.0" text="version 1.0" AnchorPane.leftAnchor="415.0" AnchorPane.topAnchor="70.0" />
-      <Label layoutX="27.0" layoutY="65.0" text="Entiwicklunsgstart: 26.02.2018" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="70.0" />
+      <Label layoutX="27.0" layoutY="65.0" text="Entwicklungsstart: 26.02.2018" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="70.0" />
    </children>
 </AnchorPane>
