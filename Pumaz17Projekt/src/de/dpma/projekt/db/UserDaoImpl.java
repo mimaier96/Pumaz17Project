@@ -45,6 +45,7 @@ public class UserDaoImpl implements UserDao {
 			int id = (int) result.getLong(1);
 			user.setId(id);
 		}
+		getUserID(user);
 		usersList.add(user);
 		return user;
 	}
@@ -92,7 +93,8 @@ public class UserDaoImpl implements UserDao {
 		user.setUsername(resSet.getString("Username"));
 		user.setRole(resSet.getString("Role"));
 		user.setEmail(resSet.getString("Email"));
-
+		getUserID(user);
+		
 		usersList.add(user);
 			
 		}

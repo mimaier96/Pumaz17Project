@@ -13,7 +13,7 @@ public interface ApprenticeDao {
 
 	public boolean updateApprentice(Apprentice apprentice, String update, String change) throws SQLException, ParseException;
 
-	public boolean deleteApprentice(String username) throws SQLException;
+	public boolean deleteApprentice(int id) throws SQLException;
 	
 
 		

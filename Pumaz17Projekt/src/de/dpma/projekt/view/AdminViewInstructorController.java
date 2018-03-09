@@ -4,15 +4,20 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import de.dpma.projekt.MainApp;
+import de.dpma.projekt.db.ApprenticeDao;
+import de.dpma.projekt.db.ApprenticeDaoImpl;
 import de.dpma.projekt.db.UserDaoImpl;
 import de.dpma.projekt.models.User;
 import java.sql.SQLException;
+import java.util.Optional;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 
 public class AdminViewInstructorController {
 
@@ -84,27 +89,37 @@ public class AdminViewInstructorController {
 				mainApp.showUserEditDialog(selectedUser);
             }
 		} else {
+			System.out.println("c");
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
 			alert.setTitle("Keine Auswahl");
 			alert.setHeaderText("Kein Benutzer ausgewählt!");
 			alert.setContentText("Bitte wählen Sie einen Benutzer aus der Tabelle aus.");
-			alert.showAndWait();
 		}
 	}
 
 	@FXML
 	private void handleDeleteUser() {
-
+		ApprenticeDao AppDao = new ApprenticeDaoImpl();
 		try {
 			int selectedUser = userTable.getSelectionModel().getSelectedIndex();
+			User selectedUserDel = userTable.getSelectionModel().getSelectedItem();
+			
 			if (selectedUser >= 0) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Benutzer löschen");
-				alert.setHeaderText("Benutzer löschen");
-				alert.setContentText("Sind Sie sicher, dass Sie den Benutzer löschen möchten?");
-				// wenn der User bestätigt:
-				userTable.getItems().remove(selectedUser);
+				alert.setHeaderText("Sind Sie sicher, dass Sie den Benutzer " + selectedUserDel.getFirstname() + " " + selectedUserDel.getLastname() + " löschen möchten?");
+				Optional<ButtonType> result = alert.showAndWait();
+				
+				if (result.get() == ButtonType.OK){
+					userTable.getItems().remove(selectedUser);
+					
+					if (selectedUserDel.getRole().toLowerCase().equals("apprentice")) {
+						AppDao.deleteApprentice(selectedUserDel.getId());
+					}
+						UserDaoImpl.deleteUser(selectedUserDel.getUsername());
+				
+				}
 			} else {
 				// Kein Benutzer ausgewählt
 				Alert alert = new Alert(AlertType.WARNING);
@@ -112,6 +127,7 @@ public class AdminViewInstructorController {
 				alert.setTitle("Keine Auswahl");
 				alert.setHeaderText("Kein Benutzer ausgewählt");
 				alert.setContentText("Bitte wählen Sie einen Benutzer aus!");
+				alert.showAndWait();
 			}
 		} catch (Exception e) {
 			Alert alert = new Alert(AlertType.WARNING);
@@ -119,6 +135,7 @@ public class AdminViewInstructorController {
 			alert.setTitle("Keine Auswahl");
 			alert.setHeaderText("Kein Benutzer ausgewählt");
 			alert.setContentText("Bitte wählen Sie einen Benutzer aus!");
+			alert.showAndWait();
 		}
 	}
 

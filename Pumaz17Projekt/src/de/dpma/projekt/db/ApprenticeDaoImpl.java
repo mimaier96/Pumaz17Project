@@ -18,11 +18,11 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 	private static final String PREPARED_INSERT = "INSERT INTO berichtsheft.apprentice (UserId, JobID, Instructor, YearOfEmployment, Birthday, Street, HouseNumber, PostalCode, City, LocationOfDeployment, BeginOfApprenticeship, EndOfApprenticeship) " + 
 			"VALUES (?,?,?,?,?,?,?,?,?,?,?,?);";
 	
-	private static final String PREPARED_SELECT = "SELECT * FROM berichtsheft.apprentice WHERE username = ?;";
+	private static final String PREPARED_SELECT = "SELECT * FROM berichtsheft.apprentice WHERE UserId = ?;";
 	
-	private static final String PREPARED_UPDATE = "UPDATE berichtsheft.apprentice SET ? = ? WHERE username = ?";
+	private static final String PREPARED_UPDATE = "UPDATE berichtsheft.apprentice SET ? = ? WHERE UserId = ?";
 	
-	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.apprentice WHERE username = ?";
+	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.apprentice WHERE UserId = ?";
 
 	@Override
 	public Apprentice insertApprentice(Apprentice apprentice) throws SQLException {
@@ -125,12 +125,12 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 	}
 
 	@Override
-	public boolean deleteApprentice(String username) throws SQLException {
+	public boolean deleteApprentice(int id) throws SQLException {
 		boolean success = true;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_DELETE);
 		
 		try {
-			prepStat.setString(1, username);
+			prepStat.setInt(1, id);
 			
 			prepStat.executeUpdate();
 		} catch (Exception e) {
