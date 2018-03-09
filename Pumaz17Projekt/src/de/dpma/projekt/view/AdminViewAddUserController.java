@@ -3,6 +3,7 @@ package de.dpma.projekt.view;
 import java.io.File;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.sql.SQLException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -347,12 +348,17 @@ public class AdminViewAddUserController {
 	
 	
 	@FXML
-	private void initialize() {
+	private void initialize() throws SQLException {
 
-		ObservableList<String> instructors = FXCollections.observableArrayList(UserList.getInstructors());
-		instructors.add("Michael Baumgartner");
-		instructors.add("Peter Stremm");
-		instructorComboBox.setItems(instructors);
+//		ObservableList<String> instructors = FXCollections.observableArrayList(UserList.getInstructors());
+		ObservableList<String> ins = FXCollections.observableArrayList(JobList.getJobs());
+		
+		for(String s:UserDaoImpl.getInstructorsList()) {
+			
+			ins.add(s);
+			
+		}
+		instructorComboBox.setItems(ins);
 		instructorComboBox.setValue("Bitte wählen ...");
 		
 		/**

@@ -16,6 +16,7 @@ import javafx.collections.ObservableList;
 public class UserDaoImpl implements UserDao {
 	
 	public static ObservableList<User> usersList = FXCollections.observableArrayList();
+	public static ObservableList<String> instructorList = FXCollections.observableArrayList(); 
 	
 	private static Connection con = DatabaseConnection.getInstance();
 	
@@ -23,6 +24,7 @@ public class UserDaoImpl implements UserDao {
 	private final static String PREPARED_SELECT = "SELECT * FROM berichtsheft.user WHERE Username = ?";
 	private final static String PREPARED_SELECT_USERID = "SELECT ID FROM berichtsheft.user WHERE Username = ?";
 	private final static String PREPARED_SELECT_ALLUSERS = "SELECT * FROM berichtsheft.user";
+	private final static String PREPARED_SELECT_ALLINSTRUCTORS = "SELECT * FROM berichtsheft.user WHERE Role = 'Instructor'";
 	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.user WHERE Username = ?";
 
 	
@@ -83,7 +85,7 @@ public class UserDaoImpl implements UserDao {
 	public static ObservableList<User> getUsersList() throws SQLException {
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_SELECT_ALLUSERS);
 		ResultSet resSet = prepStat.executeQuery();
-		
+		usersList.clear();
 		while (resSet.next()) {
 		User user = new User();
 	
@@ -101,6 +103,26 @@ public class UserDaoImpl implements UserDao {
 		return usersList;
 	}
 
+	public static ObservableList<String> getInstructorsList() throws SQLException {
+		PreparedStatement prepStat = con.prepareStatement(PREPARED_SELECT_ALLINSTRUCTORS);
+		ResultSet resSet = prepStat.executeQuery();
+		instructorList.clear();
+		while (resSet.next()) {
+		User user = new User();
+	
+		user.setFirstName(resSet.getString("Firstname"));
+		user.setPassword(resSet.getString("Password"));
+		user.setLastName(resSet.getString("Lastname"));
+		user.setUsername(resSet.getString("Username"));
+		user.setRole(resSet.getString("Role"));
+		user.setEmail(resSet.getString("Email"));
+
+		instructorList.add(user.getFirstname() + " "+ user.getLastname());
+			
+		}
+		System.out.println(instructorList.get(0));
+		return instructorList;
+	}
 	
 	public static boolean updateUser(User user, String update, String change) throws SQLException {
 		boolean success = true;

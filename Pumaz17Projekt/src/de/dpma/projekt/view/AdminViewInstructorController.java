@@ -23,7 +23,7 @@ public class AdminViewInstructorController {
 
 	private User user;
 
-	static final Logger log = LogManager.getLogger(LoginWindowController.class.getName());
+//	static final Logger log = LogManager.getLogger(LoginWindowController.class.getName());
 
 	public static MainApp mainApp;
 
@@ -43,7 +43,7 @@ public class AdminViewInstructorController {
 
 	@FXML
 	private void initialize() {
-		log.info("-->Starte: setTableView Data");
+//		log.info("-->Starte: setTableView Data");
 
 		try {
 			userTable.setItems(UserDaoImpl.getUsersList());
@@ -59,7 +59,7 @@ public class AdminViewInstructorController {
 		userUserNameColumn.setCellValueFactory(cellData -> cellData.getValue().userUsernameProperty());
 		userRoleColumn.setCellValueFactory(cellData -> cellData.getValue().userRoleProperty());
 
-		log.info("-->Beende: setTableView Data");
+//		log.info("-->Beende: setTableView Data");
 
 	}
 
