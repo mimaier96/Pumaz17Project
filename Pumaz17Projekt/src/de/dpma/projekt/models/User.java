@@ -14,7 +14,13 @@ public class User {
 	//Dieser Konstruktor wird aus der Datenbank ausgeführt
 	public User(int id, String firstname, String lastname, String username, String password, String role,
 			String email) {
-		this.firstname = this.lastname = this.email = this.username = this.password = this.role = new SimpleStringProperty();
+		this.firstname = new SimpleStringProperty();
+		this.lastname = new SimpleStringProperty();
+		this.email = new SimpleStringProperty();
+		this.username = new SimpleStringProperty();
+		this.password = new SimpleStringProperty();
+		this.role = new SimpleStringProperty();
+		
 		this.firstname.set(firstname);
 		this.lastname.set(lastname);
 		this.username.set(username);
@@ -34,6 +40,14 @@ public class User {
 	// da diese in der DB automatisch hinzugefügt wird
 	public User(String firstname, String lastname, String username, String password, String role, String email) {
 		this();
+		
+		this.firstname = new SimpleStringProperty();
+		this.lastname = new SimpleStringProperty();
+		this.email = new SimpleStringProperty();
+		this.username = new SimpleStringProperty();
+		this.password = new SimpleStringProperty();
+		this.role = new SimpleStringProperty();
+		
 		this.firstname.set(firstname);
 		this.lastname.set(lastname);
 		this.username.set(username);
@@ -51,7 +65,14 @@ public class User {
 	}
 
 	public User() {
-		this.firstname = this.lastname = this.email = this.username = this.password = this.role = new SimpleStringProperty();
+//		this.firstname = this.lastname = this.email = this.username = this.password = this.role = new SimpleStringProperty();
+		
+		this.firstname = new SimpleStringProperty();
+		this.lastname = new SimpleStringProperty();
+		this.email = new SimpleStringProperty();
+		this.username = new SimpleStringProperty();
+		this.password = new SimpleStringProperty();
+		this.role = new SimpleStringProperty();
 	}
 	public StringProperty userFirstNameProperty() {
 		return firstname;

@@ -25,12 +25,11 @@
       <Button layoutX="13.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="25.0" prefWidth="155.0" text="Benutzer hinzufügen" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="154.0" />
       <TableView fx:id="userTable" layoutX="181.0" layoutY="118.0" prefHeight="610.0" prefWidth="989.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="125.0">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="64.00003051757812" text="ID" />
-            <TableColumn fx:id="userRoleColumn" prefWidth="133.60000610351562" text="Rolle" />
-          <TableColumn fx:id="userFirstNameColumn" prefWidth="189.5999755859375" text="Vorname" />
-            <TableColumn fx:id="userLastNameColumn" prefWidth="204.0" text="Nachname" />
-            <TableColumn fx:id="userUserNameColumn" prefWidth="173.5999755859375" text="Benutzername" />
-            <TableColumn fx:id="userEmailColumn" prefWidth="233.599853515625" text="E-Mail" />
+          <TableColumn fx:id="userFirstNameColumn" prefWidth="186.39996337890625" text="Vorname" />
+            <TableColumn fx:id="userLastNameColumn" prefWidth="227.20001220703125" text="Nachname" />
+            <TableColumn fx:id="userRoleColumn" prefWidth="145.59999084472656" text="Rolle" />
+            <TableColumn fx:id="userUserNameColumn" prefWidth="215.20001220703125" text="Benutzername" />
+            <TableColumn fx:id="userEmailColumn" prefWidth="215.19989013671875" text="E-Mail" />
         </columns>
       </TableView>
       <ScrollBar layoutX="1173.0" layoutY="125.0" orientation="VERTICAL" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="125.0" />
