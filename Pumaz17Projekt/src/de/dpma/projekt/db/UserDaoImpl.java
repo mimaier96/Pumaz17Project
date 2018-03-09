@@ -15,7 +15,7 @@ import javafx.collections.ObservableList;
 
 public class UserDaoImpl implements UserDao {
 	
-	public static ObservableList<User> usersList;
+	public static ObservableList<User> usersList = FXCollections.observableArrayList();
 	
 	private static Connection con = DatabaseConnection.getInstance();
 
@@ -84,16 +84,16 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_SELECT_ALLUSERS);
 		ResultSet resSet = prepStat.executeQuery();
 		
-		usersList = FXCollections.observableArrayList();
-		
 		while (resSet.next()) {
 		User user = new User();
 	
-		user.setFirstName(resSet.getString("firstname"));
-		user.setLastName(resSet.getString("lastname"));
-		user.setUsername(resSet.getString("username"));
-		user.setRole(resSet.getString("role"));
-		user.setEmail(resSet.getString("email"));
+		user.setFirstName(resSet.getString("Firstname"));
+		user.setPassword(resSet.getString("Password"));
+		user.setLastName(resSet.getString("Lastname"));
+		user.setUsername(resSet.getString("Username"));
+		user.setRole(resSet.getString("Role"));
+		user.setEmail(resSet.getString("Email"));
+
 		
 		usersList.add(user);
 		}

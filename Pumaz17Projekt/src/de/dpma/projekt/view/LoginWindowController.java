@@ -12,6 +12,9 @@ import org.apache.logging.log4j.Logger;
 
 import de.dpma.projekt.MainApp;
 import de.dpma.projekt.db.DatabaseConnection;
+import de.dpma.projekt.db.UserDaoImpl;
+import de.dpma.projekt.models.User;
+import de.dpma.projekt.models.util.UserList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -38,32 +41,22 @@ public class LoginWindowController {
 	@FXML
 	private void handleLoginButton() throws SQLException {
 		log.info("-->Starte: handleLogin");
-		final String GET_USERNAME_PASSWORD_ROLE = "SELECT Firstname, Lastname, Username, Password, Role FROM User WHERE Username = '" + username.getText() + "'" ;
 		String usernameDataBase = null;
 		String passwordDataBase = null;
 		String roleDataBase = null;
-		
 		//Für nameTag @author MaSpecter
 		String userFirstName = null, userLastName = null;
+
+	
 		
-		ResultSet result = null;
-		PreparedStatement prepStat = null;
-		
-		try{
-			prepStat = con.prepareStatement(GET_USERNAME_PASSWORD_ROLE);
-			result = prepStat.executeQuery();
-			
-			while(result.next()) {
-			passwordDataBase = result.getString("Password");
-			usernameDataBase = result.getString("Username");
-			roleDataBase = result.getString("Role").toLowerCase();
-			
-			//für nameTag
-			userFirstName = result.getString("Firstname");
-			userLastName = result.getString("Lastname");
+		for (User user : UserDaoImpl.usersList) {
+
+			if (user.getUsername().equals(username.getText())) {
+				usernameDataBase = user.getUsername();
+				passwordDataBase = user.getPassword();
+				roleDataBase = user.getRole().toLowerCase();
 			}
-			}catch(Exception e){
-			} 
+		}
 		
 		if(username.getText().equals(usernameDataBase) && password.getText().equals(passwordDataBase)
 		   || username.getText().equals("Admin") && password.getText().equals("Anfang12")) {
