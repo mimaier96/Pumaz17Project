@@ -8,12 +8,11 @@ public class ReportBookWeeklyController {
 	public static MainApp mainApp;
 
 	@FXML
-	private void backToApprenticeView() {
-
-		mainApp.loadBorder("view/MenuPart3", "title");
+	private void backButton() {
+		mainApp.loadBorder("view/MenuPart3.fxml", "title");
 		mainApp.loadScene("view/StartViewApprentice.fxml", "Übersicht");
 	}
-
+	
 	@FXML
 	private void handleAbort() {
 

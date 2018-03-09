@@ -13,6 +13,7 @@ import de.dpma.projekt.view.AdminViewInstructorController;
 import de.dpma.projekt.view.BorderLayoutController;
 import de.dpma.projekt.view.ChangePasswordController;
 import de.dpma.projekt.view.LoginWindowController;
+import de.dpma.projekt.view.ReportBookWeeklyController;
 import de.dpma.projekt.view.StartViewApprenticeController;
 import de.dpma.projekt.view.StartViewInstructorController;
 import javafx.application.Application;
@@ -182,6 +183,7 @@ public class MainApp extends Application {
 		BorderLayoutController.setMainApp(this);
 		ChangePasswordController.setMainApp(this);
 		AdminViewInstructorController.setMainApp(this);
+		ReportBookWeeklyController.setMainApp(this);
 	}
 
 	public Stage getPrimaryStage() {
