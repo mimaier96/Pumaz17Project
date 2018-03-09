@@ -2,8 +2,10 @@ package de.dpma.projekt;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import de.dpma.projekt.db.DatabaseConnection;
+import de.dpma.projekt.db.UserDaoImpl;
 import de.dpma.projekt.models.User;
 import de.dpma.projekt.models.user.Instructor;
 import de.dpma.projekt.models.util.JobList;
@@ -43,10 +45,10 @@ public class MainApp extends Application {
 		
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		setTemporaryDataBase();
 		Connection con = DatabaseConnection.getInstance();
-
+		UserDaoImpl.getUsersList();
 		launch(args);
 
 	}

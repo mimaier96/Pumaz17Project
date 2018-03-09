@@ -15,6 +15,8 @@ import javafx.collections.ObservableList;
 
 public class UserDaoImpl implements UserDao {
 	
+	public static ObservableList<User> usersList;
+	
 	private static Connection con = DatabaseConnection.getInstance();
 
 	private final static String PREPARED_INSERT = "INSERT INTO berichtsheft.user (Firstname, Lastname, Username, Password, Role, Email) VALUES (?,?,?,'Anfang12',?,?)";
@@ -82,7 +84,7 @@ public class UserDaoImpl implements UserDao {
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_SELECT_ALLUSERS);
 		ResultSet resSet = prepStat.executeQuery();
 		
-		ObservableList<User> usersList = FXCollections.observableArrayList();
+		usersList = FXCollections.observableArrayList();
 		
 		while (resSet.next()) {
 		User user = new User();
