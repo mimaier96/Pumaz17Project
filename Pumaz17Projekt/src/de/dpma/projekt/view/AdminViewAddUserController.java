@@ -122,143 +122,134 @@ public class AdminViewAddUserController {
 		this.dialogStage = dialogStage;
 	}
 
-//	private boolean inputIsValid() {
-//		
-//		log.info("-->Starte: inputIsValid -- Datenüberprüfung");
-//
-//		String errorMessage = "";
-//
-//		if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
-//			errorMessage += "Kein gültiger Vorname!\n";
-//		}
-//
-//		if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
-//			errorMessage += "Kein gültiger Nachname!\n";
-//		}
-//
-//		if (userNameField.getText() == null || userNameField.getText().length() == 0) {
-//			errorMessage += "Kein gültiger Benutzername!\n";
-//		}
-//
-//		// hier nicht nötig
-//		
-////		if (passwordField.getText() == null || passwordField.getText().length() == 0) {
-////			errorMessage += "Kein gültiges Passwort!\n";
-////		}
-//
-//		// Variablen zur Überprüfung, ob Email '@ und .' enthält
-//		String eMCs = "@";
-//		CharSequence emailMustChars = eMCs;
-//
-//		/**
-//		 * Überprüft, ob Email '@ und .' enthält
-//		 * 
-//		 * Maracus
-//		 */
-//
-//		boolean isEmailCorrect = emailField.getText().contains(emailMustChars);
-//		if (emailField.getText() == null || emailField.getText().length() == 0) {
-//			errorMessage += "Bitte geben Sie eine E-Mail Adresse an!\\n";
-//		} else if (isEmailCorrect == false) {
-//			errorMessage += "Keine gültige E-Mail Adresse!\\n";
-//		}
-//
-//		// Nur für Azubis
+	private boolean inputIsValid() {
+		
+		log.info("-->Starte: inputIsValid -- Datenüberprüfung");
+
+		String errorMessage = "";
+
+		if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
+			errorMessage += "Kein gültiger Vorname!\n";
+		}
+
+		if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
+			errorMessage += "Kein gültiger Nachname!\n";
+		}
+
+		if (userNameField.getText() == null || userNameField.getText().length() == 0) {
+			errorMessage += "Kein gültiger Benutzername!\n";
+		}
+
+		
+		String eMCs = "@";
+		CharSequence emailMustChars = eMCs;
+
+		/**
+		 * Überprüft, ob Email '@ und .' enthält
+		 * 
+		 * Maracus
+		 */
+
+		boolean isEmailCorrect = emailField.getText().contains(emailMustChars);
+		if (emailField.getText() == null || emailField.getText().length() == 0) {
+			errorMessage += "Bitte geben Sie eine E-Mail Adresse an!\\n";
+		} else if (isEmailCorrect == false) {
+			errorMessage += "Keine gültige E-Mail Adresse!\\n";
+		}
+
+		// Nur für Azubis
 	
-//	if (roleComboBox.getValue().equals("Auszubildene/r")) {
-//
-//		if (yearOfEmploymentField.getText() == null || yearOfEmploymentField.getText().length() == 0) {
-//			errorMessage += "Kein gültiges Ausbildungsjahr!\\n";
-//		} else {
-//			// String Eingabe wird auf eine Ganzzahl überprüft
-//			try {
-//				Integer.parseInt(yearOfEmploymentField.getText());
-//			} catch (NumberFormatException e) {
-//				errorMessage += "Kein gültiges Ausbildungsjahr!\n";
-//			}
-//		}
-//
-////		if (birthdayField.getText() == null || birthdayField.getText().length() == 0) {
-////			errorMessage += "Kein gültiges Geburtsdatum! Format: TT.MM.JJJJ\n";
-////		} else {
-////			if (!DateUtil.validDate(birthdayField.getText())) {
-////				errorMessage += "Kein gültiges Geburtsdatum! Format: TT.MM.JJJJ\n";
-////			}
-////		}
-//
-////		if (streetField.getText() == null || streetField.getText().length() == 0) {
-////			errorMessage += "Keine gültiger Straßenname!\\n";
-////		}
-////		if (houseNumberField.getText() == null || houseNumberField.getText().length() == 0) {
-////			errorMessage += "Keine gültige Hausnummer!\\n";
-////		} else {
-////			try {
-////				Integer.parseInt(houseNumberField.getText());
-////			} catch (NumberFormatException e) {
-////				errorMessage += "Keine gültige Hausnummer!\\n";
-////			}
-////		}
-////
-////		// Überprüft, ob die Eingabe eine fünfstellige Ganzzahl ist
-////		if (postalCodeField.getText() == null || postalCodeField.getText().length() != 5) {
-////			errorMessage += "Bitte geben Sie eine Postleitzahl ein!\\n";
-////		} else {
-////			try {
-////				/**
-////				 * Überprüft den gültigen Postleitzahlen-Bereich von Deutschland
-////				 * 
-////				 * Maracus
-////				 */
-////				int plzCheck = Integer.parseInt(postalCodeField.getText());
-////				if (plzCheck < 01000 || plzCheck > 99998) {
-////					errorMessage += "Keine gültige Postleizahl!\\n";
-////				}
-////			} catch (NumberFormatException e) {
-////				errorMessage += "Keine gültige Postleitzahl!\\n";
-////			}
-////		}
-////
-////		if (cityField.getText() == null || cityField.getText().length() == 0) {
-////			errorMessage += "Keine gültige Stadt!\\n";
-////		}
-//
-////		if (beginOfApprenticeshipField.getText() == null || beginOfApprenticeshipField.getText().length() == 0) {
-////			errorMessage += "Kein gültiges Datum für den Ausbildungsbeginn! Format: TT.MM.JJJJ\\n";
-////		} else {
-////			if (!DateUtil.validDate(beginOfApprenticeshipField.getText())) {
-////				errorMessage += "Kein gültiges Datum für den Ausbildungsbeginn! Format: TT.MM.JJJJ\\n";
-////			}
-////		}
-////
-////		if (endOfApprenticeshipField.getText() == null || endOfApprenticeshipField.getText().length() == 0) {
-////			errorMessage += "Kein gültiges Datum für das Ausbildungsende! Format: TT.MM.JJJJ\\n";
-////		} else {
-////			if (!DateUtil.validDate(endOfApprenticeshipField.getText())) {
-////				errorMessage += "Kein gültiges Datum für das Ausbildungsende! Format: TT.MM.JJJJ\\n";
-////			}
-////		}
-//}
-//
-//		if (errorMessage.length() == 0) {
-//			log.info("-->Beende: inputIsValid -- Datenüberprüfung");
-//			return true;
-//		} else {
-//
-//			// Zeige Fehlermeldung
-//			Alert alert = new Alert(AlertType.ERROR);
-//			alert.initOwner(dialogStage);
-//			alert.setTitle("Falsche oder fehldene Eingaben!");
-//			alert.setHeaderText("Bitte Eingaben korrigieren!");
-//			alert.setContentText(errorMessage);
-//
-//			alert.showAndWait();
-//			
-//			log.info("-->Beende: inputIsValid -- Datenüberprüfung");
-//
-//			return false;
-//		}
-//		
-//	}
+	if (roleComboBox.getValue().equals("Auszubildene/r")) {
+
+		try {
+			Integer.parseInt(yearOfEmploymentField.getText());
+		} catch (NumberFormatException e) {
+			errorMessage += "Kein gültiges Ausbildungsjahr!\n";
+		}
+		if (yearOfEmploymentField.getText() == null || yearOfEmploymentField.getText().length() == 0) {
+			errorMessage += "Kein gültiges Ausbildungsjahr!\\n";
+		} 
+
+		if (birthdayField.getValue() == null ) {
+			errorMessage += "Kein gültiges Geburtsdatum! Format: TT.MM.JJJJ\n";
+		} else {
+			if (!DateUtil.validDate(birthdayField.converterProperty().toString())) {
+				errorMessage += "Kein gültiges Geburtsdatum! Format: TT.MM.JJJJ\n";
+			}
+		}
+
+		if (streetField.getText() == null || streetField.getText().length() == 0) {
+			errorMessage += "Keine gültiger Straßenname!\\n";
+		}
+		if (houseNumberField.getText() == null || houseNumberField.getText().length() == 0) {
+			errorMessage += "Keine gültige Hausnummer!\\n";
+		} else {
+			try {
+				Integer.parseInt(houseNumberField.getText());
+			} catch (NumberFormatException e) {
+				errorMessage += "Keine gültige Hausnummer!\\n";
+			}
+		}
+
+		// Überprüft, ob die Eingabe eine fünfstellige Ganzzahl ist
+		if (postalCodeField.getText() == null || postalCodeField.getText().length() != 5) {
+			errorMessage += "Bitte geben Sie eine Postleitzahl ein!\\n";
+		} else {
+			try {
+				/**
+				 * Überprüft den gültigen Postleitzahlen-Bereich von Deutschland
+				 * 
+				 * Maracus
+				 */
+				int plzCheck = Integer.parseInt(postalCodeField.getText());
+				if (plzCheck < 01000 || plzCheck > 99998) {
+					errorMessage += "Keine gültige Postleizahl!\\n";
+				}
+			} catch (NumberFormatException e) {
+				errorMessage += "Keine gültige Postleitzahl!\\n";
+			}
+		}
+
+		if (cityField.getText() == null || cityField.getText().length() == 0) {
+			errorMessage += "Keine gültige Stadt!\\n";
+		}
+
+		if (beginOfApprenticeshipField.getValue() == null ) {
+			errorMessage += "Kein gültiges Datum für den Ausbildungsbeginn! Format: TT.MM.JJJJ\\n";
+		} else {
+			if (!DateUtil.validDate(DateUtil.format((beginOfApprenticeshipField.getValue())))) {
+				errorMessage += "Kein gültiges Datum für den Ausbildungsbeginn! Format: TT.MM.JJJJ\\n";
+			}
+		}
+
+		if (endOfApprenticeshipField.getValue() == null ) {
+			errorMessage += "Kein gültiges Datum für das Ausbildungsende! Format: TT.MM.JJJJ\\n";
+		} else {
+			if (!DateUtil.validDate(DateUtil.format((endOfApprenticeshipField.getValue())))) {
+				errorMessage += "Kein gültiges Datum für das Ausbildungsende! Format: TT.MM.JJJJ\\n";
+			}
+		}
+}
+
+		if (errorMessage.length() == 0) {
+			log.info("-->Beende: inputIsValid -- Datenüberprüfung");
+			return true;
+		} else {
+
+			// Zeige Fehlermeldung
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.initOwner(dialogStage);
+			alert.setTitle("Falsche oder fehldene Eingaben!");
+			alert.setHeaderText("Bitte Eingaben korrigieren!");
+			alert.setContentText(errorMessage);
+
+			alert.showAndWait();
+			
+			log.info("-->Beende: inputIsValid -- Datenüberprüfung");
+
+			return false;
+		}
+	}
 
 
 	/**
@@ -269,8 +260,7 @@ public class AdminViewAddUserController {
 
 	@FXML
 	private void handleSaveAddUser() {
-//		if (inputIsValid()) {
-		DateUtil u = new DateUtil();
+		if (inputIsValid()) {
 			//Wird später aus der db bezogen
 		switch(roleComboBox.getValue()) {
 		
@@ -290,7 +280,7 @@ public class AdminViewAddUserController {
 			addClicked = true;
 			dialogStage.close();
 		}
-//	}
+	}
 
 	@FXML
 	private void handleCancel() {
