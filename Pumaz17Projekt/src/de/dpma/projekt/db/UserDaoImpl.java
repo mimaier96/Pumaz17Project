@@ -18,13 +18,12 @@ public class UserDaoImpl implements UserDao {
 	public static ObservableList<User> usersList = FXCollections.observableArrayList();
 	
 	private static Connection con = DatabaseConnection.getInstance();
-
+	
 	private final static String PREPARED_INSERT = "INSERT INTO berichtsheft.user (Firstname, Lastname, Username, Password, Role, Email) VALUES (?,?,?,'Anfang12',?,?)";
-	private final static String PREPARED_SELECT = "SELECT * FROM berichtsheft.user WHERE username = ?";
-	private final static String PREPARED_SELECT_USERID = "SELECT ID FROM berichtsheft.user WHERE username = ?";
+	private final static String PREPARED_SELECT = "SELECT * FROM berichtsheft.user WHERE Username = ?";
+	private final static String PREPARED_SELECT_USERID = "SELECT ID FROM berichtsheft.user WHERE Username = ?";
 	private final static String PREPARED_SELECT_ALLUSERS = "SELECT * FROM berichtsheft.user";
-	private final static String PREPARED_UPDATE = "UPDATE berichtsheft.user SET ? = ? WHERE username = ?;";
-	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.user WHERE username = ?";
+	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.user WHERE Username = ?";
 
 	
 	public static User insertUser(User user) throws SQLException {
@@ -104,19 +103,18 @@ public class UserDaoImpl implements UserDao {
 	
 	public static boolean updateUser(User user, String update, String change) throws SQLException {
 		boolean success = true;
+		String PREPARED_UPDATE = "UPDATE berichtsheft.user SET " + update + " = ? WHERE Username = ?;";
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_UPDATE);
 
 		try {
-			prepStat.setString(1, update);
-			prepStat.setString(2, change);
-			prepStat.setString(3, user.getUsername());
+			prepStat.setString(1, change);
+			prepStat.setString(2, user.getUsername());
 			
 			prepStat.executeUpdate();
 		} catch (Exception e) {
 			success = false;
 		}
 
-			System.out.println(user.getPassword());
 		if (success == false) {
 		return false;
 		} else {

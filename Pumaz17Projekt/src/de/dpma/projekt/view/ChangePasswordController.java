@@ -17,8 +17,7 @@ import de.dpma.projekt.db.UserDaoImpl;
 import de.dpma.projekt.models.User;
 
 public class ChangePasswordController {
-	static final Logger log = LogManager.getLogger(ChangePasswordController.class.getName());
-	private Connection con = DatabaseConnection.getInstance();	
+	static final Logger log = LogManager.getLogger(ChangePasswordController.class.getName());	
 
 	@FXML
 	private TextField username;
@@ -35,23 +34,10 @@ public class ChangePasswordController {
 	@FXML
 	private void handleSaveButton() throws SQLException {
 		log.info("-->Starte: handleSaveButton");
-		PreparedStatement prepStatUp = null; 
-		PreparedStatement prepStatGet = null;
-		ResultSet result = null;
 		String passwordDataBase = "";
 		String usernameDataBase = "";
 		User userDataBase = new User();
 		String update = "Password";
-		final String GET_USERNAME_PASSWORD = "SELECT Username, Password FROM berichtsheft.user WHERE username = ?";
-		final String UPDATE_PASSWORD = "UPDATE berichtsheft.user SET Password = ? WHERE Username = ?";
-		
-		/*prepStatGet = con.prepareStatement(GET_USERNAME_PASSWORD);
-		prepStatGet.setString(1, username.getText());
-		result = prepStatGet.executeQuery();
-		
-		while(result.next()) {
-			passwordDataBase = result.getString("Password");
-		}*/
 		
 		for (User user : UserDaoImpl.usersList) {
 
@@ -82,12 +68,7 @@ public class ChangePasswordController {
 		
 		//Überprüft ob alle Daten richtig eingegeben wurde und ändert das Passwort
 		else if(newPassword.getText().equals(newPasswordCheck.getText()) && passwordDataBase.equals(oldPassword.getText())) {
-			
-		/*prepStatUp = con.prepareStatement(UPDATE_PASSWORD);
-		prepStatUp.setString(1, newPassword.getText());
-		prepStatUp.setString(2, username.getText());
-		prepStatUp.executeUpdate();*/
-			
+
 		UserDaoImpl.updateUser(userDataBase, update, newPassword.getText());
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
