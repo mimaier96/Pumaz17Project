@@ -13,6 +13,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import de.dpma.projekt.MainApp;
 import de.dpma.projekt.db.DatabaseConnection;
+import de.dpma.projekt.db.UserDaoImpl;
+import de.dpma.projekt.models.User;
 
 public class ChangePasswordController {
 	static final Logger log = LogManager.getLogger(ChangePasswordController.class.getName());
@@ -37,15 +39,27 @@ public class ChangePasswordController {
 		PreparedStatement prepStatGet = null;
 		ResultSet result = null;
 		String passwordDataBase = "";
+		String usernameDataBase = "";
+		User userDataBase = new User();
+		String update = "Password";
 		final String GET_USERNAME_PASSWORD = "SELECT Username, Password FROM berichtsheft.user WHERE username = ?";
 		final String UPDATE_PASSWORD = "UPDATE berichtsheft.user SET Password = ? WHERE Username = ?";
 		
-		prepStatGet = con.prepareStatement(GET_USERNAME_PASSWORD);
+		/*prepStatGet = con.prepareStatement(GET_USERNAME_PASSWORD);
 		prepStatGet.setString(1, username.getText());
 		result = prepStatGet.executeQuery();
 		
 		while(result.next()) {
 			passwordDataBase = result.getString("Password");
+		}*/
+		
+		for (User user : UserDaoImpl.usersList) {
+
+			if (user.getUsername().equals(username.getText())) {
+				passwordDataBase = user.getPassword();
+				usernameDataBase = user.getUsername();
+				userDataBase = user;
+			}
 		}
 		
 		// Überprüft ob ein Benutzer eingegeben wurde, falls nicht wird er zurück zum Login geworfen
@@ -69,10 +83,12 @@ public class ChangePasswordController {
 		//Überprüft ob alle Daten richtig eingegeben wurde und ändert das Passwort
 		else if(newPassword.getText().equals(newPasswordCheck.getText()) && passwordDataBase.equals(oldPassword.getText())) {
 			
-		prepStatUp = con.prepareStatement(UPDATE_PASSWORD);
+		/*prepStatUp = con.prepareStatement(UPDATE_PASSWORD);
 		prepStatUp.setString(1, newPassword.getText());
 		prepStatUp.setString(2, username.getText());
-		prepStatUp.executeUpdate();
+		prepStatUp.executeUpdate();*/
+			
+		UserDaoImpl.updateUser(userDataBase, update, newPassword.getText());
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
         alert.initOwner(mainApp.getPrimaryStage());

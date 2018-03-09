@@ -26,18 +26,18 @@ public class UserDaoImpl implements UserDao {
 	private final static String PREPARED_UPDATE = "UPDATE berichtsheft.user SET ? = ? WHERE username = ?;";
 	private static final String PREPARED_DELETE = "DELETE FROM berichtsheft.user WHERE username = ?";
 
-	@Override
-	public User insertUser(User user) throws SQLException {
+	
+	public static User insertUser(User user) throws SQLException {
 		String generatedColumns[] = { "ID" };
 		ResultSet result = null;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_INSERT, generatedColumns);
 		
-		prepStat.setString(1, user.getFirstnameS());
-		prepStat.setString(2, user.getLastnameS());
-		prepStat.setString(3, user.getUsernameS());
-		prepStat.setString(4, user.getRoleS());
-		prepStat.setString(5, user.getEmailS());
-
+		prepStat.setString(1, user.getFirstname());
+		prepStat.setString(2, user.getLastname());
+		prepStat.setString(3, user.getUsername());
+		prepStat.setString(4, user.getRole());
+		prepStat.setString(5, user.getEmail());
+		
 		prepStat.execute(); 
 		
 		result = prepStat.getGeneratedKeys();
@@ -46,12 +46,13 @@ public class UserDaoImpl implements UserDao {
 			int id = (int) result.getLong(1);
 			user.setId(id);
 		}
+		usersList.add(user);
 		return user;
 	}
 
 
-	@Override
-	public User getUser(User user) throws SQLException {
+	
+	public static User getUser(User user) throws SQLException {
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_SELECT);
 		prepStat.setString(1, user.getUsernameS());
 		ResultSet result = prepStat.executeQuery();
@@ -67,8 +68,7 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
-	@Override
-	public User getUserID(User user) throws SQLException {
+	public static User getUserID(User user) throws SQLException {
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_SELECT_USERID);
 		prepStat.setString(1, user.getUsernameS());
 		ResultSet result = prepStat.executeQuery();
@@ -101,21 +101,22 @@ public class UserDaoImpl implements UserDao {
 		return usersList;
 	}
 
-	@Override
-	public boolean updateUser(User user, String update, String change) throws SQLException {
+	
+	public static boolean updateUser(User user, String update, String change) throws SQLException {
 		boolean success = true;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_UPDATE);
 
 		try {
 			prepStat.setString(1, update);
 			prepStat.setString(2, change);
-			prepStat.setString(3, user.getUsernameS());
+			prepStat.setString(3, user.getUsername());
 			
 			prepStat.executeUpdate();
 		} catch (Exception e) {
 			success = false;
 		}
 
+			System.out.println(user.getPassword());
 		if (success == false) {
 		return false;
 		} else {
@@ -124,8 +125,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 
-	@Override
-	public boolean deleteUser(String username) throws SQLException {
+	
+	public static boolean deleteUser(String username) throws SQLException {
 		boolean success = true;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_DELETE);
 		

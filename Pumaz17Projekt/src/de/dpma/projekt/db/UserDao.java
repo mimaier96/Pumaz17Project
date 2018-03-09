@@ -9,14 +9,24 @@ import de.dpma.projekt.models.User;
 
 public interface UserDao {
 	
-	public User insertUser(User user) throws SQLException;
+	public static User insertUser(User user) throws SQLException {
+		return null;
+	}
 	
-	public User getUser(User user) throws SQLException;
+	public static User getUser(User user) throws SQLException {
+		return null;
+	}
 
-	public boolean updateUser(User user, String update, String change)  throws SQLException, ParseException;
+	public static boolean updateUser(User user, String update, String change)  throws SQLException, ParseException {
+		return false;
+	}
 
-	public boolean deleteUser(String username) throws SQLException;
+	public static boolean deleteUser(String username) throws SQLException {
+		return false;
+	}
 
-	public User getUserID(User user) throws SQLException;
+	public static User getUserID(User user) throws SQLException {
+		return null;
+	}
 
 }
