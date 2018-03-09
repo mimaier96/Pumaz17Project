@@ -2,9 +2,13 @@ package de.dpma.projekt.pdfCreation;
 
 import java.io.FileOutputStream;
 
+import org.w3c.dom.css.Rect;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -17,6 +21,8 @@ public class createPdf0 {
 
 	static String dateA = "00.00.0000";
 	static String dateE = "00.00.0000";
+	static String nr = "0";
+	static String year = "0";
 
 	static String date1 = "00.00.0000";
 	static String date2 = "00.00.0000";
@@ -37,6 +43,7 @@ public class createPdf0 {
 
 	private static User firstname;
 	private static User lastname;
+	static String apptrentice = "null";
 
 	public static void BerichtsheftBetrieblichTäglich() {
 
@@ -52,16 +59,64 @@ public class createPdf0 {
 			}
 			berichtsheftWöchentlich.open();
 
-			// Tabelle
-
-			PdfPTable table = new PdfPTable(1);
-
-			// DPMA Logo
 			Image logo = Image.getInstance("resource\\logo_dpma.png");
-			logo.getScaledHeight();
-			logo.getScaledWidth();
+			logo.scaleToFit(107, 49);
 			berichtsheftWöchentlich.add(logo);
+
+			PdfPTable table = new PdfPTable(2);
+
+			table.addCell("");
+			table.addCell("Name: " + firstname + " " + lastname);
+			table.addCell("");
+			table.addCell("Ausbildungsreferat: " + apptrentice);
 			berichtsheftWöchentlich.add(table);
+
+			PdfPTable table1 = new PdfPTable(5);
+
+			table1.Border = Rectangle.ALIGN_LEFT | Rectangle.RIGHT | Rectangle.BOTTOM | Rectangle.TOP;
+
+			table1.addCell("Ausbildungsnachweis");
+			table1.addCell(nr);
+			table1.addCell(dateA);
+			table1.addCell(dateE);
+			table1.addCell(year);
+
+			// PdfPCell cell0 = new PdfPCell(new Phrase(nr));
+			// PdfPCell cell1 = new PdfPCell(new Phrase(dateA));
+			// PdfPCell cell2 = new PdfPCell(new Phrase(year));
+
+			// cell0.setBorder(Rectangle.BOTTOM);
+			// cell1.setBorder(Rectangle.BOTTOM);
+			// cell2.setBorder(Rectangle.BOTTOM);
+
+			table1.addCell("");
+			table1.addCell("Nr.");
+			table1.addCell("Ausbildungswoche vom");
+			table1.addCell("bis");
+			table1.addCell("Ausbildungsjahr");
+
+			berichtsheftWöchentlich.add(table1);
+
+			PdfPTable table2 = new PdfPTable(1);
+
+			table2.addCell("Betriebliche Tätigkeiten");
+			table2.addCell("");
+
+			table2.addCell("Unterweisungen, Lehrgespräche, betrieblicher Unterricht, sonstige Schulungen");
+			table2.addCell("");
+
+			table2.addCell("Berufsschule (Unterrichtsthemen)");
+			table2.addCell("");
+
+			berichtsheftWöchentlich.add(table2);
+
+			PdfPTable table3 = new PdfPTable(1);
+
+			table3.addCell(
+					"Durch die nachfolgenden Unterschriften wird die Richtigkeit und Vollständigkeit der obigen Angaben bestätigt.");
+
+			berichtsheftWöchentlich.add(table3);
+
 			berichtsheftWöchentlich.close();
 		} catch (Exception e) {
 			e.printStackTrace();
