@@ -4,7 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import de.dpma.projekt.MainApp;
+import de.dpma.projekt.db.UserDaoImpl;
 import de.dpma.projekt.models.User;
+import java.sql.SQLException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -41,12 +43,21 @@ public class AdminViewInstructorController {
 	@FXML
 	private void initialize() {
 		
-		log.info("-->Starte: setTableView Data");		
+		log.info("-->Starte: setTableView Data");	
+		
+		try {
+			userTable.setItems(UserDaoImpl.getUsersList());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		//setzt die Werte für die Benutzertabelle
+//		idColumn.setCellValueFactory(cellData -> cellDAta.getValue().);
 		userFirstNameColumn.setCellValueFactory(cellData -> cellData.getValue().userFirstNameProperty());
 		userLastNameColumn.setCellValueFactory(cellData -> cellData.getValue().userLastNameProperty());
 		userEmailColumn.setCellValueFactory(cellData -> cellData.getValue().userEmailProperty());
-		userUserNameColumn.setCellValueFactory(cellData -> cellData.getValue().userEmailProperty());
+		userUserNameColumn.setCellValueFactory(cellData -> cellData.getValue().userUsernameProperty());
 		userRoleColumn.setCellValueFactory(cellData -> cellData.getValue().userRoleProperty());
 		
 		log.info("-->Beende: setTableView Data");
@@ -78,6 +89,11 @@ public class AdminViewInstructorController {
 		try {
 		int selectedUser = userTable.getSelectionModel().getSelectedIndex();
 		if(selectedUser >= 0) {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Benutzer löschen");
+			alert.setHeaderText("Benutzer löschen");
+			alert.setContentText("Sind Sie sicher, dass Sie den Benutzer löschen möchten?");
+			//wenn der User bestätigt:
 			userTable.getItems().remove(selectedUser);
 		} else {
 			//Kein Benutzer ausgewählt
