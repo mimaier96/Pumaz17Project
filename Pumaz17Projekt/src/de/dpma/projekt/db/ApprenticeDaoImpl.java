@@ -26,8 +26,6 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 
 	@Override
 	public Apprentice insertApprentice(Apprentice apprentice) throws SQLException {
-//		String generatedColumns[] = { "ID" };
-		ResultSet result = null;
 		PreparedStatement prepStat = con.prepareStatement(PREPARED_INSERT);
 		
 		prepStat.setInt(1, apprentice.getId());
@@ -44,14 +42,7 @@ public class ApprenticeDaoImpl implements ApprenticeDao {
 		prepStat.setDate(12, apprentice.getEndOfApprenticeship());
 		
 		prepStat.execute();
-		
-		//result = prepStat.getGeneratedKeys();
-		
-		//if (result.next()) {
-//			int id = (int) result.getLong(1);
-//			apprentice.setId(id);
-		//}
-		
+
 		return apprentice;
 	}
 
