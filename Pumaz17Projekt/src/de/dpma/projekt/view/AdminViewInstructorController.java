@@ -84,12 +84,12 @@ public class AdminViewInstructorController {
 				mainApp.showUserEditDialog(selectedUser);
             }
 		} else {
-			System.out.println("c");
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
 			alert.setTitle("Keine Auswahl");
 			alert.setHeaderText("Kein Benutzer ausgewählt!");
 			alert.setContentText("Bitte wählen Sie einen Benutzer aus der Tabelle aus.");
+			alert.showAndWait();
 		}
 	}
 
