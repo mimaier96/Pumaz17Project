@@ -55,6 +55,10 @@ public class LoginWindowController {
 				usernameDataBase = user.getUsername();
 				passwordDataBase = user.getPassword();
 				roleDataBase = user.getRole().toLowerCase();
+				
+				//für NameTag
+				userFirstName= user.getFirstname();
+				userLastName = user.getLastname();
 			}
 		}
 		
