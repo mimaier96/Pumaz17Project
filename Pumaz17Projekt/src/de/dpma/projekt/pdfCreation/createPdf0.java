@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import org.w3c.dom.css.Rect;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
@@ -45,7 +46,7 @@ public class createPdf0 {
 	private static User lastname;
 	static String apptrentice = "null";
 
-	public static void BerichtsheftBetrieblichTäglich() {
+	public static void berichtsheftWöchentlich() {
 
 		Document berichtsheftWöchentlich = new Document();
 
@@ -58,13 +59,14 @@ public class createPdf0 {
 				PdfWriter.getInstance(berichtsheftWöchentlich, new FileOutputStream(saveFile2 + filename + ".pdf"));
 			}
 			berichtsheftWöchentlich.open();
-//Logo
+			// Logo
 			Image logo = Image.getInstance("resource\\logo_dpma.png");
 			logo.scaleToFit(107, 49);
 			berichtsheftWöchentlich.add(logo);
-//Tabelle
+			// Tabelle
 			PdfPTable table = new PdfPTable(2);
-			table.getDefaultCell().setBorder(0);table.getDefaultCell().setBorder(0);
+			table.getDefaultCell().setBorder(0);
+			table.getDefaultCell().setBorder(0);
 			table.addCell("");
 			table.addCell("Name: " + firstname + " " + lastname);
 			table.addCell("");
@@ -72,28 +74,27 @@ public class createPdf0 {
 			berichtsheftWöchentlich.add(table);
 
 			PdfPTable table1 = new PdfPTable(5);
+			table1.getDefaultCell().setBorder(0);
+			table.getDefaultCell().setBorder(0);
+			// table1.Border = Rectangle.ALIGN_LEFT | Rectangle.RIGHT | Rectangle.BOTTOM |
+			// Rectangle.TOP;
 
-			//table1.Border = Rectangle.ALIGN_LEFT | Rectangle.RIGHT | Rectangle.BOTTOM | Rectangle.TOP;
+			PdfPCell cell0 = new PdfPCell(new Phrase("Ausbildungsnachweis"));
+			PdfPCell cell1 = new PdfPCell(new Phrase(nr));
+			PdfPCell cell2 = new PdfPCell(new Phrase(dateA));
+			PdfPCell cell3 = new PdfPCell(new Phrase(dateE));
+			PdfPCell cell4 = new PdfPCell(new Phrase(year));
 
-			table1.addCell("Ausbildungsnachweis");
-			table1.addCell(nr);
-			table1.addCell(dateA);
-			table1.addCell(dateE);
-			table1.addCell(year);
+			cell1.setBorder(Rectangle.BOTTOM);
+			cell2.setBorder(Rectangle.BOTTOM);
+			cell3.setBorder(Rectangle.BOTTOM);
+			cell4.setBorder(Rectangle.BOTTOM);
 
-			// PdfPCell cell0 = new PdfPCell(new Phrase(nr));
-			// PdfPCell cell1 = new PdfPCell(new Phrase(dateA));
-			// PdfPCell cell2 = new PdfPCell(new Phrase(year));
-
-			// cell0.setBorder(Rectangle.BOTTOM);
-			// cell1.setBorder(Rectangle.BOTTOM);
-			// cell2.setBorder(Rectangle.BOTTOM);
-
-			table1.addCell("");
-			table1.addCell("Nr.");
-			table1.addCell("Ausbildungswoche vom");
-			table1.addCell("bis");
-			table1.addCell("Ausbildungsjahr");
+			PdfPCell cell5 = new PdfPCell(new Phrase(""));
+			PdfPCell cell6 = new PdfPCell(new Phrase("Nr."));
+			PdfPCell cell7 = new PdfPCell(new Phrase("AUsbildungswoche vom"));
+			PdfPCell cell8 = new PdfPCell(new Phrase("bis"));
+			PdfPCell cell9 = new PdfPCell(new Phrase("Ausbildungsjahr"));
 
 			berichtsheftWöchentlich.add(table1);
 

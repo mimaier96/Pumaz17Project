@@ -81,7 +81,7 @@ public class StartViewInstructorController {
 	@FXML
 	private void handleGenPDFButton() {
 
-		createPdf0.BerichtsheftBetrieblichTäglich();
+		createPdf0.berichtsheftWöchentlich();
 
 		// FileChooser chooser = new FileChooser();
 		// chooser.setTitle("Berichtsheft speichern");
