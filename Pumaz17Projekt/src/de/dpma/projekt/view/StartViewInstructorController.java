@@ -1,16 +1,13 @@
 package de.dpma.projekt.view;
 
-import java.io.File;
-
 import de.dpma.projekt.MainApp;
 import de.dpma.projekt.models.ReportBook;
-import de.dpma.projekt.models.User;
+import de.dpma.projekt.pdfCreation.createPdf0;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
-import javafx.stage.FileChooser;
 
 public class StartViewInstructorController {
 
@@ -83,15 +80,19 @@ public class StartViewInstructorController {
 
 	@FXML
 	private void handleGenPDFButton() {
-		FileChooser chooser = new FileChooser();
-		chooser.setTitle("Berichtsheft speichern");
-		chooser.showSaveDialog(null);
 
-		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
-		chooser.getExtensionFilters().add(extFilter);
+		createPdf0.BerichtsheftBetrieblichTäglich();
 
-		// Show open file dialog
-		File file = chooser.showSaveDialog(mainApp.getPrimaryStage());
+		// FileChooser chooser = new FileChooser();
+		// chooser.setTitle("Berichtsheft speichern");
+		// chooser.showSaveDialog(null);
+		//
+		// FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF
+		// files (*.pdf)", "*.pdf");
+		// chooser.getExtensionFilters().add(extFilter);
+		//
+		// // Show open file dialog
+		// File file = chooser.showSaveDialog(mainApp.getPrimaryStage());
 	}
 
 	public static void setMainApp(MainApp mainApp) {
