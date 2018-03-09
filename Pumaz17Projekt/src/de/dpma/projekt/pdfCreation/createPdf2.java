@@ -12,10 +12,10 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import de.dpma.projekt.models.User;
 
-public class createPdf1 {
+public class createPdf2 {
 
 	static String s = System.getProperty("user.name");
-	static String filename = "Betrieblich Täglich";
+	static String filename = "Ausbildungsverbund Süd Täglich";
 
 	static String dateA = "00.00.0000";
 	static String dateE = "00.00.0000";
@@ -42,17 +42,19 @@ public class createPdf1 {
 
 	public static void BerichtsheftBetrieblichTäglich() {
 
-		Document betrieblichTäglich = new Document();
+		Document AusbildungsverbundSüdTäglich = new Document();
 
 		try {
 			// Speichern
 
 			try {
-				PdfWriter.getInstance(betrieblichTäglich, new FileOutputStream(saveFile + filename + ".pdf"));
+				PdfWriter.getInstance(AusbildungsverbundSüdTäglich, new FileOutputStream(saveFile + filename + ".pdf"));
 			} catch (Exception e) {
-				PdfWriter.getInstance(betrieblichTäglich, new FileOutputStream(saveFile2 + filename + ".pdf"));
+				// TODO: handle exception
+				PdfWriter.getInstance(AusbildungsverbundSüdTäglich,
+						new FileOutputStream(saveFile2 + filename + ".pdf"));
 			}
-			betrieblichTäglich.open();
+			AusbildungsverbundSüdTäglich.open();
 
 			// Tabelle
 
@@ -62,13 +64,12 @@ public class createPdf1 {
 
 			table.addCell(firstname + " " + lastname);
 			// Titel
-			PdfPCell cell1 = new PdfPCell(
-					new Paragraph("Ausbildungsnachweis für andere Ausbildungsmaßnahmen\nfür den Zeitraum:"));
+			PdfPCell cell1 = new PdfPCell(new Paragraph("Ausbildungsnachweis für den Ausbildungsverbund Süd:"));
 			cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
 			cell1.setBackgroundColor(BaseColor.LIGHT_GRAY);
 			table.addCell(cell1);
 			// Datum Woche von bis
-			PdfPCell cell2 = new PdfPCell(new Paragraph("vom " + dateA + " bis " + dateE));
+			PdfPCell cell2 = new PdfPCell(new Paragraph("für den Zeitraum\nvom " + dateA + " bis " + dateE));
 			cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
 			table.addCell(cell2);
 			// Erster Tag (Datum)
@@ -90,9 +91,9 @@ public class createPdf1 {
 			table.addCell("Samstag " + date6);
 			table.addCell(text6);
 
-			betrieblichTäglich.add(table);
+			AusbildungsverbundSüdTäglich.add(table);
 
-			betrieblichTäglich.close();
+			AusbildungsverbundSüdTäglich.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 

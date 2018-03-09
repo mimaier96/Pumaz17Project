@@ -12,10 +12,10 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import de.dpma.projekt.models.User;
 
-public class createPdf1 {
+public class createPdf3 {
 
 	static String s = System.getProperty("user.name");
-	static String filename = "Betrieblich Täglich";
+	static String filename = "Berufsschule Täglich";
 
 	static String dateA = "00.00.0000";
 	static String dateE = "00.00.0000";
@@ -42,17 +42,18 @@ public class createPdf1 {
 
 	public static void BerichtsheftBetrieblichTäglich() {
 
-		Document betrieblichTäglich = new Document();
+		Document berufsschuleTäglich = new Document();
 
 		try {
 			// Speichern
 
 			try {
-				PdfWriter.getInstance(betrieblichTäglich, new FileOutputStream(saveFile + filename + ".pdf"));
+				PdfWriter.getInstance(berufsschuleTäglich, new FileOutputStream(saveFile + filename + ".pdf"));
 			} catch (Exception e) {
-				PdfWriter.getInstance(betrieblichTäglich, new FileOutputStream(saveFile2 + filename + ".pdf"));
+				// TODO: handle exception
+				PdfWriter.getInstance(berufsschuleTäglich, new FileOutputStream(saveFile2 + filename + ".pdf"));
 			}
-			betrieblichTäglich.open();
+			berufsschuleTäglich.open();
 
 			// Tabelle
 
@@ -90,9 +91,9 @@ public class createPdf1 {
 			table.addCell("Samstag " + date6);
 			table.addCell(text6);
 
-			betrieblichTäglich.add(table);
+			berufsschuleTäglich.add(table);
 
-			betrieblichTäglich.close();
+			berufsschuleTäglich.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 
