@@ -8,10 +8,6 @@ import de.dpma.projekt.db.DatabaseConnection;
 import de.dpma.projekt.db.UserDaoImpl;
 import de.dpma.projekt.models.User;
 import de.dpma.projekt.models.user.Instructor;
-import de.dpma.projekt.models.util.JobList;
-import de.dpma.projekt.models.util.RoleList;
-import de.dpma.projekt.models.util.UserList;
-import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewAddUserController;
 import de.dpma.projekt.view.AdminViewInstructorController;
 import de.dpma.projekt.view.BorderLayoutController;
@@ -22,6 +18,7 @@ import de.dpma.projekt.view.StartViewInstructorController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -38,6 +35,8 @@ public class MainApp extends Application {
 
 		this.primaryStage = primaryStage;
 //		initBorderLayout();
+		Image iconB = new Image("file:b.png");
+		primaryStage.getIcons().add(iconB);
 		loadBorder("view/MenuPart2.fxml", "title");
 		loadScene("view/LoginWindow.fxml", "Login");
 
