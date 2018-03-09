@@ -58,13 +58,13 @@ public class createPdf0 {
 				PdfWriter.getInstance(berichtsheftWöchentlich, new FileOutputStream(saveFile2 + filename + ".pdf"));
 			}
 			berichtsheftWöchentlich.open();
-
+//Logo
 			Image logo = Image.getInstance("resource\\logo_dpma.png");
 			logo.scaleToFit(107, 49);
 			berichtsheftWöchentlich.add(logo);
-
+//Tabelle
 			PdfPTable table = new PdfPTable(2);
-
+			table.getDefaultCell().setBorder(0);table.getDefaultCell().setBorder(0);
 			table.addCell("");
 			table.addCell("Name: " + firstname + " " + lastname);
 			table.addCell("");
@@ -73,7 +73,7 @@ public class createPdf0 {
 
 			PdfPTable table1 = new PdfPTable(5);
 
-			table1.Border = Rectangle.ALIGN_LEFT | Rectangle.RIGHT | Rectangle.BOTTOM | Rectangle.TOP;
+			//table1.Border = Rectangle.ALIGN_LEFT | Rectangle.RIGHT | Rectangle.BOTTOM | Rectangle.TOP;
 
 			table1.addCell("Ausbildungsnachweis");
 			table1.addCell(nr);
