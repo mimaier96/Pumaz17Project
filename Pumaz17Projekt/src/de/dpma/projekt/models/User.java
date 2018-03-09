@@ -54,7 +54,6 @@ public class User {
 		this.password.set(password);
 		this.role.set(role);
 		this.email.set(email);
-		System.out.println("awdawd");
 		// this.firstnameS=firstname;
 		// this.lastnameS=lastname;
 		// this.usernameS=username;
@@ -90,7 +89,7 @@ public class User {
 	}
 	
 	public String getLastname(){
-		return firstname.get();
+		return lastname.get();
 	}
 	public void setLastName(String lastname) {
 		this.lastname.set(lastname);

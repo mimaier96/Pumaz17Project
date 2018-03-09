@@ -144,13 +144,11 @@ public class MainApp extends Application {
 	
 	
 	public boolean showUserEditDialog(User user) {
-        try {
-            
+        
+            try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/AdminViewAddUser.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
-
-            
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Benutzer bearbeiten");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -167,10 +165,12 @@ public class MainApp extends Application {
             dialogStage.showAndWait();
 
             return false;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
+            
+	} catch (IOException e) {
+        e.printStackTrace();
+        return false;
+    }
+       
     }
 	
 

@@ -93,10 +93,9 @@ public class UserDaoImpl implements UserDao {
 		user.setRole(resSet.getString("Role"));
 		user.setEmail(resSet.getString("Email"));
 
-		
 		usersList.add(user);
+			
 		}
-		
 		return usersList;
 	}
 
